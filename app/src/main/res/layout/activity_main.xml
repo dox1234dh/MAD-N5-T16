@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Màn hình điều hướng đến các giao diện khác"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+    <Button
+        android:id="@+id/btnCallActivity1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến Thông báo"/>
+    <Button
+        android:id="@+id/btnCallActivity2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến Địa điểm hiến máu"/>
+    <Button
+        android:id="@+id/btnCallActivity3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến Lịch hiến máu"/>
+    <Button
+        android:id="@+id/btnCallActivity4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến chọn lịch hiến máu"/>
+    <Button
+        android:id="@+id/btnCallActivity5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến Thông tin đăng ký"/>
+    <Button
+        android:id="@+id/btnCallActivity6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến Đăng ký thành công"/>
+</LinearLayout>
