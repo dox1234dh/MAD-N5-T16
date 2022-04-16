@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_gravity="bottom"
+    android:background="@drawable/rectangle_10"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/marker_1" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/heart_plus_1" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/home_1" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/order_history_1" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/guest_male_1" />
+</LinearLayout>
