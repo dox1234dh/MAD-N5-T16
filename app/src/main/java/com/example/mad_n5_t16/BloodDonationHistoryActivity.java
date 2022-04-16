@@ -1,5 +1,6 @@
 package com.example.mad_n5_t16;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -18,6 +19,8 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blood_donation_history);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         lvDonationhistory = (ListView) findViewById(R.id.lvDonationhistory);
         initData();
         historyAdapter = new HistoryAdapter(this, histories);
