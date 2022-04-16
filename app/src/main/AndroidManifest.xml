@@ -9,6 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
+            android:name=".BloodDonationHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:label="Thông báo"
             android:name=".ThongBaoActivity"
             android:exported="false"
