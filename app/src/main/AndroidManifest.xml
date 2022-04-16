@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mad_n5_t16" >
+    package="com.example.mad_n5_t16">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MADN5T16" >
+        android:theme="@style/Theme.MADN5T16">
+        <activity
+            android:name=".BloodDonationHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:label="Thông báo"
-            android:name=".Activity1"
+            android:name=".ThongBaoActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:label="Màn hình chính"
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:label="Màn hình chính">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
