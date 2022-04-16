@@ -10,7 +10,7 @@
         android:theme="@style/Theme.MADN5T16" >
         <activity
             android:label="Thông báo"
-            android:name=".Activity1"
+            android:name=".ThongBaoActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity

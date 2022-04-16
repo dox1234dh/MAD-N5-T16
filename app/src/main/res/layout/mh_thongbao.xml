@@ -3,9 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity1"
+    tools:context=".ThongBaoActivity"
     android:orientation="vertical"
-    android:background="@drawable/layout_notification">
+    android:background="@drawable/background"
+    >
+    <include layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,5 +1,6 @@
 package com.example.mad_n5_t16;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,11 +19,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         btnCallActivity1 = (Button) findViewById(R.id.btnCallActivity1);
         btnCallActivity1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Activity1.class);
+                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
                 startActivity(intent);
             }
         });
