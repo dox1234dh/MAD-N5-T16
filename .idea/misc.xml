@@ -18,18 +18,30 @@
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.256" />
+        <entry key="app/src/main/res/drawable/background_corner_radius.xml" value="0.2105" />
         <entry key="app/src/main/res/drawable/bg_cicle_100x100.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/bg_color_logout.xml" value="0.199" />
+        <entry key="app/src/main/res/drawable/bg_shadow.xml" value="0.2105" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.256" />
+        <entry key="app/src/main/res/drawable/rectangle_10.xml" value="0.2105" />
         <entry key="app/src/main/res/drawable/rectangle_9.xml" value="0.256" />
+        <entry key="app/src/main/res/drawable/rounded_corner_10dp.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/shadow.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/shadow_bottom_up.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/shadow_cheotren_xuong.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/shadow_top_down.xml" value="0.2105" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/layout/activity_mh_thongtincanhan.xml" value="0.5214384508990318" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/background_corner_radius.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/item_history.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/mh_thongbao.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/them_lich_hien_mau_1.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/them_lich_hien_mau_2.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/them_lich_hien_mau_row_1.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/toolbar_bottom.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.256" />
       </map>
     </option>

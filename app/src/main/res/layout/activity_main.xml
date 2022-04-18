@@ -28,11 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hướng đến Lịch hiến máu"/>
+
     <Button
         android:id="@+id/btnCallActivity4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hướng đến chọn lịch hiến máu"/>
+        android:text="Hướng đến chọn lịch hiến máu" />
     <Button
         android:id="@+id/btnCallActivity5"
         android:layout_width="match_parent"
@@ -43,4 +44,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hướng đến Đăng ký thành công"/>
+
+    <Button
+        android:id="@+id/btnHuongDangNhap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HƯỚNG ĐẾN ĐĂNG NHẬP" />
+
+    <Button
+        android:id="@+id/btnHuongDangKy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HƯỚNG ĐẾN ĐĂNG KÝ" />
+
+    <Button
+        android:id="@+id/btnHuongLichSuHienMau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HƯỚNG ĐẾN LỊCH SỬ HIẾN MÁU" />
 </LinearLayout>

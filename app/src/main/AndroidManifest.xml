@@ -12,10 +12,11 @@
             android:name=".mh_thongtincanhan"
             android:exported="false" />
         <activity
-            android:name=".Activity1"
-            android:exported="false"
-            android:label="Thông báo"
-            android:parentActivityName=".MainActivity" />
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
