@@ -62,4 +62,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HƯỚNG ĐẾN LỊCH SỬ HIẾN MÁU" />
+
+    <Button
+        android:id="@+id/btnMHChinhUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến MH Chính" />
+
+    <Button
+        android:id="@+id/btnMHChinhEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến MH Chính Employee" />
 </LinearLayout>
