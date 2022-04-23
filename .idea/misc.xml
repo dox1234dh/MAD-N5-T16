@@ -12,26 +12,32 @@
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout-w360dp-h640dp/mh_thongbao.xml" value="0.22826086956521738" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout-w360dp-h640dp/notification_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/center_label.xml" value="0.16666666666666666" />
-        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.2" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.2359375" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/notification_layout.xml" value="0.264" />
-        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.536" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.264" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable/history_card_custom.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable/radius_text_view_login.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable/rectangle_9.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable/rounded_button_10dp.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/drawable/rounded_corner_10dp.xml" value="0.1695" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_blood_donation_history.xml" value="0.2" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_login.xml" value="0.176" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.2265625" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_register.xml" value="0.2" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/item_history.xml" value="0.4" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.16041666666666668" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.16041666666666668" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/border_dshienmau_employee.xml" value="0.216" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/border_employee.xml" value="0.216" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/circle.xml" value="0.16" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/header_toolbar_mhchinh_user.xml" value="0.16" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/history_card_custom.xml" value="0.16" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/rectangle_10.xml" value="0.16" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/rectangle_9.xml" value="0.16" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main_employee.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main_user.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item_history.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/list_item_dshienmau_employee.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_bottom.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_bottom_employee.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_header_mhchinh_user.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_mhchinh_user.xml" value="0.4" />
       </map>
     </option>
   </component>
@@ -40,5 +46,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.8800000000000001" />
+      </ProjectState>
+    </option>
   </component>
 </project>
