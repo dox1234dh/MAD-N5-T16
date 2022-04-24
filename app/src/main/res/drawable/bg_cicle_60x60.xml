@@ -9,7 +9,6 @@
         android:left="0dp"
         android:right="0dp"
         android:top="0dp" />
-    <corners android:topRightRadius="25dp"
-        android:topLeftRadius="25dp" />
-    <solid android:color="#36000000" />
+    <corners android:radius="30dp" />
+    <solid android:color="#41B2DD" />
 </shape>

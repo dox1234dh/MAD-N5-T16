@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_navigation"
+    app:startDestination="@id/diadiemhienmau">
+    <activity
+        android:id="@+id/mh_thongtincanhan2"
+        android:name="com.example.mad_n5_t16.mh_thongtincanhan"
+        android:label="activity_mh_thongtincanhan"
+        tools:layout="@layout/activity_mh_thongtincanhan" />
+    <fragment
+        android:id="@+id/diadiemhienmau"
+        android:name="com.example.mad_n5_t16.diadiemhienmau"
+        android:label="fragment_diadiemhienmau"
+        tools:layout="@layout/activiti_diadiemhienmau" />
+</navigation>
