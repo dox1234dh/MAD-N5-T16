@@ -11,7 +11,7 @@ public class ThongBaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mh_thongbao);
-        TextView titleBar = findViewById(R.id.textTitle);
+        TextView titleBar = findViewById(R.id.txtHoVaTen);
         titleBar.setText("Thông báo");
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();

@@ -33,7 +33,15 @@
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/item_history.xml" value="0.4" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.4" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.16041666666666668" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28854166666666664" />
+=======
+        <entry key="app/src/main/res/layout/activity_blood_donation_history.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/activity_main_employee.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/activity_main_user.xml" value="0.28854166666666664" />
+>>>>>>> 69f22b2b4d5c017e3cda7fe63b0957a9b60b7524
         <entry key="app/src/main/res/layout/activity_mh_diadiemhienmau.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_mh_employee_danhsachlichhienmau.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_mh_employee_diadiemhienmau.xml" value="0.28854166666666664" />
@@ -45,6 +53,7 @@
         <entry key="app/src/main/res/layout/mh_thongbao.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/toolbar_bottom.xml" value="0.28854166666666664" />
+<<<<<<< HEAD
 =======
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.256" />
         <entry key="app/src/main/res/drawable-v24/retanger.xml" value="0.2305" />
@@ -88,6 +97,10 @@
         <entry key="app/src/main/res/layout/toolbar_bottom.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.256" />
 >>>>>>> origin/The-Anh
+=======
+        <entry key="app/src/main/res/layout/toolbar_bottom_employee.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/toolbar_header_mhchinh_user.xml" value="0.28854166666666664" />
+>>>>>>> 69f22b2b4d5c017e3cda7fe63b0957a9b60b7524
       </map>
     </option>
   </component>

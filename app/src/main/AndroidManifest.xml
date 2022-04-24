@@ -9,7 +9,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
+<<<<<<< HEAD
             android:name=".mh_thongtincanhan"
+=======
+            android:name=".employee.DangKyHienMauActivityEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".employee.MainActivityEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".user.MainActivityUser"
+            android:exported="false" />
+        <activity
+            android:name=".BloodDonationHistoryActivity"
+>>>>>>> 69f22b2b4d5c017e3cda7fe63b0957a9b60b7524
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
