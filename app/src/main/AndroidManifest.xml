@@ -9,10 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
-            android:name=".Starter.StarterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BloodDonationHistoryActivity"
+            android:name=".mh_thongtincanhan"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
@@ -20,11 +17,6 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".ThongBaoActivity"
-            android:exported="false"
-            android:label="Thông báo"
-            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -35,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
