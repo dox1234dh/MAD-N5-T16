@@ -1,6 +1,6 @@
-package com.example.mad_n5_t16.dat_model;
+package com.example.mad_n5_t16.model_class;
 
-public class NguoiHienMau extends NguoiDung {
+public class NguoiHienMau extends TaiKhoan {
 
     private int id;
     private String ngaySinh;
@@ -8,6 +8,19 @@ public class NguoiHienMau extends NguoiDung {
     private String soCCCD;
     private String nhomMau;
     private String dienThoai;
+
+    public NguoiHienMau(String taiKhoan, String matKhau, String hoTen, String vaiTro, String ngaySinh, String email, String soCCCD, String nhomMau, String dienThoai) {
+        super(taiKhoan, matKhau, hoTen, vaiTro);
+        this.ngaySinh = ngaySinh;
+        this.email = email;
+        this.soCCCD = soCCCD;
+        this.nhomMau = nhomMau;
+        this.dienThoai = dienThoai;
+    }
+
+    public NguoiHienMau(String taiKhoan, String matKhau, String hoTen, String vaiTro) {
+        super(taiKhoan, matKhau, hoTen, vaiTro);
+    }
 
     public NguoiHienMau() {
     }
