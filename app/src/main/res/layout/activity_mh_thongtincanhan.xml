@@ -4,20 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mh_thongtincanhan">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="449dp"
-        android:layout_height="776dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/basebg" />
-
-
-
+    tools:context=".TheAnh.Activity.User.ThongTinCaNhan_Activity"
+    android:background="@mipmap/basebg">
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -30,7 +18,7 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
@@ -40,7 +28,7 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textImageName"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="160dp"
@@ -61,25 +49,27 @@
         android:layout_gravity="top"
         android:layout_weight="0"
         />
+
     <FrameLayout
+        android:id="@+id/frameDangXuat"
         android:layout_width="330dp"
         android:layout_height="75dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/rectangle3"
+        android:background="@mipmap/rectangle3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/frameThongBao">
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="-3dp"
             android:text="Đăng xuất"
             android:textColor="@color/white"
-            android:textSize="18dp"
-            android:layout_marginTop="-3dp"/>
+            android:textSize="18dp" />
 
         <ImageView
             android:id="@+id/imageView12"
@@ -91,15 +81,15 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout3"
+        android:id="@+id/frameThongBao"
         android:layout_width="330dp"
         android:layout_height="75dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/retangle1"
+        android:background="@mipmap/retangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/frameThongTinNguoiDung">
 
         <TextView
             android:id="@+id/textView9"
@@ -127,11 +117,11 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout2"
+        android:id="@+id/frameThongTinNguoiDung"
         android:layout_width="330dp"
         android:layout_height="75dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/retangle1"
+        android:background="@mipmap/retangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">

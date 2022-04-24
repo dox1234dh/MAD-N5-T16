@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/basebg">
+    android:background="@mipmap/basebg">
 
     <include
         android:id="@+id/include"
@@ -16,7 +16,7 @@
         />
     <include
         android:id="@+id/include2"
-        layout="@layout/toolbar_bottom"
+        layout="@layout/toolbar_bottom_employee"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_marginStart="-2dp"

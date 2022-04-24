@@ -9,20 +9,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
-<<<<<<< HEAD
-            android:name=".mh_thongtincanhan"
-=======
-            android:name=".employee.DangKyHienMauActivityEmployee"
+            android:name="DangKyHienMauActivityEmployee"
             android:exported="false" />
         <activity
-            android:name=".employee.MainActivityEmployee"
+            android:name=".TheAnh.Activity.User.ThongTinCaNhan_Activity"
             android:exported="false" />
         <activity
-            android:name=".user.MainActivityUser"
+            android:name=".TheAnh.Activity.User.ChinhSuaThongTinCaNhan_Activity"
             android:exported="false" />
         <activity
-            android:name=".BloodDonationHistoryActivity"
->>>>>>> 69f22b2b4d5c017e3cda7fe63b0957a9b60b7524
+            android:name=".TheAnh.Activity.User.DiaDiem_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityUser"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

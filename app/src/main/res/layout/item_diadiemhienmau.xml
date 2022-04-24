@@ -21,7 +21,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/rectangle3" />
+            app:srcCompat="@mipmap/rectangle3" />
 
         <TextView
             android:id="@+id/textView"
