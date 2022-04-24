@@ -27,7 +27,7 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
     Button btnNgayBatDau, btnNgayKetThuc;
     ImageView markerEmployee, hospitalEmployee, order_historyEmployee;
     private int ngayBatDau, thangBatDau, namBatDau, ngayKetThuc, thangKetThuc, namKetThuc;
-    TextView txtError;
+    TextView txtError, txtHeader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,9 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         initDatePicker();
+
+        txtHeader = findViewById(R.id.txtHoVaTen);
+        txtHeader.setText("Thống kê sử dụng máu");
 
         txtError = findViewById(R.id.txtError);
         btnNgayBatDau = findViewById(R.id.btnNgayBatDau);
