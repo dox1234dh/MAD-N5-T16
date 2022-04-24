@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnHuongLichSuHienMau;
     private Button btnMHChinhUser;
     private Button btnMHChinhEmployee;
+    private Button btnMHLishSuSuDungMau;
 
 
     @Override
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnHuongLichSuHienMau = (Button) findViewById(R.id.btnHuongLichSuHienMau);
         btnMHChinhUser = (Button) findViewById(R.id.btnMHChinhUser);
         btnMHChinhEmployee = (Button) findViewById(R.id.btnMHChinhEmployee);
+        btnMHLishSuSuDungMau = (Button) findViewById(R.id.btnMHLichSuSuDungMau);
 
         btnCallActivity1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, BloodDonationHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnMHLishSuSuDungMau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LichSuSuDungMauActivity.class);
                 startActivity(intent);
             }
         });

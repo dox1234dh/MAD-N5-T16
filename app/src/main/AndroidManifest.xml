@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
+            android:name=".employee.LichSuSuDungMauActivity"
+            android:exported="false" />
+        <activity
             android:name=".employee.DangKyHienMauActivityEmployee"
             android:exported="false" />
         <activity
