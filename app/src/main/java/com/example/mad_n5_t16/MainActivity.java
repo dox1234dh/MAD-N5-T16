@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
+import com.example.mad_n5_t16.employee.MainActivityEmployee;
+import com.example.mad_n5_t16.user.MainActivityUser;
+
 public class MainActivity extends AppCompatActivity {
     private Button btnCallActivity1;
     private Button btnCallActivity2;
@@ -18,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btnHuongDangKy;
     private Button btnHuongDangNhap;
     private Button btnHuongLichSuHienMau;
+    private Button btnMHChinhUser;
+    private Button btnMHChinhEmployee;
+    private Button btnMHLishSuSuDungMau;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         btnHuongDangNhap = (Button) findViewById(R.id.btnHuongDangNhap);
         btnHuongDangKy = (Button) findViewById(R.id.btnHuongDangKy);
         btnHuongLichSuHienMau = (Button) findViewById(R.id.btnHuongLichSuHienMau);
+        btnMHChinhUser = (Button) findViewById(R.id.btnMHChinhUser);
+        btnMHChinhEmployee = (Button) findViewById(R.id.btnMHChinhEmployee);
+        btnMHLishSuSuDungMau = (Button) findViewById(R.id.btnMHLichSuSuDungMau);
 
         btnCallActivity1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +49,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        btnMHChinhUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivityUser.class);
+                startActivity(intent);
+            }
+        });
+        btnMHChinhEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivityEmployee.class);
+                startActivity(intent);
+            }
+        });
         btnHuongDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, BloodDonationHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnMHLishSuSuDungMau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LichSuSuDungMauActivity.class);
                 startActivity(intent);
             }
         });
