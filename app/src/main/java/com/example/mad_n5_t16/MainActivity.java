@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class MainActivity extends AppCompatActivity {
@@ -94,5 +95,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Load();
+    }
+    protected void Load(){
+
+        DatabaseHelper db1 = new DatabaseHelper(getBaseContext());
+        db1.addTK();
+//            final List<Student> list1 = db1.getAllStudent();
+//            ListView lv1= (ListView)findViewById(R.id.listSinhVien);
+//            ArrayAdapter<Student> adapter=new ArrayAdapter<Student>(this,android.R.layout.simple_list_item_1,list1);
+        // Student[] adapterStudent = list1.toArray(new Student[list1.size()]);
+
+        // ArrayAdapter<Student> adapter1 = adapterStudent;
+
+//            lv1.setAdapter(adapter);
+
+        //Click listView
+//            lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+//                    Toast.makeText(getBaseContext(), "Position :" + arg2 + " - Value = "+list1.get(arg2).getName() ,
+//                            Toast.LENGTH_LONG).show();
+//                    doOpenChildActivity(list1.get(arg2).getId(),list1.get(arg2).getNumber(), list1.get(arg2).getName(),list1.get(arg2).getEmail());
+//
+//                }
+
+//            });
+//            lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//                @Override
+//                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//
+//                    return false;
+//                }
+//            });
+//
+//            registerForContextMenu(lv1);
+
     }
 }
