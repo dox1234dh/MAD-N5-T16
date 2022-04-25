@@ -66,4 +66,12 @@
         android:background="@drawable/rounded_button_10dp"
         />
 
+    <Button
+        android:id="@+id/btnRegisterBack"
+        android:layout_width="159dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:text="Quay lại"
+        android:background="@drawable/rounded_button_10dp" />
+
 </LinearLayout>
