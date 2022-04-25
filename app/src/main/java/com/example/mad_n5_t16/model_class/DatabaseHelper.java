@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
+
 public final class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mad";
@@ -84,6 +85,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sqlQuerySDM);
         Toast.makeText(context, "Create Database successfully", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS tblthoigian");
@@ -98,7 +100,8 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
 //        Toast.makeText(context, "Drop successfully", Toast.LENGTH_SHORT).show();
     }
-    public void addTK(){
+
+    public void addTK() {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -109,17 +112,51 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
 
         //Neu de null thi khi value bang null thi loi
-        db.insert("tbltaikhoan",null,values);
+        db.insert("tbltaikhoan", null, values);
         db.close();
     }
 
-    public void themDangKyHienMau(DangKyHienMau dangKyHienMau){
+    public NguoiHienMau getNguoiHienMau(TaiKhoan taiKhoan) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblnguoihienmau WHERE id=?";
+        String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        NguoiHienMau temp = new NguoiHienMau();
+        temp.setHoTen(taiKhoan.getHoTen());
+        temp.setVaiTro(taiKhoan.getVaiTro());
+        if (cursor.moveToFirst()) {
+            do {
+                temp.setId(cursor.getInt(0));
+                temp.setNgaySinh(cursor.getString(1));
+                temp.setEmail(cursor.getString(2));
+                temp.setSoCCCD(cursor.getString(3));
+                temp.setNhomMau(cursor.getString(4));
+                temp.setDienThoai(cursor.getString(5));
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
+    public int getSoLanHienMau(int id) {
+        int result=0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT * FROM tbldangkyhienmau WHERE maNguoiHienMau =? AND luongMau>0";
+        String[] selectionArgs = {String.valueOf(id)};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        result =cursor.getCount();
+        return result;
+    }
+
+    public void themDangKyHienMau(DangKyHienMau dangKyHienMau) {
         NguoiHienMau tempNHM = new NguoiHienMau("taiKhoan1", "1", "Trịnh Tiến Đạt", "1",
-                "23122000", "abc@gmail.com", "123456789"," ", "0368257596");
+                "23122000", "abc@gmail.com", "123456789", " ", "0368257596");
         ThoiGian tempTG = new ThoiGian("25042022", "07:00", "11h:00");
         DiaDiem tempDD = new DiaDiem("Viện Huyết học và truyền máu trung ương");
         LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
-        DangKyHienMau temp= new DangKyHienMau(tempLHM, tempNHM, 350);
+        DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //values.put("");
@@ -141,7 +178,6 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //    }
 
 }
-
 
 
 //
