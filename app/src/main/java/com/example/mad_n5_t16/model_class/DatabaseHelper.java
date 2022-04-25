@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public final class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mad";
@@ -61,12 +63,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 ID + " integer primary key," +
                 "maSuDungMau integer," +
                 "maNguoiHienMau integer," +
-                "luongmau integer," +
+                "luongMau integer," +
                 "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id)," +
                 "FOREIGN KEY (maSuDungMau) REFERENCES tblsudungmau (id))";
         String sqlQueryLHM = "CREATE TABLE " + "tbllichhienmau" + " (" +
                 ID + " integer primary key, " +
-                "thoiGian " + "TEXT," +
                 "ghiChu TEXT, " +
                 "maDangKyHienMau integer," +
                 "maThoiGian integer," +
@@ -103,20 +104,18 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
     public void addTK() {
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put("hoTen", "dotv");
-        values.put("taiKhoan", "1");
-        values.put("matKhau", "1");
+        String query = "SELECT * FROM tblnguoihienmau";
+        Cursor cursor = db.rawQuery(query, null);
+        int t = cursor.getCount();
 
 
         //Neu de null thi khi value bang null thi loi
-        db.insert("tbltaikhoan", null, values);
         db.close();
     }
 
-    public NguoiHienMau getNguoiHienMau(TaiKhoan taiKhoan) {
+    public NguoiHienMau dat_getNguoiHienMau(TaiKhoan taiKhoan) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM tblnguoihienmau WHERE id=?";
         String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
@@ -140,11 +139,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return temp;
     }
 
-    public int getSoLanHienMau(int id) {
+    public int dat_getSoLanHienMau(int maNguoiHienMau) {
         int result=0;
         SQLiteDatabase db = this.getReadableDatabase();
         String query ="SELECT * FROM tbldangkyhienmau WHERE maNguoiHienMau =? AND luongMau>0";
-        String[] selectionArgs = {String.valueOf(id)};
+        String[] selectionArgs = {String.valueOf(maNguoiHienMau)};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         result =cursor.getCount();
         return result;
@@ -160,6 +159,13 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //values.put("");
+
+    }
+    public ArrayList<DangKyHienMau> dat_layDSDangKyHienMau(){
+        ArrayList<DangKyHienMau> result = new ArrayList<DangKyHienMau>();
+        //String query ="SELECT tbldangkyhienmau.id, tbldangkyhienmau.luongmau, tbl"
+
+        return result;
 
     }
 
