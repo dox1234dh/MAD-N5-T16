@@ -30,34 +30,34 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "maNhanVien integer," +
                 "maNguoiHienMau integer," +
                 "hoTen" + " TEXT, " +
-                "vaiTro" + "TEXT," +
+                "vaiTro" + " TEXT," +
                 "FOREIGN KEY (maNhanVien) REFERENCES tblnhanvien (id)," +
                 "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
         String sqlQueryNV = "CREATE TABLE " + "tblnhanvien" + " (" +
                 ID + " integer primary key, " +
-                "chucVu" + "TEXT)";
+                "chucVu" + " TEXT)";
         String sqlQueryNHM = "CREATE TABLE " + "tblnguoihienmau" + " (" +
                 ID + " integer primary key, " +
                 "ngaySinh" + " TEXT, " +
                 "email" + " TEXT, " +
                 "soCCCD" + " TEXT, " +
                 "nhomMau" + " TEXT, " +
-                "dienthoai TEXT)";
+                "dienThoai TEXT)";
         String sqlQueryDD = "CREATE TABLE " + "tbldiadiem" + " (" +
                 ID + " integer primary key, " +
-                "diaDiem " + "TEXT)";
+                "tenDiaDiem " + "TEXT)";
         String sqlQueryTG = "CREATE TABLE " + "tblthoigian" + " (" +
                 ID + " integer primary key, " +
                 "ngay " + "TEXT," +
                 "gioBatDau TEXT," +
                 "gioKetThuc TEXT)";
         String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
-                ID + "integer primary key," +
+                ID + " integer primary key," +
                 "maDangKyHienMau integer," +
                 "ngaySuDung TEXT," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
         String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
-                ID + "integer primary key," +
+                ID + " integer primary key," +
                 "maSuDungMau integer," +
                 "maNguoiHienMau integer," +
                 "luongmau integer," +

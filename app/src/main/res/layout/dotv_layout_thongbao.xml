@@ -8,7 +8,7 @@
     tools:context=".ThongBaoActivity">
 
     <include
-        android:id="@+id/header"
+        android:id="@+id/dotv_toolbar_thongbao"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,27 +18,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="top"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintBottom_toTopOf="@+id/dotv_footer_thongbao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
+        app:layout_constraintTop_toBottomOf="@+id/dotv_toolbar_thongbao">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Đây là màn hình thông báo"
-            android:textAlignment="center"
-            android:textSize="40sp" />
+        <ListView
+            android:id="@+id/dotv_danhsachthongbao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ListView>
     </LinearLayout>
 
     <include
-        android:id="@+id/footer"
+        android:id="@+id/dotv_footer_thongbao"
         layout="@layout/toolbar_bottom"
         android:layout_width="match_parent"
         android:layout_height="60dp"

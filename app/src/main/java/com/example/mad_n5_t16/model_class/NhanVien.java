@@ -1,6 +1,7 @@
 package com.example.mad_n5_t16.model_class;
 
 public class NhanVien extends TaiKhoan{
+    private int id;
     private String chucVu;
 
     public NhanVien(String taiKhoan, String matKhau, String hoTen, String vaiTro, String chucVu) {
@@ -25,5 +26,15 @@ public class NhanVien extends TaiKhoan{
 
     public void setChucVu(String chucVu) {
         this.chucVu = chucVu;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }
