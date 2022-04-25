@@ -13,6 +13,7 @@ public class DangKyHienMau {
     }
 
     public DangKyHienMau() {
+        this.luongMau=0;
     }
 
     public int getId() {
