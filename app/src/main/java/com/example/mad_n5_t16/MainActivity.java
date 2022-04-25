@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     protected void Load(){
 
         DatabaseHelper db1 = new DatabaseHelper(getBaseContext());
-        db1.addTK();
+        //db1.addTK();
 //            final List<Student> list1 = db1.getAllStudent();
 //            ListView lv1= (ListView)findViewById(R.id.listSinhVien);
 //            ArrayAdapter<Student> adapter=new ArrayAdapter<Student>(this,android.R.layout.simple_list_item_1,list1);
