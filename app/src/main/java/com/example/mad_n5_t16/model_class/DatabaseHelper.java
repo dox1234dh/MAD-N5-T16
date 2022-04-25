@@ -52,12 +52,12 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "gioBatDau TEXT," +
                 "gioKetThuc TEXT)";
         String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
-                ID + "integer primary key," +
+                ID + " integer primary key," +
                 "maDangKyHienMau integer," +
                 "ngaySuDung TEXT," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
         String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
-                ID + "integer primary key," +
+                ID + " integer primary key," +
                 "maSuDungMau integer," +
                 "maNguoiHienMau integer," +
                 "luongmau integer," +
