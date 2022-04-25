@@ -30,19 +30,19 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "maNhanVien integer," +
                 "maNguoiHienMau integer," +
                 "hoTen" + " TEXT, " +
-                "vaiTro" + "TEXT," +
+                "vaiTro" + " TEXT," +
                 "FOREIGN KEY (maNhanVien) REFERENCES tblnhanvien (id)," +
                 "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
         String sqlQueryNV = "CREATE TABLE " + "tblnhanvien" + " (" +
                 ID + " integer primary key, " +
-                "chucVu" + "TEXT)";
+                "chucVu" + " TEXT)";
         String sqlQueryNHM = "CREATE TABLE " + "tblnguoihienmau" + " (" +
                 ID + " integer primary key, " +
                 "ngaySinh" + " TEXT, " +
                 "email" + " TEXT, " +
                 "soCCCD" + " TEXT, " +
                 "nhomMau" + " TEXT, " +
-                "dienthoai TEXT)";
+                "dienThoai TEXT)";
         String sqlQueryDD = "CREATE TABLE " + "tbldiadiem" + " (" +
                 ID + " integer primary key, " +
                 "tenDiaDiem " + "TEXT)";
