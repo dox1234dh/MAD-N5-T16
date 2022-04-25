@@ -4,10 +4,12 @@ public class LichHienMau {
     private int id;
     private ThoiGian thoiGian;
     private String ghiChu;
+    private DiaDiem diaDiem;
 
-    public LichHienMau(ThoiGian thoiGian, String ghiChu) {
+    public LichHienMau(ThoiGian thoiGian, String ghiChu, DiaDiem diaDiem) {
         this.thoiGian = thoiGian;
         this.ghiChu = ghiChu;
+        this.diaDiem = diaDiem;
     }
 
     public LichHienMau() {
@@ -35,5 +37,13 @@ public class LichHienMau {
 
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
+    }
+
+    public DiaDiem getDiaDiem() {
+        return diaDiem;
+    }
+
+    public void setDiaDiem(DiaDiem diaDiem) {
+        this.diaDiem = diaDiem;
     }
 }
