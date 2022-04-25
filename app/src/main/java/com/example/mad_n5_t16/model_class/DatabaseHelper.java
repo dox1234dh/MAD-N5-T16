@@ -52,12 +52,12 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "gioBatDau TEXT," +
                 "gioKetThuc TEXT)";
         String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
-                ID + "integer primary key," +
+                ID + " integer primary key, " +
                 "maDangKyHienMau integer," +
                 "ngaySuDung TEXT," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
         String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
-                ID + "integer primary key," +
+                ID + " integer primary key, " +
                 "maSuDungMau integer," +
                 "maNguoiHienMau integer," +
                 "luongmau integer," +
@@ -96,7 +96,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS tblsudungmau");
 
         onCreate(db);
-//        Toast.makeText(context, "Drop successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Drop successfully", Toast.LENGTH_SHORT).show();
     }
     public void addTK(){
 
@@ -112,6 +112,34 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("tbltaikhoan",null,values);
         db.close();
     }
+
+    public void themDangKyHienMau(DangKyHienMau dangKyHienMau){
+        NguoiHienMau tempNHM = new NguoiHienMau("taiKhoan1", "1", "Trịnh Tiến Đạt", "1",
+                "23122000", "abc@gmail.com", "123456789"," ", "0368257596");
+        ThoiGian tempTG = new ThoiGian("25042022", "07:00", "11h:00");
+        DiaDiem tempDD = new DiaDiem("Viện Huyết học và truyền máu trung ương");
+        LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
+        DangKyHienMau temp= new DangKyHienMau(tempLHM, tempNHM, 350);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //values.put("");
+
+    }
+
+//    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.query("tblnguoihienmau", new String[] { "id",
+//                        "ngaySinh","email","soCCCD", "nhomMau", "dienthoai" }, ID + "=?",
+//                new String[] { String.valueOf(id) }, null, null, null, null);
+//        if (cursor != null)
+//            cursor.moveToFirst();
+//
+//        Student student = new Student(cursor.getString(1),cursor.getString(2),cursor.getString(3));
+//        cursor.close();
+//        db.close();
+//        return student;
+//    }
+
 }
 
 
