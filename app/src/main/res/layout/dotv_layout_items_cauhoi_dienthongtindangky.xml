@@ -7,12 +7,14 @@
     android:layout_marginTop="15sp"
     android:layout_marginBottom="14sp">
     <TextView
+        android:id="@+id/dotv_index_dienthongtindangky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/dotv_circle_index"
         android:text="1"
         android:gravity="center"/>
     <TextView
+        android:id="@+id/dotv_cauhoi_dienthongtindangky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10sp"
@@ -25,10 +27,12 @@
         android:orientation="horizontal"
         android:layout_marginStart="10sp">
         <RadioButton
+            android:id="@+id/dotv_co_dienthongtindangky"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"/>
         <RadioButton
+            android:id="@+id/dotv_khong_dienthongtindangky"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RadioGroup>
