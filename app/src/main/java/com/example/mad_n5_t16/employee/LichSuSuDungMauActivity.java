@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16;
+package com.example.mad_n5_t16.employee;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +16,7 @@ import android.widget.TextView;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.example.mad_n5_t16.MainActivity;
-import com.example.mad_n5_t16.MainActivityEmployee;
 import com.example.mad_n5_t16.R;
-
-import org.w3c.dom.Text;
 
 public class LichSuSuDungMauActivity extends AppCompatActivity {
 
@@ -28,7 +24,7 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
     Button btnNgayBatDau, btnNgayKetThuc;
     ImageView markerEmployee, hospitalEmployee, order_historyEmployee;
     private int ngayBatDau, thangBatDau, namBatDau, ngayKetThuc, thangKetThuc, namKetThuc;
-    TextView txtError;
+    TextView txtError, txtHeader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +32,9 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         initDatePicker();
+
+        txtHeader = findViewById(R.id.txtHoVaTen);
+        txtHeader.setText("Thống kê sử dụng máu");
 
         txtError = findViewById(R.id.txtError);
         btnNgayBatDau = findViewById(R.id.btnNgayBatDau);

@@ -1,27 +1,25 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mad_n5_t16.MainActivity;
-import com.example.mad_n5_t16.MainActivityEmployee;
 import com.example.mad_n5_t16.Public.UserToolBar;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 
 
 public class ThongTinCaNhan_Activity extends AppCompatActivity {
     private TextView txtNameTitle, txtFullName, txtMainTitle;
     private FrameLayout btnThongtin, btnThongBao, btnDangXuat;
     public  static Activity activity;
+    private NguoiHienMau nguoiHienMau;
     DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
                 findViewById(R.id.order_history),
                 findViewById(R.id.guest_male) );
 
-        //getdat
+        //getdata
         btnThongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

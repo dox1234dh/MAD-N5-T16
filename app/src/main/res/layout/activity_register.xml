@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/layout_notification"
     android:gravity="center"
-    tools:context=".RegisterActivity">
+    tools:context=".user.RegisterActivity">
 
     <EditText
         android:id="@+id/ettUsernameregister"

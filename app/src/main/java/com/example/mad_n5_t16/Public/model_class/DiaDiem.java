@@ -1,6 +1,4 @@
-package com.example.mad_n5_t16.model_class;
-
-import java.util.ArrayList;
+package com.example.mad_n5_t16.Public.model_class;
 
 public class DiaDiem {
     private int id;

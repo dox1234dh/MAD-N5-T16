@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DiaDiem;
+import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 
 import java.util.ArrayList;
 

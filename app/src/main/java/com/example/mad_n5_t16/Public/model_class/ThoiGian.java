@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16.model_class;
+package com.example.mad_n5_t16.Public.model_class;
 
 public class ThoiGian {
     private int id;

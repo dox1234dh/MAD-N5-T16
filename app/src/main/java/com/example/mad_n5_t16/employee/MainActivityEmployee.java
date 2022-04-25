@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16;
+package com.example.mad_n5_t16.employee;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mad_n5_t16.MainActivity;
+import com.example.mad_n5_t16.R;
 
 public class MainActivityEmployee extends AppCompatActivity {
 

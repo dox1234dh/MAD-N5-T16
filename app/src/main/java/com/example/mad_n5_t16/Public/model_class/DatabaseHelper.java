@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16.model_class;
+package com.example.mad_n5_t16.Public.model_class;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
 public final class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mad";
@@ -98,32 +101,140 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
 //        Toast.makeText(context, "Drop successfully", Toast.LENGTH_SHORT).show();
     }
-    public void addTK(){
 
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void addTK() {
 
-        ContentValues values = new ContentValues();
-        values.put("hoTen", "dotv");
-        values.put("taiKhoan", "1");
-        values.put("matKhau", "1");
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM tblnguoihienmau";
+        Cursor cursor = db.rawQuery(query, null);
+        int t = cursor.getCount();
 
 
         //Neu de null thi khi value bang null thi loi
-        db.insert("tbltaikhoan",null,values);
         db.close();
+    }
+    // nguoi hien mau
+    public int suaThongTinNguoiHienMau(NguoiHienMau nguoiHienMau){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("ngaySinh", nguoiHienMau.getNgaySinh());
+        values.put("email", nguoiHienMau.getEmail());
+        values.put("soCCCD", nguoiHienMau.getSoCCCD());
+        values.put("nhomMau", nguoiHienMau.getNhomMau());
+        values.put("dienThoai", nguoiHienMau.getDienThoai());
+        return db.update("tblnguoihienmau" , values, ID + "=?", new String[]{String.valueOf(nguoiHienMau.getId())});
+    }
+    public NguoiHienMau dat_getNguoiHienMau(TaiKhoan taiKhoan) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblnguoihienmau WHERE id=?";
+        String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        NguoiHienMau temp = new NguoiHienMau();
+        temp.setHoTen(taiKhoan.getHoTen());
+        temp.setVaiTro(taiKhoan.getVaiTro());
+        if (cursor.moveToFirst()) {
+            do {
+                temp.setId(cursor.getInt(0));
+                temp.setNgaySinh(cursor.getString(1));
+                temp.setEmail(cursor.getString(2));
+                temp.setSoCCCD(cursor.getString(3));
+                temp.setNhomMau(cursor.getString(4));
+                temp.setDienThoai(cursor.getString(5));
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
+    public int dat_getSoLanHienMau(int maNguoiHienMau) {
+        int result=0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT * FROM tbldangkyhienmau WHERE maNguoiHienMau =? AND luongMau>0";
+        String[] selectionArgs = {String.valueOf(maNguoiHienMau)};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        result =cursor.getCount();
+        return result;
+    }
+
+    public void themDangKyHienMau(DangKyHienMau dangKyHienMau) {
+        NguoiHienMau tempNHM = new NguoiHienMau("taiKhoan1", "1", "Trịnh Tiến Đạt", "1",
+                "23122000", "abc@gmail.com", "123456789", " ", "0368257596");
+        ThoiGian tempTG = new ThoiGian("25042022", "07:00", "11h:00");
+        DiaDiem tempDD = new DiaDiem("Viện Huyết học và truyền máu trung ương");
+        LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
+        DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        //values.put("");
+
+    }
+    public ArrayList<DangKyHienMau> dat_layDSDangKyHienMau(){
+        ArrayList<DangKyHienMau> result = new ArrayList<DangKyHienMau>();
+        //String query ="SELECT tbldangkyhienmau.id, tbldangkyhienmau.luongmau, tbl"
+
+        return result;
+
     }
 
     // Thế Anh
+    // Dia diem
     public void addDiaDiem(DiaDiem diaDiem){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("tenDiaDiem", diaDiem.getTenDiaDiem());
-
         //Neu de null thi khi value bang null thi loi
         db.insert("tbldiadiem",null,values);
         db.close();
     }
+    public ArrayList<DiaDiem> getAllDiaDiem(){
+        ArrayList<DiaDiem> list = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM  "+ "tbldiadiem";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DiaDiem diaDiem = new DiaDiem(cursor.getString(1));
+                list.add(diaDiem);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+    public  ArrayList<DiaDiem>  searchDiaDiem(String tendd){
+        ArrayList<DiaDiem> list = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM  tbldiadiem WHERE tenDiaDiem LIKE " + "'%" +tendd+ "%'" ;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DiaDiem diaDiem = new DiaDiem(cursor.getString(1));
+                list.add(diaDiem);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
 }
+
+//    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.query("tblnguoihienmau", new String[] { "id",
+//                        "ngaySinh","email","soCCCD", "nhomMau", "dienthoai" }, ID + "=?",
+//                new String[] { String.valueOf(id) }, null, null, null, null);
+//        if (cursor != null)
+//            cursor.moveToFirst();
+//
+//        Student student = new Student(cursor.getString(1),cursor.getString(2),cursor.getString(3));
+//        cursor.close();
+//        db.close();
+//        return student;
+//    }
 
 
 

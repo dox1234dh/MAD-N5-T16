@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16;
+package com.example.mad_n5_t16.user;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.mad_n5_t16.R;
 
 public class LoginActivity extends AppCompatActivity {
 

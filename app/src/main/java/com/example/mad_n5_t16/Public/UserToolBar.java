@@ -15,7 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.mad_n5_t16.MainActivityUser;
+import com.example.mad_n5_t16.user.MainActivityUser;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ChinhSuaThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;

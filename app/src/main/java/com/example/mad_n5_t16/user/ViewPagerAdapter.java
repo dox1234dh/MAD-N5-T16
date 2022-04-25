@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16;
+package com.example.mad_n5_t16.user;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.mad_n5_t16.R;
 
 import java.util.Objects;
 

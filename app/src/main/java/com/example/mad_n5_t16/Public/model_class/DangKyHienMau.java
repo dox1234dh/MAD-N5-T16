@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16.model_class;
+package com.example.mad_n5_t16.Public.model_class;
 
 public class DangKyHienMau {
     private int id;
@@ -13,6 +13,7 @@ public class DangKyHienMau {
     }
 
     public DangKyHienMau() {
+        this.luongMau=0;
     }
 
     public int getId() {

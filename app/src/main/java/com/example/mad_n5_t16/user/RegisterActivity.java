@@ -1,4 +1,4 @@
-package com.example.mad_n5_t16;
+package com.example.mad_n5_t16.user;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.regex.Pattern;
+import com.example.mad_n5_t16.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

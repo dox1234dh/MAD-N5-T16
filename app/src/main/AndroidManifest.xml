@@ -24,10 +24,10 @@
             android:name=".MainActivityUser"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".user.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".user.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ThongBaoActivity"

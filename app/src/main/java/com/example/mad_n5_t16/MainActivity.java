@@ -7,14 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.mad_n5_t16.MainActivityEmployee;
-import com.example.mad_n5_t16.MainActivityUser;
+
+import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
+import com.example.mad_n5_t16.employee.MainActivityEmployee;
+import com.example.mad_n5_t16.user.MainActivityUser;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 
-import com.example.mad_n5_t16.LichSuSuDungMauActivity;
-import com.example.mad_n5_t16.MainActivityEmployee;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.MainActivityUser;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.user.LoginActivity;
+import com.example.mad_n5_t16.user.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnCallActivity1;
