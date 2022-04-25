@@ -45,7 +45,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "dienthoai TEXT)";
         String sqlQueryDD = "CREATE TABLE " + "tbldiadiem" + " (" +
                 ID + " integer primary key, " +
-                "diaDiem " + "TEXT)";
+                "tenDiaDiem " + "TEXT)";
         String sqlQueryTG = "CREATE TABLE " + "tblthoigian" + " (" +
                 ID + " integer primary key, " +
                 "ngay " + "TEXT," +
