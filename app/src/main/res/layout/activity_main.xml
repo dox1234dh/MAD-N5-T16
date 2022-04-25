@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="18dp"
+        android:layout_height="wrap_content"
         android:text="Màn hình điều hướng đến các giao diện khác"
         android:textAlignment="center"
         android:textSize="40sp" />
@@ -81,4 +81,9 @@
         android:layout_height="wrap_content"
         android:text="Hướng đến MH Chính Employee" />
 
+    <Button
+        android:id="@+id/btnMHLichSuSuDungMau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến MH Chính Employee" />
 </LinearLayout>

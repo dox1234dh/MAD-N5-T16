@@ -58,6 +58,7 @@ public class UserToolBar {
                     Intent intent = new Intent(context, ThongTinCaNhan_Activity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                     context.startActivity(intent);
+                    ThongTinCaNhan_Activity.activity.finish();
                 }
             }
         });
@@ -67,7 +68,6 @@ public class UserToolBar {
                 if(idLayout != R.layout.activity_mh_thongtincanhan){
                     Intent intent = new Intent(context, ThongTinCaNhan_Activity.class);
                     context.startActivity(intent);
-                    context.get
                 }
                 Toast.makeText(context, "lichsu", Toast.LENGTH_SHORT).show();
             }

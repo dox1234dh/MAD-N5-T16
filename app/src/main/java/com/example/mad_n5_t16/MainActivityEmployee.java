@@ -38,7 +38,7 @@ public class MainActivityEmployee extends AppCompatActivity {
         order_historyEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHistory = new Intent(MainActivityEmployee.this, MainActivity.class);
+                Intent goHistory = new Intent(MainActivityEmployee.this, LichSuSuDungMauActivity.class);
                 startActivity(goHistory);
             }
         });
