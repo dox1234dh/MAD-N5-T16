@@ -15,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.mad_n5_t16.MainActivityUser;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ChinhSuaThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
@@ -43,7 +44,7 @@ public class UserToolBar {
             case R.layout.activity_blood_donation_history:
                 btnHistory.setImageResource(R.drawable.order_history_2);
                 break;
-            case R.layout.activity_dang_ky_hien_mau_employee:
+            case R.layout.activity_main_user:
                 btnHome.setImageResource(R.drawable.home_2);
                 break;
             case R.layout.activiti_mh_thongtincanhan2:
@@ -75,8 +76,8 @@ public class UserToolBar {
         this.btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(idLayout != R.layout.activity_mh_thongtincanhan){
-                    Intent intent = new Intent(context, ThongTinCaNhan_Activity.class);
+                if(idLayout != R.layout.activity_main_user){
+                    Intent intent = new Intent(context, MainActivityUser.class);
                     context.startActivity(intent);
                 }
                 Toast.makeText(context, "home", Toast.LENGTH_SHORT).show();

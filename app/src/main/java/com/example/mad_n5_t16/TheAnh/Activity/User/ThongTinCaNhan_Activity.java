@@ -15,20 +15,21 @@ import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.MainActivityEmployee;
 import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
 
 
 public class ThongTinCaNhan_Activity extends AppCompatActivity {
     private TextView txtNameTitle, txtFullName, txtMainTitle;
     private FrameLayout btnThongtin, btnThongBao, btnDangXuat;
     public  static Activity activity;
-
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mh_thongtincanhan);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
+        // Anh xa
         txtFullName = findViewById(R.id.textFullName);
         txtNameTitle = findViewById(R.id.textTitle);
         txtNameTitle = findViewById(R.id.textTitle);
@@ -45,6 +46,8 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
                 findViewById(R.id.heart_plus),
                 findViewById(R.id.order_history),
                 findViewById(R.id.guest_male) );
+
+        //getdat
         btnThongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

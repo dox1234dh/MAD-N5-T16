@@ -7,15 +7,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.model_class.DiaDiem;
 
 public class DiaDiem_Activity extends AppCompatActivity {
-
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mh_diadiemhienmau);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+        //getdata
+        databaseHelper = new DatabaseHelper(this);
+        databaseHelper.addDiaDiem(new DiaDiem("Hoc vien Buu chinh vien thong"));
         UserToolBar bottomBar = new UserToolBar(DiaDiem_Activity.this ,
                 R.layout.activity_mh_diadiemhienmau,
                 findViewById(R.id.home),findViewById(R.id.marker),

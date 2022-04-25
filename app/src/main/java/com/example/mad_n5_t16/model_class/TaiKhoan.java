@@ -2,6 +2,7 @@ package com.example.mad_n5_t16.model_class;
 
 public class TaiKhoan {
 
+    private int id;
     private String taiKhoan;
     private String matKhau;
     private String hoTen;
@@ -47,5 +48,13 @@ public class TaiKhoan {
 
     public void setVaiTro(String vaiTro) {
         this.vaiTro = vaiTro;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
