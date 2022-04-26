@@ -66,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
         // 2. Kiểm tra xem tên tài khoản đã tồn tại hay chưa, nếu tồn tại thì result = "Tên tài khoản đã tồn tại"
         // 3. Nếu tên tài khoản chưa tồn tại thì thực hiện thêm tài khoản.
 
+
         return result;
     }
 
