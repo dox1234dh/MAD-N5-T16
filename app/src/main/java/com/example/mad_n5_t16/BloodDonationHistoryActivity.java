@@ -7,15 +7,13 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.mad_n5_t16.Public.model_class.History;
-import com.example.mad_n5_t16.Public.Model.HistoryAdapter;
 
 import java.util.Date;
 
 public class BloodDonationHistoryActivity extends AppCompatActivity {
     private ListView lvDonationhistory;
-    HistoryAdapter historyAdapter;
-    private History[] histories;
+//    HistoryAdapter historyAdapter;
+//    private History[] histories;
     TextView txtHoVaTen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +24,8 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         lvDonationhistory = (ListView) findViewById(R.id.lvDonationhistory);
         initData();
         txtHoVaTen.setText("Lịch sử hiến máu");
-        historyAdapter = new HistoryAdapter(this, histories);
-        lvDonationhistory.setAdapter(historyAdapter);
+//        historyAdapter = new HistoryAdapter(this, histories);
+//        lvDonationhistory.setAdapter(historyAdapter);
     }
 
     private void initData() {
@@ -36,9 +34,9 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         int[] amounts = {350, 350, 350};
         String[] locations = {"Học viện Bưu chính Viễn Thông","Học viện Bưu chính Viễn Thông","Học viện Bưu chính Viễn Thông"};
         txtHoVaTen = findViewById(R.id.txtHoVaTen);
-        histories = new History[times.length];
-        for(int i = 0; i < histories.length; i++) {
-            histories[i] = new History(times[i], amounts[i], locations[i], dates[i]);
-        }
+//        histories = new History[times.length];
+//        for(int i = 0; i < histories.length; i++) {
+//            histories[i] = new History(times[i], amounts[i], locations[i], dates[i]);
+//        }
     }
 }

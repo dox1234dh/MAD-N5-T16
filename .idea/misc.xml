@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.39282051282051283" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1975" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/drawable/back_3.xml" value="0.166" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
@@ -30,18 +31,40 @@
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.2265625" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_starter.xml" value="0.25416666666666665" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_chitietdiadiemhienmau.xml" value="0.19739583333333333" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_dangkyhienmau.xml" value="0.19739583333333333" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_dangkythanhcong.xml" value="0.19739583333333333" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_danhsachlichhienmau.xml" value="0.19739583333333333" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_dienthongtindangky.xml" value="0.19739583333333333" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_items_cauhoi_dienthongtindangky.xml" value="0.19739583333333333" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/item_history.xml" value="0.4" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.4" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.16041666666666668" />
-        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/toolbar_bottom.xml" value="0.23854166666666668" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable-v24/retanger.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/background_corner_radius.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/bg_cicle_100x100.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/bg_cicle_60x60.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/bg_color_logout.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/border_chonngay_employee.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/border_dshienmau_employee.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/border_employee.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/circle.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/dotv_circle_index.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/dotv_circle_item.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/dotv_retangle_blue_item.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/dotv_retangle_item.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/dotv_retangle_white_item.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/header_toolbar_mhchinh_user.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/history_card_custom.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/item_dsdangkyhienmau_employee.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/rectangle_10.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/rectangle_9.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/rounded_button_10dp.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/rounded_corner_10dp.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shadow_bottom_up.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shadow_cheotren_xuong.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shadow_top_down.xml" value="0.205" />
+        <entry key="app/src/main/res/layout/activiti_mh_thongtincanhan2.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_blood_donation_history.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/activity_lich_su_su_dung_mau.xml" value="0.1175925925925926" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_main_employee.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_main_user.xml" value="0.28854166666666664" />
@@ -52,7 +75,24 @@
         <entry key="app/src/main/res/layout/activity_mh_thongtincanhan.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_starter.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/dat_toolbar_btn_tro_ve.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_chitietdiadiemhienmau.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_dangkyhienmau.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_dangkythanhcong.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_danhsachlichhienmau.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_dienthongtindangky.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_items_cauhoi_dienthongtindangky.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_items_chitietdiadiemhienmau.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_items_dangkyhienmau.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_items_dangsachlichhienmau.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_items_dienthongtindangky.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_layout_thongbao.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/dotv_toolbar_bottom.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/item.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/item_diadiemhienmau.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/layout/item_dshienmau_employee.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/item_thoigiancuadiadiem.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/mh_thongbao.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/toolbar_bottom.xml" value="0.28854166666666664" />
