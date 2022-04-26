@@ -10,7 +10,13 @@ import android.widget.Button;
 
 import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
+import com.example.mad_n5_t16.model_class.DangKyHienMau;
 import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
+import com.example.mad_n5_t16.user.DangKyHienMauActivity;
+import com.example.mad_n5_t16.user.DangKyThanhCongActivity;
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
+import com.example.mad_n5_t16.user.DienThongTinDangKyActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         btnMHDangKyThanhCong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+                Intent intent = new Intent(MainActivity.this, DangKyThanhCongActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         btnMHDienThongTinDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+                Intent intent = new Intent(MainActivity.this, DienThongTinDangKyActivity.class);
                 startActivity(intent);
             }
         });
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         btnMHDangKyHienMau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+                Intent intent = new Intent(MainActivity.this, DangKyHienMauActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         btnMHDanhSachLichHienMau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+                Intent intent = new Intent(MainActivity.this, DanhSachLichHienMauActivity.class);
                 startActivity(intent);
             }
         });
@@ -92,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         btnMHChiTietDiaDiemHienMau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChiTietDiaDiemHienMauActivity.class);
                 startActivity(intent);
             }
         });
