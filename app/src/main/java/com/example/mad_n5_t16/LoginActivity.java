@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     TextView tvRegister;
     TaiKhoan taiKhoan = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +38,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userName = ettUsername.getText().toString();
                 String passWord = etpPassword.getText().toString();
-                if(checkValidateAccount(userName, passWord)){
+                if (checkValidateAccount(userName, passWord)) {
                     // đăng nhập thành công
                     // kiểm tra xem tài khoản thuộc về nhân viên hay người hiến máu
-                    if(taiKhoan.getVaiTro().equals("khachhang")){
+                    if (taiKhoan.getVaiTro().equals("khachhang")) {
                         // nếu là người hiến máu thì
                         // tạo một NguoiHienMau và put extra sang cho màn hình chính của người hiến máu
                         Intent intent = new Intent(LoginActivity.this, MainActivityUser.class);
                         intent.putExtra("id", taiKhoan.getId());
                         startActivity(intent);
                         finish();
-                    }else if(taiKhoan.getVaiTro().equals("nhanvien")) {
+                    } else if (taiKhoan.getVaiTro().equals("nhanvien")) {
                         // nếu là nhân viên thì
                         // tạo một NhanVien và put extra sang cho màn hình chính của nhân viên
                         Intent intent = new Intent(LoginActivity.this, MainActivityEmployee.class);
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -76,15 +77,16 @@ public class LoginActivity extends AppCompatActivity {
         // taiKhoan = getTaiKhoanByUsernameAndPassword()
         DatabaseHelper dbh = new DatabaseHelper(getBaseContext());
         taiKhoan = dbh.nam_getTaiKhoanByUserNameAndPassWord(userName, passWord);
-        if(taiKhoan!=null){
+        if (taiKhoan != null) {
             return true;
         }
         return false;
     }
 
-    private void init(){
+    private void init() {
         ettUsername = findViewById(R.id.ettUsername);
         etpPassword = findViewById(R.id.etpPassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvRegister = findViewById(R.id.tvRegister);
     }
+}
