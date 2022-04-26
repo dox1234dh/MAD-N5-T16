@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.model_class.DangKyHienMau;
 import com.example.mad_n5_t16.model_class.DangKyHienMauAdapter;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.model_class.DiaDiem;
 import com.example.mad_n5_t16.model_class.LichHienMau;
 import com.example.mad_n5_t16.model_class.NguoiHienMau;
@@ -48,15 +49,16 @@ public class DangKyHienMauActivityEmployee extends AppCompatActivity {
         txtHoVaTen = findViewById(R.id.txtHoVaTen);
         txtHoVaTen.setText("Đơn đăng ký hôm nay");
 
-        ArrayList<DangKyHienMau> dsDangKyHienMau = new ArrayList<DangKyHienMau>();
-
-
+       //ArrayList<DangKyHienMau> dsDangKyHienMau = dat_laydsDangKyHienMau();
+       ArrayList<DangKyHienMau> dsDangKyHienMau = new ArrayList<DangKyHienMau>();
+//
+//
         NguoiHienMau tempNHM = new NguoiHienMau("taiKhoan1", "1", "Trịnh Tiến Đạt", "1",
-                "23122000", "abc@gmail.com", "123456789"," ", "0368257596");
+                "23122000", "abc@gmail.com", "123456789", " ", "0368257596");
         ThoiGian tempTG = new ThoiGian("25042022", "07:00", "11h:00");
         DiaDiem tempDD = new DiaDiem("Viện Huyết học và truyền máu trung ương");
         LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
-        DangKyHienMau temp= new DangKyHienMau(tempLHM, tempNHM, 350);
+        DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
         dsDangKyHienMau.add(temp);
         dsDangKyHienMau.add(temp);
         dsDangKyHienMau.add(temp);
@@ -82,5 +84,12 @@ public class DangKyHienMauActivityEmployee extends AppCompatActivity {
         listDSDangKyHienMau.setAdapter(dangKyHienMauAdapter);
 
 
+    }
+
+    public ArrayList<DangKyHienMau> dat_laydsDangKyHienMau() {
+        ArrayList<DangKyHienMau> result = new ArrayList<DangKyHienMau>();
+        DatabaseHelper db = new DatabaseHelper(getBaseContext());
+        result = db.dat_layDSDangKyHienMau();
+        return result;
     }
 }
