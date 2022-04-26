@@ -35,9 +35,16 @@
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.2265625" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/activity_starter.xml" value="0.25416666666666665" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_chitietdiadiemhienmau.xml" value="0.19739583333333333" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_dangkyhienmau.xml" value="0.19739583333333333" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_dangkythanhcong.xml" value="0.19739583333333333" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_danhsachlichhienmau.xml" value="0.19739583333333333" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_dienthongtindangky.xml" value="0.19739583333333333" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/dotv_layout_items_cauhoi_dienthongtindangky.xml" value="0.19739583333333333" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/item_history.xml" value="0.4" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.4" />
         <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/toolbar.xml" value="0.16041666666666668" />
+        <entry key="..\:/TaiLieu/HocDaiHoc/Ky8/PhatTrienUngDungDiDong/BTL/MADN5T16/app/src/main/res/layout/toolbar_bottom.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/activity_blood_donation_history.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28854166666666664" />
