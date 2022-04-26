@@ -16,6 +16,9 @@ public class History {
         this.donationDate = donationDate;
     }
 
+    public History() {
+    }
+
     public int getId() {
         return id;
     }
