@@ -62,7 +62,9 @@ public class RegisterActivity extends AppCompatActivity {
         String txtPassword = etpPasswordregister.getText().toString();
         String txtPasswordagain = etpPasswordregisteragain.getText().toString();
 
-
+        // 1.lấy danh sách tài khoản lên và lưu vào một List
+        // 2. Kiểm tra xem tên tài khoản đã tồn tại hay chưa, nếu tồn tại thì result = "Tên tài khoản đã tồn tại"
+        // 3. Nếu tên tài khoản chưa tồn tại thì thực hiện thêm tài khoản.
 
         return result;
     }
