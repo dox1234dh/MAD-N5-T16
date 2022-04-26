@@ -34,12 +34,12 @@ public class MainActivityEmployee extends AppCompatActivity {
         txtNhomMauO = findViewById(R.id.txtNhomMauO);
         txtNhomMauAB = findViewById(R.id.txtNhomMauAB);
 
-        //txtSoLuongDangKyHienmau.setText(dat_laysoLuongDangKyHienMau());
+        txtSoLuongDangKyHienmau.setText(dat_laysoLuongDangKyHienMau()+"");
 
-//        txtNhomMauA.setText(dat_laySoLuongMauConLaiTheoNhomMau("A"));
-//        txtNhomMauB.setText(dat_laySoLuongMauConLaiTheoNhomMau("B"));
-//        txtNhomMauO.setText(dat_laySoLuongMauConLaiTheoNhomMau("O"));
-//        txtNhomMauAB.setText(dat_laySoLuongMauConLaiTheoNhomMau("AB"));
+        txtNhomMauA.setText(dat_laySoLuongMauConLaiTheoNhomMau("A")+"");
+        txtNhomMauB.setText(dat_laySoLuongMauConLaiTheoNhomMau("B")+"");
+        txtNhomMauO.setText(dat_laySoLuongMauConLaiTheoNhomMau("O")+"");
+        txtNhomMauAB.setText(dat_laySoLuongMauConLaiTheoNhomMau("AB")+"");
         markerEmployee = findViewById(R.id.markerEmployee);
         hospitalEmployee = findViewById(R.id.hospitalEmployee);
         order_historyEmployee = findViewById(R.id.order_historyEmployee);
