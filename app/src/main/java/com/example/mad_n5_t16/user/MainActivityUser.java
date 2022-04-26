@@ -8,17 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.ThongBaoActivity;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 
 public class MainActivityUser extends AppCompatActivity {
 
     TextView txtHoVaTen, txtNhomMau, txtSoLanHienMau;
     ImageView marker, home, heart, history, infor;
     ViewPager mViewPager;
+    NguoiHienMau nguoiHienMau;
+    int soLanHienMau;
+    LinearLayout iconTen;
 
     // images array
     int[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
@@ -26,6 +32,7 @@ public class MainActivityUser extends AppCompatActivity {
 
     // Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +42,13 @@ public class MainActivityUser extends AppCompatActivity {
 
         home = findViewById(R.id.home);
         home.setImageResource(R.drawable.home_2);
-        marker =findViewById(R.id.marker);
+        marker = findViewById(R.id.marker);
         marker.setImageResource(R.drawable.marker_1);
-        heart =findViewById(R.id.heart_plus);
+        heart = findViewById(R.id.heart_plus);
         heart.setImageResource(R.drawable.heart_plus_1);
-        history =findViewById(R.id.order_history);
+        history = findViewById(R.id.order_history);
         history.setImageResource(R.drawable.order_history_1);
-        infor =findViewById(R.id.guest_male);
+        infor = findViewById(R.id.guest_male);
         infor.setImageResource(R.drawable.guest_male_1);
 
         marker.setOnClickListener(new View.OnClickListener() {
@@ -82,14 +89,106 @@ public class MainActivityUser extends AppCompatActivity {
         txtSoLanHienMau = findViewById(R.id.txtSoLanHienMau);
         txtSoLanHienMau.setText("4");
 
-            // Initializing the ViewPager Object
-            mViewPager = (ViewPager)findViewById(R.id.viewPagerMain);
+        iconTen = findViewById(R.id.iconTen);
 
-            // Initializing the ViewPagerAdapter
-            mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
+        //carousel
+        mViewPager = (ViewPager) findViewById(R.id.viewPagerMain);
+        mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
+        mViewPager.setAdapter(mViewPagerAdapter);
 
-            // Adding the Adapter to the ViewPager
-            mViewPager.setAdapter(mViewPagerAdapter);
+        //init();
+    }
+
+    protected void init() {
+        //lay thong tin nguoi hien mau
+        DatabaseHelper db = new DatabaseHelper(getBaseContext());
+        nguoiHienMau = db.dat_getNguoiHienMau(null);
+        soLanHienMau = db.dat_getSoLanHienMau(0);
+        String[] temp = nguoiHienMau.getHoTen().split(" ");
+        Character icon = temp[temp.length - 1].charAt(0);
+        switch (icon) {
+            case 'A':
+                iconTen.setBackgroundResource(R.drawable.icons8_a_50);
+                break;
+            case 'B':
+                iconTen.setBackgroundResource(R.drawable.icons8_b_50);
+                break;
+            case 'C':
+                iconTen.setBackgroundResource(R.drawable.icons8_c_50);
+                break;
+            case 'D':
+                iconTen.setBackgroundResource(R.drawable.icons8_d_50);
+                break;
+            case 'E':
+                iconTen.setBackgroundResource(R.drawable.icons8_e_50);
+                break;
+            case 'F':
+                iconTen.setBackgroundResource(R.drawable.icons8_f_50);
+                break;
+            case 'G':
+                iconTen.setBackgroundResource(R.drawable.icons8_g_50);
+                break;
+            case 'H':
+                iconTen.setBackgroundResource(R.drawable.icons8_h_50);
+                break;
+            case 'J':
+                iconTen.setBackgroundResource(R.drawable.icons8_j_50);
+                break;
+            case 'K':
+                iconTen.setBackgroundResource(R.drawable.icons8_k_50);
+                break;
+            case 'L':
+                iconTen.setBackgroundResource(R.drawable.icons8_l_50);
+                break;
+            case 'M':
+                iconTen.setBackgroundResource(R.drawable.icons8_m_50);
+                break;
+            case 'N':
+                iconTen.setBackgroundResource(R.drawable.icons8_n_50);
+                break;
+            case 'O':
+                iconTen.setBackgroundResource(R.drawable.icons8_o_50);
+                break;
+            case 'P':
+                iconTen.setBackgroundResource(R.drawable.icons8_p_50);
+                break;
+            case 'Q':
+                iconTen.setBackgroundResource(R.drawable.icons8_q_50);
+                break;
+            case 'W':
+                iconTen.setBackgroundResource(R.drawable.icons8_w_50);
+                break;
+            case 'Y':
+                iconTen.setBackgroundResource(R.drawable.icons8_y_50);
+                break;
+            case 'R':
+                iconTen.setBackgroundResource(R.drawable.icons8_r_50);
+                break;
+            case 'T':
+                iconTen.setBackgroundResource(R.drawable.icons8_t_50);
+                break;
+            case 'S':
+                iconTen.setBackgroundResource(R.drawable.icons8_s_50);
+                break;
+            case 'Z':
+                iconTen.setBackgroundResource(R.drawable.icons8_z_50);
+                break;
+            case 'X':
+                iconTen.setBackgroundResource(R.drawable.icons8_x_50);
+                break;
+            case 'V':
+                iconTen.setBackgroundResource(R.drawable.icons8_v_50);
+                break;
+            case 'U':
+                iconTen.setBackgroundResource(R.drawable.icons8_u_48);
+                break;
+            case 'I':
+                iconTen.setBackgroundResource(R.drawable.icons8_i_50);
+                break;
+        }
+        txtHoVaTen.setText(nguoiHienMau.getHoTen());
+        txtNhomMau.setText(nguoiHienMau.getNhomMau());
+        txtSoLanHienMau.setText(soLanHienMau);
 
     }
 }

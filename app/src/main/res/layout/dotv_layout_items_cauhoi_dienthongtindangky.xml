@@ -15,10 +15,9 @@
         android:gravity="center"/>
     <TextView
         android:id="@+id/dotv_cauhoi_dienthongtindangky"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10sp"
-        android:maxWidth="262dp"
         android:text="Cau hoiCau hoiCau hoiCau hoiCau hoiCau hoiCau hoiCau hoiCau hoi"/>
     <RadioGroup
         android:layout_width="wrap_content"

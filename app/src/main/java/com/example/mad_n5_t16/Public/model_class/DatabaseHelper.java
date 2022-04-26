@@ -173,12 +173,17 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
     public NguoiHienMau dat_getNguoiHienMau(TaiKhoan taiKhoan) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM tblnguoihienmau WHERE id=?";
+        //String query = "SELECT * FROM tblnguoihienmau WHERE id=?";
+        String query = "SELECT tblnguoihienmau.id, tblnguoihienmau.ngaySinh, tblnguoihienmau.email, " +
+                "tblnguoihienmau.soCCCD, tblnguoihienmau.nhomMau, tblnguoihienmau.dienThoai, tbltaikhoan.hoTen, tbltaikhoan.vaiTro " +
+                "FROM tblnguoihienmau inner join " +
+                "tbltaikhoan on tbltaikhoan.maNguoiHienMau = tblnguoihienmau.id " +
+                "WHERE tblnguoihienmau.id=?";
         String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         NguoiHienMau temp = new NguoiHienMau();
-        temp.setHoTen(taiKhoan.getHoTen());
-        temp.setVaiTro(taiKhoan.getVaiTro());
+//        temp.setHoTen(taiKhoan.getHoTen());
+//        temp.setVaiTro(taiKhoan.getVaiTro());
         if (cursor.moveToFirst()) {
             do {
                 temp.setId(cursor.getInt(0));
@@ -187,6 +192,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 temp.setSoCCCD(cursor.getString(3));
                 temp.setNhomMau(cursor.getString(4));
                 temp.setDienThoai(cursor.getString(5));
+                //fix cung
+                temp.setHoTen(cursor.getString(6));
+                temp.setVaiTro(cursor.getString(7));
 
             } while (cursor.moveToNext());
         }
@@ -196,12 +204,13 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public int dat_getSoLanHienMau(int maNguoiHienMau) {
-        int result=0;
+        int result = 0;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query ="SELECT * FROM tbldangkyhienmau WHERE maNguoiHienMau =? AND luongMau>0";
+        String query = "SELECT * FROM tbldangkyhienmau WHERE maNguoiHienMau =? AND luongMau>0";
         String[] selectionArgs = {String.valueOf(maNguoiHienMau)};
         Cursor cursor = db.rawQuery(query, selectionArgs);
-        result =cursor.getCount();
+        result = cursor.getCount();
+
         return result;
     }
 
@@ -218,10 +227,12 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         //values.put("");
 
     }
-    public ArrayList<DangKyHienMau> dat_layDSDangKyHienMau(){
+
+    public ArrayList<DangKyHienMau> dat_layDSDangKyHienMau() {
         ArrayList<DangKyHienMau> result = new ArrayList<DangKyHienMau>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String query ="SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
+        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
+                "FROM tblthoigian inner join tbllichhienmau " +
                 "on tblthoigian.id=tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
                 "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
@@ -230,29 +241,32 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "WHERE tblthoigian.ngay=?";
         Calendar cal = Calendar.getInstance();
         int nam = cal.get(Calendar.YEAR);
-        int thang = cal.get(Calendar.MONTH)+1;
-        int ngay= cal.get(Calendar.DAY_OF_MONTH);
-        String[] selectionArgs = {makeDateString(ngay, thang, nam)};
+        int thang = cal.get(Calendar.MONTH) + 1;
+        int ngay = cal.get(Calendar.DAY_OF_MONTH);
+        String[] selectionArgs = {dat_makeDateString(ngay, thang, nam)};
         Cursor cursor = db.rawQuery(query, selectionArgs);
-        if(cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 DiaDiem tempDiaDiem = new DiaDiem();
                 tempDiaDiem.setTenDiaDiem(cursor.getString(0));
                 LichHienMau tempLichHienMau = new LichHienMau();
                 tempLichHienMau.setDiaDiem(tempDiaDiem);
                 NguoiHienMau tempNguoiHienMau = new NguoiHienMau();
                 tempNguoiHienMau.setHoTen(cursor.getString(1));
+                tempNguoiHienMau.setDienThoai(cursor.getString(2));
                 DangKyHienMau tempDangKyHienMau = new DangKyHienMau();
                 tempDangKyHienMau.setLichHienMau(tempLichHienMau);
-                tempDangKyHienMau.setLichHienMau(tempLichHienMau);
+                tempDangKyHienMau.setNguoiHienMau(tempNguoiHienMau);
                 result.add(tempDangKyHienMau);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         return result;
     }
-    public int dat_laySoLuongDangKyHienMau(){
+
+    public int dat_laySoLuongDangKyHienMau() {
+        int result=0;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query ="SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
+        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
                 "on tblthoigian.id=tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
                 "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
@@ -261,79 +275,80 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "WHERE tblthoigian.ngay=?";
         Calendar cal = Calendar.getInstance();
         int nam = cal.get(Calendar.YEAR);
-        int thang = cal.get(Calendar.MONTH)+1;
-        int ngay= cal.get(Calendar.DAY_OF_MONTH);
-        String[] selectionArgs = {makeDateString(ngay, thang, nam)};
+        int thang = cal.get(Calendar.MONTH) + 1;
+        int ngay = cal.get(Calendar.DAY_OF_MONTH);
+        String[] selectionArgs = {dat_makeDateString(ngay, thang, nam)};
         Cursor cursor = db.rawQuery(query, selectionArgs);
-        return cursor.getCount();
-    }
-//    public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau){
-//
-//    }
-    public int dat_laySoLuongMauDaHienTheoNhomMau(String nhomMau){
-        SQLiteDatabase db = this.getReadableDatabase();
-        int result=0;
-        String query = "SELECT tbldangkyhienmau.luongMau FROM tbldangkyhienmau " +
-                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblNguoiHienMau.id " +
-                "WHERE tblnguoihienmau.nhomMau =?";
-        String[] selectionArgs ={nhomMau};
-        Cursor cursor = db.rawQuery(query, selectionArgs);
-        if(cursor.moveToFirst()){
-            do{
-                result=result+cursor.getInt(0);
-            }while(cursor.moveToNext());
-        }
+        result= cursor.getCount();
         return result;
     }
-    public int dat_laySoLuongMauDaSuDungTheoNhomMau(String nhomMau){
+
+    public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau) {
+        return dat_laySoLuongMauDaHienTheoNhomMau(nhomMau) - dat_laySoLuongMauDaSuDungTheoNhomMau(nhomMau);
+    }
+
+    public int dat_laySoLuongMauDaHienTheoNhomMau(String nhomMau) {
         SQLiteDatabase db = this.getReadableDatabase();
-        int result=0;
+        int result = 0;
         String query = "SELECT tbldangkyhienmau.luongMau FROM tbldangkyhienmau " +
-                "inner join tblsudungmau on tbldangkyhienmau.maSuDungMau = tblNguoiHienMau.id " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblNguoiHienMau.id " +
                 "WHERE tblnguoihienmau.nhomMau =?";
-        String[] selectionArgs ={nhomMau};
+        String[] selectionArgs = {nhomMau};
         Cursor cursor = db.rawQuery(query, selectionArgs);
-        if(cursor.moveToFirst()){
-            do{
-                result=result+cursor.getInt(0);
-            }while(cursor.moveToNext());
+        if (cursor.moveToFirst()) {
+            do {
+                result = result + cursor.getInt(0);
+            } while (cursor.moveToNext());
         }
         return result;
     }
 
-
-
-    public String makeDateString(int day, int month, int year)
-    {
-        return String.valueOf(day)+getMonthFormat(month)+String.valueOf(year);
+    public int dat_laySoLuongMauDaSuDungTheoNhomMau(String nhomMau) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int result = 0;
+        String query = "SELECT tbldangkyhienmau.luongMau FROM tbldangkyhienmau " +
+                "inner join tblsudungmau on tblsudungmau.maDangKyHienMau = tbldangkyhienmau.id " +
+                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblNguoiHienMau.id " +
+                "WHERE tblnguoihienmau.nhomMau =?";
+        String[] selectionArgs = {nhomMau};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            do {
+                result = result + cursor.getInt(0);
+            } while (cursor.moveToNext());
+        }
+        return result;
     }
 
-    private String getMonthFormat(int month)
-    {
-        if(month == 1)
+
+    public String dat_makeDateString(int day, int month, int year) {
+        return String.valueOf(year) + "/" + dat_getMonthFormat(month) + "/" +String.valueOf(day) ;
+    }
+
+    private String dat_getMonthFormat(int month) {
+        if (month == 1)
             return "01";
-        if(month == 2)
+        if (month == 2)
             return "02";
-        if(month == 3)
+        if (month == 3)
             return "03";
-        if(month == 4)
+        if (month == 4)
             return "04";
-        if(month == 5)
+        if (month == 5)
             return "05";
-        if(month == 6)
+        if (month == 6)
             return "06";
-        if(month == 7)
+        if (month == 7)
             return "07";
-        if(month == 8)
+        if (month == 8)
             return "08";
-        if(month == 9)
+        if (month == 9)
             return "09";
-        if(month == 10)
+        if (month == 10)
             return "010";
-        if(month == 11)
+        if (month == 11)
             return "11";
-        if(month == 12)
+        if (month == 12)
             return "12";
 
         //default should never happen

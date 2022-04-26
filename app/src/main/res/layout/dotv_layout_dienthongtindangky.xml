@@ -53,38 +53,45 @@
     <LinearLayout
         android:id="@+id/dotv_dscauhoi_dienthongtindangky"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_below="@+id/dotv_yn_dienthongtindangky"
         android:background="@drawable/dotv_formbackground_dienthongtindangky"
+        android:fillViewport="true"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/dotv_btnregister_dienthongtindangky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dotv_yn_dienthongtindangky">
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:orientation="vertical"
-            >
-            <include
-                android:id="@+id/dotv_cauhoi_1_dienthongtindangky"
-                layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky"/>
-            <include
-                android:id="@+id/dotv_cauhoi_2_dienthongtindangky"
-                layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky"/>
-            <include
-                android:id="@+id/dotv_cauhoi_3_dienthongtindangky"
-                layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky"/>
-            <include
-                android:id="@+id/dotv_cauhoi_4_dienthongtindangky"
-                layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky"/>
-            <include
-                android:id="@+id/dotv_cauhoi_5_dienthongtindangky"
-                layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky"/>
-            <include
-                android:id="@+id/dotv_cauhoi_6_dienthongtindangky"
-                layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky"/>
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_marginTop="40sp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/dotv_cauhoi_1_dienthongtindangky"
+                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
+
+                <include
+                    android:id="@+id/dotv_cauhoi_2_dienthongtindangky"
+                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
+
+                <include
+                    android:id="@+id/dotv_cauhoi_3_dienthongtindangky"
+                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
+
+                <include
+                    android:id="@+id/dotv_cauhoi_4_dienthongtindangky"
+                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
+
+                <include
+                    android:id="@+id/dotv_cauhoi_5_dienthongtindangky"
+                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <include

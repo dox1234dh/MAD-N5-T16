@@ -9,13 +9,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
-            android:name="DangKyHienMauActivityEmployee"
+            android:name=".employee.DangKyHienMauActivityEmployee"
             android:exported="false" />
         <activity
             android:name=".TheAnh.Activity.User.ThongTinCaNhan_Activity"
             android:exported="false" />
         <activity
             android:name=".TheAnh.Activity.User.ChinhSuaThongTinCaNhan_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".user.DanhSachLichHienMauActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.DangKyHienMauActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.DienThongTinDangKyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.DangKyThanhCongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".employee.LichSuSuDungMauActivity"
             android:exported="false" />
         <activity
             android:name=".TheAnh.Activity.User.DiaDiem_Activity"
@@ -30,7 +45,7 @@
             android:name=".TheAnh.Activity.Employee.ThemLichHienMau_Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityUser"
+            android:name=".user.MainActivityUser"
             android:exported="false" />
         <activity
             android:name=".user.RegisterActivity"
