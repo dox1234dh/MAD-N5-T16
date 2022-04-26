@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,5 +22,13 @@ public class DangKyThanhCongActivity extends AppCompatActivity {
         setContentView(R.layout.dotv_layout_dangkythanhcong);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent goHome = new Intent(DangKyThanhCongActivity.this, MainActivity.class);
+                startActivity(goHome);
+            }
+        }, 1000);
     }
 }
