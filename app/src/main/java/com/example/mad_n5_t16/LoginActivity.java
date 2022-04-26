@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mad_n5_t16.employee.MainActivityEmployee;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.model_class.TaiKhoan;
+import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,10 +40,21 @@ public class LoginActivity extends AppCompatActivity {
                 if(checkValidateAccount(userName, passWord)){
                     // đăng nhập thành công
                     // kiểm tra xem tài khoản thuộc về nhân viên hay người hiến máu
-                    // nếu là người hiến máu thì
-                    // tạo một NguoiHienMau và put extra sang cho màn hình chính của người hiến máu
-                    // nếu là nhân viên thì
-                    // tạo một NhanVien và put extra sang cho màn hình chính của nhân viên
+                    if(taiKhoan.getVaiTro().equals("khachhang")){
+                        // nếu là người hiến máu thì
+                        // tạo một NguoiHienMau và put extra sang cho màn hình chính của người hiến máu
+                        Intent intent = new Intent(LoginActivity.this, MainActivityUser.class);
+                        intent.putExtra("id", taiKhoan.getId());
+                        startActivity(intent);
+                        finish();
+                    }else if(taiKhoan.getVaiTro().equals("nhanvien")) {
+                        // nếu là nhân viên thì
+                        // tạo một NhanVien và put extra sang cho màn hình chính của nhân viên
+                        Intent intent = new Intent(LoginActivity.this, MainActivityEmployee.class);
+                        intent.putExtra("id", taiKhoan.getId());
+                        startActivity(intent);
+                        finish();
+                    }
                 }else {
                     Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
                 }
@@ -60,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
     private boolean checkValidateAccount(String userName, String passWord) {
         // viết câu truy vấn tìm xem trong csdl có thông tin tài khoản và mật khẩu không
         // taiKhoan = getTaiKhoanByUsernameAndPassword()
+        DatabaseHelper dbh = new DatabaseHelper(getBaseContext());
+        taiKhoan = dbh.nam_getTaiKhoanByUserNameAndPassWord(userName, passWord);
         if(taiKhoan!=null){
             return true;
         }
@@ -72,14 +88,3 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         tvRegister = findViewById(R.id.tvRegister);
     }
-
-    }
-
-//    private void init(){
-//        ettUsername = findViewById(R.id.ettUsername);
-//        etpPassword = findViewById(R.id.etpPassword);
-//        btnLogin = findViewById(R.id.btnLogin);
-//        tvRegister = findViewById(R.id.tvRegister);
-//    }
-
-//}
