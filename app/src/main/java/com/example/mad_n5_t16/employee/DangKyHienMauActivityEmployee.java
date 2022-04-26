@@ -49,28 +49,28 @@ public class DangKyHienMauActivityEmployee extends AppCompatActivity {
         txtHoVaTen = findViewById(R.id.txtHoVaTen);
         txtHoVaTen.setText("Đơn đăng ký hôm nay");
 
-       //ArrayList<DangKyHienMau> dsDangKyHienMau = dat_laydsDangKyHienMau();
-       ArrayList<DangKyHienMau> dsDangKyHienMau = new ArrayList<DangKyHienMau>();
+       ArrayList<DangKyHienMau> dsDangKyHienMau = dat_laydsDangKyHienMau();
+//       ArrayList<DangKyHienMau> dsDangKyHienMau = new ArrayList<DangKyHienMau>();
 //
 //
-        NguoiHienMau tempNHM = new NguoiHienMau("taiKhoan1", "1", "Trịnh Tiến Đạt", "1",
-                "23122000", "abc@gmail.com", "123456789", " ", "0368257596");
-        ThoiGian tempTG = new ThoiGian("25042022", "07:00", "11h:00");
-        DiaDiem tempDD = new DiaDiem("Viện Huyết học và truyền máu trung ương");
-        LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
-        DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
-        dsDangKyHienMau.add(temp);
+//        NguoiHienMau tempNHM = new NguoiHienMau("taiKhoan1", "1", "Trịnh Tiến Đạt", "1",
+//                "23122000", "abc@gmail.com", "123456789", " ", "0368257596");
+//        ThoiGian tempTG = new ThoiGian("25042022", "07:00", "11h:00");
+//        DiaDiem tempDD = new DiaDiem("Viện Huyết học và truyền máu trung ương");
+//        LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
+//        DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
+//        dsDangKyHienMau.add(temp);
 
 
         listDSDangKyHienMau = findViewById(R.id.listDSDangKyHienMau);
