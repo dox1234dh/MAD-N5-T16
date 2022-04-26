@@ -209,9 +209,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, selectionArgs);
         return cursor.getCount();
     }
-//    public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau){
-//
-//    }
+    public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau){
+        return dat_laySoLuongMauDaHienTheoNhomMau(nhomMau)-dat_laySoLuongMauDaSuDungTheoNhomMau(nhomMau);
+    }
     public int dat_laySoLuongMauDaHienTheoNhomMau(String nhomMau){
         SQLiteDatabase db = this.getReadableDatabase();
         int result=0;
@@ -231,7 +231,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         int result=0;
         String query = "SELECT tbldangkyhienmau.luongMau FROM tbldangkyhienmau " +
-                "inner join tblsudungmau on tbldangkyhienmau.maSuDungMau = tblNguoiHienMau.id " +
+                "inner join tblsudungmau on tblsudungmau.maDangKyHienMau = tbldangkyhienmau.id " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblNguoiHienMau.id " +
                 "WHERE tblnguoihienmau.nhomMau =?";
         String[] selectionArgs ={nhomMau};

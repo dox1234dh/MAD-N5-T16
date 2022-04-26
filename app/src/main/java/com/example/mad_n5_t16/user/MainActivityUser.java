@@ -96,14 +96,14 @@ public class MainActivityUser extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
         mViewPager.setAdapter(mViewPagerAdapter);
 
-        init();
+        //init();
     }
 
     protected void init() {
         //lay thong tin nguoi hien mau
         DatabaseHelper db = new DatabaseHelper(getBaseContext());
-        nguoiHienMau = db.getNguoiHienMau(null);
-        soLanHienMau = db.getSoLanHienMau(0);
+        nguoiHienMau = db.dat_getNguoiHienMau(null);
+        soLanHienMau = db.dat_getSoLanHienMau(0);
         String[] temp = nguoiHienMau.getHoTen().split(" ");
         Character icon = temp[temp.length - 1].charAt(0);
         switch (icon) {
