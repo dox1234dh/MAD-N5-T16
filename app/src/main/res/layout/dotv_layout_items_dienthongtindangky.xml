@@ -19,12 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="abc"
+            android:text="Quý vị vui lòng trả lời đầy đủ câu hỏi dưới đây!"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123123"/>
+            android:text="Để đảm bảo an toán sức khoẻ cho quý vị và người bệnh nhận máu, xin quý vị trả lừoi trung thực và chính xác. Nếu có bất kì nghi ngờ nào về nguy cơ mắc bệnh truyền nhiễm, xin quý vị hãy không hiến máu."/>
     </LinearLayout>
 
 </RelativeLayout>
