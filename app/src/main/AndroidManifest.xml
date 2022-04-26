@@ -21,6 +21,15 @@
             android:name=".TheAnh.Activity.User.DiaDiem_Activity"
             android:exported="false" />
         <activity
+            android:name=".TheAnh.Activity.Employee.DiaDiemHienMauActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TheAnh.Activity.Employee.DanhSachLichHM_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".TheAnh.Activity.Employee.ThemLichHienMau_Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityUser"
             android:exported="false" />
         <activity

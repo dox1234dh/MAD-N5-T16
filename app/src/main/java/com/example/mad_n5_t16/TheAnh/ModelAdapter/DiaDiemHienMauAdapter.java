@@ -29,14 +29,14 @@ public class DiaDiemHienMauAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return listData.get(position);
     }
 
     @Override
     public long getItemId(int position) {
         return 0;
     }
-    private class ViewHolder{
+    class ViewHolder{
         TextView textView;
     }
     @Override

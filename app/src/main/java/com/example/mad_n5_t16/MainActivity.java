@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.mad_n5_t16.TheAnh.Activity.Employee.DiaDiemHienMauActivity;
 import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
 import com.example.mad_n5_t16.user.MainActivityUser;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         btnTTCaNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongTinCaNhan_Activity.class);
+                Intent intent = new Intent(MainActivity.this, DiaDiemHienMauActivity.class);
                 startActivity(intent);
             }
         });

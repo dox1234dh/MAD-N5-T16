@@ -11,8 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+
+import java.io.Serializable;
 
 
 public class ThongTinCaNhan_Activity extends AppCompatActivity {
@@ -30,12 +33,11 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         // Anh xa
         txtFullName = findViewById(R.id.textFullName);
         txtNameTitle = findViewById(R.id.textTitle);
-        txtNameTitle = findViewById(R.id.textTitle);
         txtNameTitle.setText("Thông tin cá nhân");
         btnThongtin = findViewById(R.id.frameThongTinNguoiDung);
         btnThongBao = findViewById(R.id.frameThongBao);
         btnDangXuat = this.findViewById(R.id.frameDangXuat);
-
+        databaseHelper = new DatabaseHelper(this);
         //setup toolBar
         activity = this;
         UserToolBar bottomBar = new UserToolBar(this ,
@@ -45,13 +47,25 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
                 findViewById(R.id.order_history),
                 findViewById(R.id.guest_male) );
 
-        //getdata
+        //getdata  id,String taiKhoan, String matKhau, String hoTen, String vaiTro, String ngaySinh, String email,
+        // String soCCCD, String nhomMau, String dienThoai) {
+        nguoiHienMau = new NguoiHienMau(1,
+                "theanh",
+                "theanh",
+                "theanh",
+                "nguoihien",
+                "08/09/2000",
+                "Theanh@gmail.com",
+                "0121313123121",
+                "B",
+                "0182918911"
+                );
         btnThongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ThongTinCaNhan_Activity.this, ChinhSuaThongTinCaNhan_Activity.class);
+                intent.putExtra("data", (Serializable) nguoiHienMau);
                 startActivity(intent);
-                finish();
             }
         });
     }

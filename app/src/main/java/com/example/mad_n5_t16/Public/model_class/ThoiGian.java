@@ -12,9 +12,15 @@ public class ThoiGian {
         this.gioKetThuc = gioKetThuc;
     }
 
-    public ThoiGian() {
+    public String ThoiGianNgay() {
+        return ngay.substring(8,10);
     }
-
+    public String ThoiGianThang() {
+        return ngay.substring(5,7);
+    }
+    public String ThoiGianNam() {
+        return ngay.substring(0,4);
+    }
     public int getId() {
         return id;
     }

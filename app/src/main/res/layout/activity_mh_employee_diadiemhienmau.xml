@@ -27,6 +27,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
+        android:id="@+id/listDiaDiem"
         android:layout_width="409dp"
         android:layout_height="542dp"
         android:layout_marginStart="1dp"
@@ -36,29 +37,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/txtSearch"
         app:layout_constraintVertical_bias="1.0" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="339dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="68dp"
+    <SearchView
+        android:id="@+id/txtSearch"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/retanger"
-        android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
-        app:srcCompat="@drawable/search" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

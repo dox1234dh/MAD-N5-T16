@@ -15,18 +15,19 @@
         android:layout_weight="0" />
 
     <ListView
+        android:id="@+id/listLichHien"
         android:layout_width="match_parent"
         android:layout_height="487dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintBottom_toTopOf="@+id/imagethemlich"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textDiaDiem" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imagethemlich"
         android:layout_width="65dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
@@ -39,7 +40,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textDiaDiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

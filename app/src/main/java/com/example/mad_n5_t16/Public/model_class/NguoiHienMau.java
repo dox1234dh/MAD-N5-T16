@@ -1,6 +1,8 @@
 package com.example.mad_n5_t16.Public.model_class;
 
-public class NguoiHienMau extends TaiKhoan {
+import java.io.Serializable;
+
+public class NguoiHienMau extends TaiKhoan implements Serializable {
 
     private int id;
     private String ngaySinh;
@@ -8,7 +10,15 @@ public class NguoiHienMau extends TaiKhoan {
     private String soCCCD;
     private String nhomMau;
     private String dienThoai;
-
+    public NguoiHienMau(int id,String taiKhoan, String matKhau, String hoTen, String vaiTro, String ngaySinh, String email, String soCCCD, String nhomMau, String dienThoai) {
+        super(taiKhoan, matKhau, hoTen, vaiTro);
+        this.id = id;
+        this.ngaySinh = ngaySinh;
+        this.email = email;
+        this.soCCCD = soCCCD;
+        this.nhomMau = nhomMau;
+        this.dienThoai = dienThoai;
+    }
     public NguoiHienMau(String taiKhoan, String matKhau, String hoTen, String vaiTro, String ngaySinh, String email, String soCCCD, String nhomMau, String dienThoai) {
         super(taiKhoan, matKhau, hoTen, vaiTro);
         this.ngaySinh = ngaySinh;
