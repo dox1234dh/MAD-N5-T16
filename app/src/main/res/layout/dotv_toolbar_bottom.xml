@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="@drawable/rectangle_9"
     android:rotation="180"
-    android:onClick="test">
+    android:onClick="btnDangKyHienMau">
     <TextView
         android:rotation="180"
         android:id="@+id/txtHoVaTen"
