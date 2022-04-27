@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mad_n5_t16.Model.History;
 import com.example.mad_n5_t16.Model.HistoryAdapter;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class BloodDonationHistoryActivity extends AppCompatActivity {
@@ -24,21 +27,31 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         lvDonationhistory = (ListView) findViewById(R.id.lvDonationhistory);
-        initData();
-        txtHoVaTen.setText("Lịch sử hiến máu");
-        historyAdapter = new HistoryAdapter(this, histories);
-        lvDonationhistory.setAdapter(historyAdapter);
-    }
-
-    private void initData() {
-        int[] times = {1, 2, 3};
-        String[] dates = {"02/12/2020","02/12/2020","02/12/2020"}; // xem lai date
-        int[] amounts = {350, 350, 350};
-        String[] locations = {"Học viện Bưu chính Viễn Thông","Học viện Bưu chính Viễn Thông","Học viện Bưu chính Viễn Thông"};
         txtHoVaTen = findViewById(R.id.txtHoVaTen);
-        histories = new History[times.length];
+        txtHoVaTen.setText("Lịch sử hiến máu");
+
+
+        ArrayList<History> listHistory = new ArrayList<>();
+        DatabaseHelper dbh = new DatabaseHelper(getBaseContext());
+
+        //Sau nay lay gia tri tu nguoi dang nhap
+        int idNguoiHienMau = 1;
+
+        listHistory = dbh.nam_getLichSuHienMauByIdNguoiHienMau(idNguoiHienMau);
+        int len = listHistory.size();
+        histories = new History[len];
         for(int i = 0; i < histories.length; i++) {
-            histories[i] = new History(times[i], amounts[i], locations[i], dates[i]);
+            int time = listHistory.get(i).getNumber();
+            int amount = listHistory.get(i).getAmount();
+            String location = listHistory.get(i).getLocation();
+            String date = listHistory.get(i).getDonationDate();
+            histories[i] = new History(time, amount , location ,date );
+        }
+        if(histories.length > 0) {
+            historyAdapter = new HistoryAdapter(this, histories);
+            lvDonationhistory.setAdapter(historyAdapter);
+        }else{
+            Toast.makeText(this, "Bạn chưa đi hiến máu lần nào", Toast.LENGTH_SHORT).show();
         }
     }
 }

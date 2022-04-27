@@ -5,7 +5,8 @@
     android:gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5sp"
         android:layout_marginLeft="25dp"
         android:background="@drawable/dotv_retangle_item"
         android:gravity="center"

@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.mad_n5_t16.Model.History;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -318,11 +321,107 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         //default should never happen
         return "Tháng 1";
     }
+    public TaiKhoan nam_getTaiKhoanByUserNameAndPassWord(String userName, String passWord) {
+        TaiKhoan taiKhoan = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tbltaikhoan " +
+                "WHERE tbltaikhoan.taiKhoan =? AND tbltaikhoan.matKhau =?";
+        String[] selectionArgs = {userName, passWord};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            taiKhoan = new TaiKhoan();
+            taiKhoan.setId(cursor.getInt(0));
+            taiKhoan.setTaiKhoan(cursor.getString(1));
+            taiKhoan.setMatKhau(cursor.getString(2));
+            taiKhoan.setVaiTro(cursor.getString(6));
+        }
+        return taiKhoan;
+    }
+
+    public boolean nam_checkTaiKhoanByUsername(String username){
+        boolean result = true;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tbltaikhoan " +
+                "WHERE tbltaikhoan.taiKhoan =?";
+        String[] selectionArgs = {username};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            result = false;
+        }
+        return result;
+    }
+
+    public boolean nam_checkNguoiHienMauByCCCD(String CCCD) {
+        boolean result = true;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblnguoihienmau " +
+                "WHERE tblnguoihienmau.soCCCD =?";
+        String[] selectionArgs = {CCCD};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            result = false;
+        }
+        return result;
+    }
+
+    public NguoiHienMau nam_getNguoiHienMauByCCCD(String CCCD) {
+        NguoiHienMau nhm = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblnguoihienmau " +
+                "WHERE tblnguoihienmau.soCCCD =?";
+        String[] selectionArgs = {CCCD};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            nhm = new NguoiHienMau();
+            nhm.setId(cursor.getInt(0));
+            nhm.setSoCCCD(cursor.getString(3));
+        }
+        return nhm;
+    }
 
 
+    public  void nam_addNguoiHienMau(NguoiHienMau nhm) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "INSERT INTO tblnguoihienmau (ngaySinh, email, soCCCD, nhomMau, dienThoai) VALUES " +
+                "(?, ?, ?, ?, ?)";
+        String[] selectionArgs = {null, null, nhm.getSoCCCD(), null, null};
+        db.execSQL(query, selectionArgs);
+    }
 
+    public void nam_addTaiKhoan(TaiKhoan taiKhoan, int idNguoiHienMau) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "INSERT INTO tbltaikhoan (taiKhoan, matKhau, maNguoiHienMau, vaiTro) VALUES " +
+                "(?, ?, ?, ?)";
+        String[] selectionArgs = {taiKhoan.getTaiKhoan(), taiKhoan.getMatKhau(),
+                                idNguoiHienMau+"", taiKhoan.getVaiTro()};
+        db.execSQL(query, selectionArgs);
+    }
 
+    public ArrayList<History> nam_getLichSuHienMauByIdNguoiHienMau(int idNguoiHienMau){
+        ArrayList<History> listHistory = new ArrayList<>();
 
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbldangkyhienmau.luongMau, tbldiadiem.tenDiaDiem, tblthoigian.ngay  FROM tbldangkyhienmau " +
+                "inner join tbllichhienmau on tbldangkyhienmau.id = tbllichhienmau.maDangKyHienMau " +
+                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+                "inner join tblthoigian on tbllichhienmau.maThoiGian = tblthoigian.id " +
+                "WHERE tbldangkyhienmau.luongMau > 0 AND tbldangkyhienmau.maNguoiHienMau = ?";
+        String[] selectionArgs = {String.valueOf(idNguoiHienMau)};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        int i = 1;
+        while (cursor.moveToNext()) {
+            History h = new History();
+            h.setNumber(i);
+            h.setAmount(cursor.getInt(0));
+            h.setDonationDate(cursor.getString(2));
+            h.setLocation(cursor.getString(1));
+            System.out.println(h.getLocation());
+            i++;
+            listHistory.add(h);
+        }
+
+        return listHistory;
+    }
 
 //    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
 //        SQLiteDatabase db = this.getReadableDatabase();
