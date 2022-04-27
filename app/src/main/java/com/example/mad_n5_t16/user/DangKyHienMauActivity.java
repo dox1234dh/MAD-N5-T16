@@ -43,7 +43,7 @@ public class DangKyHienMauActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(DangKyHienMauActivity.this, ChiTietDiaDiemHienMauActivity.class);
+                Intent intent = new Intent(DangKyHienMauActivity.this, DienThongTinDangKyActivity.class);
 //                String message = "abc";
 //                intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);

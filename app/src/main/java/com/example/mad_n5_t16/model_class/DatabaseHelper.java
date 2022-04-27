@@ -140,7 +140,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 temp.setDienThoai(cursor.getString(5));
                 //fix cung
                 temp.setHoTen(cursor.getString(6));
-                temp.setVaiTro(cursor.getString(7));
+//                temp.setVaiTro(cursor.getString(7));
 
             } while (cursor.moveToNext());
         }
@@ -401,7 +401,24 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
         return listHistory;
     }
-
+    public ArrayList<ThoiGian> do_getThoiGian(){
+        ArrayList<ThoiGian> result = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblthoigian";
+        Cursor cursor = db.rawQuery(query,null);
+        int i = 1;
+        while (cursor.moveToNext()){
+            ThoiGian tg = new ThoiGian();
+            tg.setId(i);
+            tg.setNgay(cursor.getString(1));
+            tg.setGioBatDau(cursor.getString(2));
+            tg.setGioKetThuc(cursor.getString(3));
+            Log.i("ThoiGian", "do_getThoiGian: " + i + " " + tg.getNgay() + " " + tg.getGioBatDau());
+            i++;
+            result.add(tg);
+        };
+        return result;
+    }
 //    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
 //        SQLiteDatabase db = this.getReadableDatabase();
 //        Cursor cursor = db.query("tblnguoihienmau", new String[] { "id",

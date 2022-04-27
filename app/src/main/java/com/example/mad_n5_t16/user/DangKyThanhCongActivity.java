@@ -26,7 +26,7 @@ public class DangKyThanhCongActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent goHome = new Intent(DangKyThanhCongActivity.this, MainActivity.class);
+                Intent goHome = new Intent(DangKyThanhCongActivity.this, MainActivityUser.class);
                 startActivity(goHome);
             }
         }, 1000);
