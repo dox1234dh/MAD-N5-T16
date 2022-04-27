@@ -11,19 +11,26 @@
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/drawable/rectangle_9.xml" value="0.166" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout-w360dp-h640dp/mh_thongbao.xml" value="0.22826086956521738" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout-w360dp-h640dp/notification_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_blood_donation_history.xml" value="0.25416666666666665" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.25416666666666665" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_lich_su_su_dung_mau.xml" value="0.25416666666666665" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_main_employee.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/activity_main_user.xml" value="0.12685185185185185" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/center_label.xml" value="0.16666666666666666" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_chitietdiadiemhienmau.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_dangkyhienmau.xml" value="0.25" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_dangkythanhcong.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_danhsachlichhienmau.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_dienthongtindangky.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_cauhoi_dienthongtindangky.xml" value="0.1" />
-        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_chitietdiadiemhienmau.xml" value="0.1" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_chitietdiadiemhienmau.xml" value="0.4" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_dangkyhienmau.xml" value="0.25416666666666665" />
-        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_dangsachlichhienmau.xml" value="0.1" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_dangsachlichhienmau.xml" value="0.264" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_dienthongtindangky.xml" value="0.25416666666666665" />
-        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_thongbao.xml" value="0.1" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_items_thongbao.xml" value="0.25416666666666665" />
+        <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_layout_thongbao.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/dotv_toolbar_bottom.xml" value="0.25416666666666665" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/mh_thongbao.xml" value="0.2" />
         <entry key="..\:/MAD/MADN5T16/app/src/main/res/layout/notification_layout.xml" value="0.264" />

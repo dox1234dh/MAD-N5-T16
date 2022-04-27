@@ -9,17 +9,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.model_class.ThoiGian;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
     ArrayList<ItemModelChiTietDiaDiemHienMauActivity> ls;
     ChiTietDiaDiemHienMauItems adapter;
     ListView listView;
+    DatabaseHelper dbh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,27 +38,60 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
         actionBar.hide();
         TextView toolbar = findViewById(R.id.txtHoVaTen);
         toolbar.setText("Lịch hiến máu");
+        ImageView markerNoti = findViewById(R.id.marker);
+        markerNoti.setImageResource(R.drawable.marker_2);
         ls = new ArrayList<>();
+        dbh = new DatabaseHelper(getBaseContext());
+        ArrayList<ThoiGian> lsTg = dbh.do_getThoiGian();
+        for(int i = 0 ;i< lsTg.size();++i){
+            initDate date = validate(lsTg.get(i).getNgay());
+            ls.add(new ItemModelChiTietDiaDiemHienMauActivity(date.ngay,date.thang_nam,lsTg.get(i).getGioBatDau() + " - " + lsTg.get(i).getGioKetThuc(),"Hiến máu cứu người"));
+        }
         // Lay data
-        ls.add(new ItemModelChiTietDiaDiemHienMauActivity("28","T2-2022","07:30-11:00","Hiến máu cứu người"));
-        ls.add(new ItemModelChiTietDiaDiemHienMauActivity("28","T2-2022","13:00-17:00","Hiến máu cứu người"));
-        ls.add(new ItemModelChiTietDiaDiemHienMauActivity("2","T3-2022","07:30-11:00","Hiến máu cứu người"));
-
         adapter = new ChiTietDiaDiemHienMauItems(ls);
         listView = findViewById(R.id.dotv_list_chitietdiadiemhienmau);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ChiTietDiaDiemHienMauActivity.this, DienThongTinDangKyActivity.class);
-//                String message = "abc";
-//                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);
-            }
-        });
+    }
+    public initDate validate(String date){
+        String ngay = "";
+        String thang_nam = "";
+        SimpleDateFormat sfd = new SimpleDateFormat("yyyy/MM/dd");
+        Date result;
+        try {
+            result = sfd.parse(date);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(result);
+            thang_nam ="T"+ cal.get(Calendar.MONTH) +"-"+cal.get(Calendar.YEAR);
+            ngay = cal.get(Calendar.DAY_OF_MONTH) + "";
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new initDate(ngay, thang_nam);
     }
 }
+class initDate{
+    String ngay, thang_nam;
+    public initDate(String ngay, String thang_nam){
+        this.ngay = ngay;
+        this.thang_nam = thang_nam;
+    }
 
+    public String getNgay() {
+        return ngay;
+    }
+
+    public void setNgay(String ngay) {
+        this.ngay = ngay;
+    }
+
+    public String getThang_nam() {
+        return thang_nam;
+    }
+
+    public void setThang_nam(String thang_nam) {
+        this.thang_nam = thang_nam;
+    }
+}
 class ItemModelChiTietDiaDiemHienMauActivity{
     String ngay,thang_nam,thoigian, tieude;
 
