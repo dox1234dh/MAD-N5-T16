@@ -16,6 +16,7 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/dotv_diadiem_dangkyhienmau"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="diadiem"
@@ -25,6 +26,7 @@
             android:textSize="18dp"/>
         <TextView
             android:id="@+id/dotv_thoigian_dangkyhienmau"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="thoigian"
@@ -33,6 +35,7 @@
             android:textSize="14sp"/>
         <TextView
             android:id="@+id/dotv_luongnguoi_dangkyhienmau"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="songuoidangky"
