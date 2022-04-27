@@ -34,6 +34,8 @@ public class MainActivityUser extends AppCompatActivity {
     // Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapter;
 
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,10 @@ public class MainActivityUser extends AppCompatActivity {
         history.setImageResource(R.drawable.order_history_1);
         infor = findViewById(R.id.guest_male);
         infor.setImageResource(R.drawable.guest_male_1);
+
+        Intent intent=getIntent();
+
+        id = intent.getIntExtra("id",0);
 
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,14 +103,14 @@ public class MainActivityUser extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
         mViewPager.setAdapter(mViewPagerAdapter);
 
-        init();
+        init(id);
     }
 
-    protected void init() {
+    protected void init(int id) {
         //lay thong tin nguoi hien mau
         DatabaseHelper db = new DatabaseHelper(getBaseContext());
         TaiKhoan taiKhoan = new TaiKhoan();
-        taiKhoan.setId(2);
+        taiKhoan.setId(id);
         nguoiHienMau = db.dat_getNguoiHienMau(taiKhoan);
         soLanHienMau = db.dat_getSoLanHienMau(nguoiHienMau.getId());
         String[] temp = nguoiHienMau.getHoTen().split(" ");
