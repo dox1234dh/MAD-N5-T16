@@ -12,10 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.MainActivity;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.ThongBaoActivity;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+
 
 public class MainActivityUser extends AppCompatActivity {
 
@@ -96,14 +98,16 @@ public class MainActivityUser extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
         mViewPager.setAdapter(mViewPagerAdapter);
 
-        //init();
+        init();
     }
 
     protected void init() {
         //lay thong tin nguoi hien mau
         DatabaseHelper db = new DatabaseHelper(getBaseContext());
-        nguoiHienMau = db.dat_getNguoiHienMau(null);
-        soLanHienMau = db.dat_getSoLanHienMau(0);
+        TaiKhoan taiKhoan = new TaiKhoan();
+        taiKhoan.setId(2);
+        nguoiHienMau = db.dat_getNguoiHienMau(taiKhoan);
+        soLanHienMau = db.dat_getSoLanHienMau(nguoiHienMau.getId());
         String[] temp = nguoiHienMau.getHoTen().split(" ");
         Character icon = temp[temp.length - 1].charAt(0);
         switch (icon) {
@@ -188,7 +192,7 @@ public class MainActivityUser extends AppCompatActivity {
         }
         txtHoVaTen.setText(nguoiHienMau.getHoTen());
         txtNhomMau.setText(nguoiHienMau.getNhomMau());
-        txtSoLanHienMau.setText(soLanHienMau);
+        txtSoLanHienMau.setText(soLanHienMau+"");
 
     }
 }

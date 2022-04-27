@@ -77,11 +77,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
-        ettUsername = findViewById(R.id.ettUsername);
-        etpPassword = findViewById(R.id.etpPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        tvRegister = findViewById(R.id.tvRegister);
-    }
+//    private void init(){
+//        ettUsername = findViewById(R.id.ettUsername);
+//        etpPassword = findViewById(R.id.etpPassword);
+//        btnLogin = findViewById(R.id.btnLogin);
+//        tvRegister = findViewById(R.id.tvRegister);
+//    }
 
-}
+//}
