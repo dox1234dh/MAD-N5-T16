@@ -226,7 +226,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau) {
-        return dat_laySoLuongMauDaHienTheoNhomMau(nhomMau) - dat_laySoLuongMauDaSuDungTheoNhomMau(nhomMau);
+        int result=0;
+        result= dat_laySoLuongMauDaHienTheoNhomMau(nhomMau) - dat_laySoLuongMauDaSuDungTheoNhomMau(nhomMau);
+        return result;
     }
 
     public int dat_laySoLuongMauDaHienTheoNhomMau(String nhomMau) {
@@ -262,9 +264,29 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    public int dat_thongKeSuDungMauTheoNhomMau(String nhomMau, String ngayBatDau,String ngayKetThuc ){
+        int result= 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau inner join " +
+                "tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau inner join " +
+                "tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
+                "WHERE tblnguoihienmau.nhomMau=? " +
+                "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)>=?" +
+                "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)<=?";
+        String[] selecStrings={nhomMau, ngayBatDau, ngayKetThuc};
+        Cursor cursor = db.rawQuery(query,selecStrings);
+        if(cursor.moveToFirst()){
+            do{
+                result=result+cursor.getInt(0);
+            }while(cursor.moveToNext());
+        }
+        return result;
+
+    }
+
 
     public String dat_makeDateString(int day, int month, int year) {
-        return String.valueOf(year) + "/" + dat_getMonthFormat(month) + "/" +String.valueOf(day) ;
+        return String.valueOf(year) + "-" + dat_getMonthFormat(month) + "-" +String.valueOf(day) ;
     }
 
     private String dat_getMonthFormat(int month) {
@@ -296,6 +318,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         //default should never happen
         return "Tháng 1";
     }
+
+
+
+
+
 
 //    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
 //        SQLiteDatabase db = this.getReadableDatabase();
