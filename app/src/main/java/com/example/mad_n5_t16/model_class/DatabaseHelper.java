@@ -124,7 +124,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "tblnguoihienmau.soCCCD, tblnguoihienmau.nhomMau, tblnguoihienmau.dienThoai, tbltaikhoan.hoTen, tbltaikhoan.vaiTro " +
                 "FROM tblnguoihienmau inner join " +
                 "tbltaikhoan on tbltaikhoan.maNguoiHienMau = tblnguoihienmau.id " +
-                "WHERE tblnguoihienmau.id=?";
+                "WHERE tbltaikhoan.id=?";
         String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         NguoiHienMau temp = new NguoiHienMau();
