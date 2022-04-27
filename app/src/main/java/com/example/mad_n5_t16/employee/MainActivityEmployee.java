@@ -19,12 +19,17 @@ public class MainActivityEmployee extends AppCompatActivity {
 
     TextView txtHeader, txtSoLuongDangKyHienmau, txtNhomMauA,txtNhomMauB,txtNhomMauO, txtNhomMauAB ;
     ImageView markerEmployee, hospitalEmployee, order_historyEmployee;
+    int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_employee);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+        Intent intent=getIntent();
+
+        id =intent.getIntExtra("id", 0);
         txtHeader = findViewById(R.id.txtHoVaTen);
         txtHeader.setText("Chào mừng đến với ngân hàng máu");
 
