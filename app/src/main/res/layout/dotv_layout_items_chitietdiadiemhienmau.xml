@@ -5,13 +5,15 @@
     android:gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5sp"
         android:layout_marginLeft="25dp"
         android:background="@drawable/dotv_retangle_item"
         android:gravity="center"
         android:orientation="vertical">
         <TextView
             android:id="@+id/dotv_thoigian_chitietdiadiemhienmau"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50sp"
@@ -20,6 +22,7 @@
             android:gravity="center"/>
         <TextView
             android:id="@+id/dotv_tieude_chitietdiadiemhienmau"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50sp"
@@ -36,6 +39,7 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/dotv_ngay_chitietdiadiemhienmau"
+            android:textColor="@color/white"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
@@ -44,6 +48,7 @@
             android:textSize="11dp" />
         <TextView
             android:id="@+id/dotv_thangnam_chitietdiadiemhienmau"
+            android:textColor="@color/white"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
