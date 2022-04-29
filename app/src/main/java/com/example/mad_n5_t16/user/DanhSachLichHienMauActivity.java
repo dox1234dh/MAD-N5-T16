@@ -15,8 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.model_class.LichHienMau;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +36,7 @@ public class DanhSachLichHienMauActivity extends AppCompatActivity {
         setContentView(R.layout.dotv_layout_danhsachlichhienmau);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        TextView toolbar = findViewById(R.id.txtHoVaTen);
+        TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Lịch hiến máu của tôi");
         ImageView markerNoti = findViewById(R.id.heart_plus);
         markerNoti.setImageResource(R.drawable.heart_plus_2);

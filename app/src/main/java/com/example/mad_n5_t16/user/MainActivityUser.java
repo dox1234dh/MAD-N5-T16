@@ -12,11 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.MainActivity;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.ThongBaoActivity;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.model_class.NguoiHienMau;
-import com.example.mad_n5_t16.model_class.TaiKhoan;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+
 
 public class MainActivityUser extends AppCompatActivity {
 
@@ -87,7 +88,7 @@ public class MainActivityUser extends AppCompatActivity {
             }
         });
 
-        txtHoVaTen = findViewById(R.id.txtHoVaTen);
+        txtHoVaTen = findViewById(R.id.textTitle);
         txtHoVaTen.setText("Trần Văn Đô");
 
         txtNhomMau = findViewById(R.id.txtSoLanHienMau);

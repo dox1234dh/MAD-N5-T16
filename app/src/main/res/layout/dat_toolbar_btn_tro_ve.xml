@@ -15,7 +15,7 @@
         app:srcCompat="@drawable/btn_tro_ve" />
 
     <TextView
-        android:id="@+id/txtHoVaTen"
+        android:id="@+id/textTitle"
         android:layout_width="328dp"
         android:layout_height="match_parent"
         android:fontFamily="sans-serif"

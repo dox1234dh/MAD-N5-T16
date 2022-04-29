@@ -6,8 +6,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mad_n5_t16.Model.History;
-import com.example.mad_n5_t16.Model.HistoryAdapter;
+import com.example.mad_n5_t16.ModelAdapter.History;
+import com.example.mad_n5_t16.ModelAdapter.HistoryAdapter;
 
 public class BloodDonationHistoryActivity extends AppCompatActivity {
     private ListView lvDonationhistory;

@@ -14,9 +14,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.model_class.LichHienMau;
-import com.example.mad_n5_t16.model_class.ThoiGian;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
+import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class DangKyHienMauActivity extends AppCompatActivity {
         setContentView(R.layout.dotv_layout_dangkyhienmau);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        TextView toolbar = findViewById(R.id.txtHoVaTen);
+        TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Chọn lịch hiến máu");
         ImageView markerNoti = findViewById(R.id.heart_plus);
         markerNoti.setImageResource(R.drawable.heart_plus_2);

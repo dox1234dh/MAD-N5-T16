@@ -73,7 +73,7 @@ public class MainActivityUser extends AppCompatActivity {
             }
         });
 
-        txtHoVaTen = findViewById(R.id.txtHoVaTen);
+        txtHoVaTen = findViewById(R.id.textTitle);
         txtHoVaTen.setText("Trần Văn Đô");
 
         txtNhomMau = findViewById(R.id.txtSoLanHienMau);

@@ -16,11 +16,8 @@ import android.widget.TextView;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-
-import org.w3c.dom.Text;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 
 public class LichSuSuDungMauActivity extends AppCompatActivity {
 
@@ -42,7 +39,7 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
         txtNhomMauO = findViewById(R.id.txtNhomMauOThongKe);
         txtNhomMauAB = findViewById(R.id.txtNhomMauABThongKe);
 
-        txtHeader = findViewById(R.id.txtHoVaTen);
+        txtHeader = findViewById(R.id.textTitle);
         txtHeader.setText("Thống kê sử dụng máu");
 
         txtError = findViewById(R.id.txtError);

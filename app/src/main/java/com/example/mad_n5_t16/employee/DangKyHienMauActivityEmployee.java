@@ -12,13 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DangKyHienMau;
-import com.example.mad_n5_t16.model_class.DangKyHienMauAdapter;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.model_class.DiaDiem;
-import com.example.mad_n5_t16.model_class.LichHienMau;
-import com.example.mad_n5_t16.model_class.NguoiHienMau;
-import com.example.mad_n5_t16.model_class.ThoiGian;
+import com.example.mad_n5_t16.Public.model_class.DangKyHienMau;
+import com.example.mad_n5_t16.Public.model_class.DangKyHienMauAdapter;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.DiaDiem;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class DangKyHienMauActivityEmployee extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        txtHoVaTen = findViewById(R.id.txtHoVaTen);
+        txtHoVaTen = findViewById(R.id.textTitle);
         txtHoVaTen.setText("Đơn đăng ký hôm nay");
 
        ArrayList<DangKyHienMau> dsDangKyHienMau = dat_laydsDangKyHienMau();

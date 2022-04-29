@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class MainActivityEmployee extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class MainActivityEmployee extends AppCompatActivity {
         Intent intent=getIntent();
 
         id =intent.getIntExtra("id", 0);
-        txtHeader = findViewById(R.id.txtHoVaTen);
+        txtHeader = findViewById(R.id.textTitle);
         txtHeader.setText("Chào mừng đến với ngân hàng máu");
 
         txtSoLuongDangKyHienmau = findViewById(R.id.txtSoDonDangKy);

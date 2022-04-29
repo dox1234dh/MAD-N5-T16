@@ -7,7 +7,7 @@
     android:background="@drawable/layout_notification"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".user.LoginActivity">
 
 
     <EditText

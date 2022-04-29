@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.mad_n5_t16.Model.History;
 import com.example.mad_n5_t16.Model.HistoryAdapter;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +27,7 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         lvDonationhistory = (ListView) findViewById(R.id.lvDonationhistory);
-        txtHoVaTen = findViewById(R.id.txtHoVaTen);
+        txtHoVaTen = findViewById(R.id.textTitle);
         txtHoVaTen.setText("Lịch sử hiến máu");
 
 

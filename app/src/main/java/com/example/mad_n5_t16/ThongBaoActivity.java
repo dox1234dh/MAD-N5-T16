@@ -12,9 +12,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.model_class.NguoiHienMau;
-import com.example.mad_n5_t16.model_class.TaiKhoan;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
@@ -33,7 +33,7 @@ public class ThongBaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dotv_layout_thongbao);
-        TextView titleBar = findViewById(R.id.txtHoVaTen);
+        TextView titleBar = findViewById(R.id.textTitle);
         titleBar.setText("Thông báo");
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
