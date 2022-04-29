@@ -68,7 +68,9 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(DiaDiemHienMauActivity.this, DanhSachLichHM_Activity.class);
+                intent.putExtra("diadiem", (Serializable) listDiaDiem.get(position));
                 startActivity(intent);
+                finish();
             }
         });
     }

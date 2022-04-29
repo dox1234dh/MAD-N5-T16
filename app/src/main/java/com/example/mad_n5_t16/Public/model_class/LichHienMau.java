@@ -1,6 +1,8 @@
 package com.example.mad_n5_t16.Public.model_class;
 
-public class LichHienMau {
+import java.io.Serializable;
+
+public class LichHienMau implements Serializable {
     private int id;
     private ThoiGian thoiGian;
     private String ghiChu;
