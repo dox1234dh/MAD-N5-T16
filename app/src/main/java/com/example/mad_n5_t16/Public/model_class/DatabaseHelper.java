@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.mad_n5_t16.Model.History;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -284,7 +287,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau) {
-        return dat_laySoLuongMauDaHienTheoNhomMau(nhomMau) - dat_laySoLuongMauDaSuDungTheoNhomMau(nhomMau);
+        int result=0;
+        result= dat_laySoLuongMauDaHienTheoNhomMau(nhomMau) - dat_laySoLuongMauDaSuDungTheoNhomMau(nhomMau);
+        return result;
     }
 
     public int dat_laySoLuongMauDaHienTheoNhomMau(String nhomMau) {
@@ -320,9 +325,29 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    public int dat_thongKeSuDungMauTheoNhomMau(String nhomMau, String ngayBatDau,String ngayKetThuc ){
+        int result= 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau inner join " +
+                "tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau inner join " +
+                "tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
+                "WHERE tblnguoihienmau.nhomMau=? " +
+                "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)>=?" +
+                "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)<=?";
+        String[] selecStrings={nhomMau, ngayBatDau, ngayKetThuc};
+        Cursor cursor = db.rawQuery(query,selecStrings);
+        if(cursor.moveToFirst()){
+            do{
+                result=result+cursor.getInt(0);
+            }while(cursor.moveToNext());
+        }
+        return result;
+
+    }
+
 
     public String dat_makeDateString(int day, int month, int year) {
-        return String.valueOf(year) + "/" + dat_getMonthFormat(month) + "/" +String.valueOf(day) ;
+        return String.valueOf(year) + "-" + dat_getMonthFormat(month) + "-" +String.valueOf(day) ;
     }
 
     private String dat_getMonthFormat(int month) {
@@ -354,9 +379,151 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         //default should never happen
         return "Tháng 1";
     }
+    public TaiKhoan nam_getTaiKhoanByUserNameAndPassWord(String userName, String passWord) {
+        TaiKhoan taiKhoan = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tbltaikhoan " +
+                "WHERE tbltaikhoan.taiKhoan =? AND tbltaikhoan.matKhau =?";
+        String[] selectionArgs = {userName, passWord};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            taiKhoan = new TaiKhoan();
+            taiKhoan.setId(cursor.getInt(0));
+            taiKhoan.setTaiKhoan(cursor.getString(1));
+            taiKhoan.setMatKhau(cursor.getString(2));
+            taiKhoan.setVaiTro(cursor.getString(6));
+        }
+        return taiKhoan;
+    }
+
+    public boolean nam_checkTaiKhoanByUsername(String username){
+        boolean result = true;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tbltaikhoan " +
+                "WHERE tbltaikhoan.taiKhoan =?";
+        String[] selectionArgs = {username};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            result = false;
+        }
+        return result;
+    }
+
+    public boolean nam_checkNguoiHienMauByCCCD(String CCCD) {
+        boolean result = true;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblnguoihienmau " +
+                "WHERE tblnguoihienmau.soCCCD =?";
+        String[] selectionArgs = {CCCD};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            result = false;
+        }
+        return result;
+    }
+
+    public NguoiHienMau nam_getNguoiHienMauByCCCD(String CCCD) {
+        NguoiHienMau nhm = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblnguoihienmau " +
+                "WHERE tblnguoihienmau.soCCCD =?";
+        String[] selectionArgs = {CCCD};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            nhm = new NguoiHienMau();
+            nhm.setId(cursor.getInt(0));
+            nhm.setSoCCCD(cursor.getString(3));
+        }
+        return nhm;
+    }
+
+
+    public  void nam_addNguoiHienMau(NguoiHienMau nhm) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "INSERT INTO tblnguoihienmau (ngaySinh, email, soCCCD, nhomMau, dienThoai) VALUES " +
+                "(?, ?, ?, ?, ?)";
+        String[] selectionArgs = {null, null, nhm.getSoCCCD(), null, null};
+        db.execSQL(query, selectionArgs);
+    }
+
+    public void nam_addTaiKhoan(TaiKhoan taiKhoan, int idNguoiHienMau) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "INSERT INTO tbltaikhoan (taiKhoan, matKhau, maNguoiHienMau, vaiTro) VALUES " +
+                "(?, ?, ?, ?)";
+        String[] selectionArgs = {taiKhoan.getTaiKhoan(), taiKhoan.getMatKhau(),
+                                idNguoiHienMau+"", taiKhoan.getVaiTro()};
+        db.execSQL(query, selectionArgs);
+    }
+
+    public ArrayList<History> nam_getLichSuHienMauByIdNguoiHienMau(int idNguoiHienMau){
+        ArrayList<History> listHistory = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbldangkyhienmau.luongMau, tbldiadiem.tenDiaDiem, tblthoigian.ngay  FROM tbldangkyhienmau " +
+                "inner join tbllichhienmau on tbldangkyhienmau.id = tbllichhienmau.maDangKyHienMau " +
+                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+                "inner join tblthoigian on tbllichhienmau.maThoiGian = tblthoigian.id " +
+                "WHERE tbldangkyhienmau.luongMau > 0 AND tbldangkyhienmau.maNguoiHienMau = ?";
+        String[] selectionArgs = {String.valueOf(idNguoiHienMau)};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        int i = 1;
+        while (cursor.moveToNext()) {
+            History h = new History();
+            h.setNumber(i);
+            h.setAmount(cursor.getInt(0));
+            h.setDonationDate(cursor.getString(2));
+            h.setLocation(cursor.getString(1));
+            System.out.println(h.getLocation());
+            i++;
+            listHistory.add(h);
+        }
+
+        return listHistory;
+    }
 
     // Thế Anh
     // Dia diem
+    public ArrayList<LichHienMau>  getLichHienMau(DiaDiem diaDiem){
+        ArrayList<LichHienMau> lichHienMau = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbllichhienmau.id, tbllichhienmau.ghiChu, tblthoigian.ngay,tblthoigian.gioBatDau," +
+                "tblthoigian.gioKetThuc , tbldiadiem.tenDiaDiem FROM tbllichhienmau"
+                + "inner join tblthoigian on tblthoigian.id = tbllichhienmau.maThoiGian " +
+                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+                "WHERE tbllichienmau.maDiaDiem = ?";
+        String[] selectionArgs = {String.valueOf(diaDiem.getId())};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        while (cursor.moveToNext()) {
+            DiaDiem diaDiem1 = new DiaDiem(cursor.getString(5));
+            ThoiGian thoiGian = new ThoiGian(cursor.getString(3), cursor.getString(4), cursor.getString(2) );
+            LichHienMau lich = new LichHienMau(thoiGian, cursor.getString(1), diaDiem1);
+            lichHienMau.add(lich);
+        }
+        return  lichHienMau;
+    }
+    public void addLichHienMau(LichHienMau lichHienMau){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valueThoiGian = new ContentValues();
+        this.addThoiGian(lichHienMau.getThoiGian());
+        this.addDiaDiem(lichHienMau.getDiaDiem());
+//        values.put("ngay", taiKhoan.getTaiKhoan());
+//        values.put("gioBatDau", taiKhoan.getMatKhau());
+//        values.put("gioKetThuc", taiKhoan.getHoTen());
+        //Neu de null thi khi value bang null thi loi
+//        db.insert("tbl",null,values);
+        db.close();
+    }
+    public void addThoiGian(ThoiGian thoiGian){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valueThoiGian = new ContentValues();
+        valueThoiGian.put("ngay", thoiGian.getNgay());
+        valueThoiGian.put("gioBatDau", thoiGian.getGioBatDau());
+        valueThoiGian.put("gioKetThuc", thoiGian.getGioKetThuc());
+        //Neu de null thi khi value bang null thi loi
+        db.insert("tblthoigian",null,valueThoiGian);
+        db.close();
+    }
+
     public void addDiaDiem(DiaDiem diaDiem){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

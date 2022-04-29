@@ -7,8 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/dotv_retangle_item"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp">
         <TextView
@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/dotv_diadiem_danhsachlichhienmau"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:layout_marginStart="25sp"
             android:layout_marginEnd="25sp"
             android:text="diadiem"
@@ -32,9 +32,10 @@
             android:layout_width="23dp"
             android:layout_height="29dp"
             android:layout_gravity="end"
-            android:background="@drawable/dotv_recyclebin"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"/>
+            android:background="@drawable/dotv_recyclebin"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="50dp"

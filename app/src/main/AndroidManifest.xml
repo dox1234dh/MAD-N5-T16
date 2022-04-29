@@ -54,11 +54,6 @@
             android:name=".user.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ThongBaoActivity"
-            android:exported="false"
-            android:label="Thông báo"
-            android:parentActivityName=".MainActivity" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="Màn hình chính">

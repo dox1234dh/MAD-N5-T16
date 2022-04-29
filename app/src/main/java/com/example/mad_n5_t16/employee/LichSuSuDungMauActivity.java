@@ -17,21 +17,27 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 
 public class LichSuSuDungMauActivity extends AppCompatActivity {
 
     DatePickerDialog datePickerNgayBatDau, datePickerNgayKetThuc;
     Button btnNgayBatDau, btnNgayKetThuc;
     ImageView markerEmployee, hospitalEmployee, order_historyEmployee;
-    private int ngayBatDau, thangBatDau, namBatDau, ngayKetThuc, thangKetThuc, namKetThuc;
-    TextView txtError, txtHeader;
+    int ngayBatDau, thangBatDau, namBatDau, ngayKetThuc, thangKetThuc, namKetThuc;
+    TextView txtError, txtHeader, txtNhomMauA,txtNhomMauB,txtNhomMauO, txtNhomMauAB;
+    String batDau, ketThuc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lich_su_su_dung_mau);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        initDatePicker();
+
+        txtNhomMauA = findViewById(R.id.txtNhomMauAThongKe);
+        txtNhomMauB = findViewById(R.id.txtNhomMauBThongKe);
+        txtNhomMauO = findViewById(R.id.txtNhomMauOThongKe);
+        txtNhomMauAB = findViewById(R.id.txtNhomMauABThongKe);
 
         txtHeader = findViewById(R.id.txtHoVaTen);
         txtHeader.setText("Thống kê sử dụng máu");
@@ -49,6 +55,7 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
 
         order_historyEmployee.setImageResource(R.drawable.order_history_2);
 
+        initDatePicker();
 //        markerEmployee.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -71,6 +78,7 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
         namBatDau = cal.get(Calendar.YEAR);
         thangBatDau = cal.get(Calendar.MONTH);
         ngayBatDau = cal.get(Calendar.DAY_OF_MONTH);
+        batDau=dat_makeDateFormat(ngayBatDau, thangBatDau, namBatDau);
         return makeDateString(ngayBatDau, thangBatDau, namBatDau);
     }
     private String getTodaysDateEnd()
@@ -79,11 +87,16 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
         namKetThuc = cal.get(Calendar.YEAR);
         thangKetThuc = cal.get(Calendar.MONTH)+1;
         ngayKetThuc= cal.get(Calendar.DAY_OF_MONTH);
+        ketThuc=dat_makeDateFormat(ngayKetThuc, thangKetThuc, namKetThuc);
         return makeDateString(ngayKetThuc, thangKetThuc, namKetThuc);
     }
 
     private void initDatePicker()
     {
+        dat_thongKeSuDungMauTheoNhomMau("A", batDau, ketThuc, txtNhomMauA);
+        dat_thongKeSuDungMauTheoNhomMau("B", batDau, ketThuc, txtNhomMauB);
+        dat_thongKeSuDungMauTheoNhomMau("O", batDau, ketThuc, txtNhomMauO);
+        dat_thongKeSuDungMauTheoNhomMau("AB", batDau, ketThuc, txtNhomMauAB);
         DatePickerDialog.OnDateSetListener dateSetListenerStart = new DatePickerDialog.OnDateSetListener()
         {
             @Override
@@ -97,7 +110,12 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
                     thangBatDau=month+1;
                     namBatDau = year;
                     String date = makeDateString(ngayBatDau, thangBatDau, namBatDau);
+                    batDau=dat_makeDateFormat(ngayBatDau, thangBatDau, namBatDau);
                     btnNgayBatDau.setText(date);
+                    dat_thongKeSuDungMauTheoNhomMau("A", batDau, ketThuc, txtNhomMauA);
+                    dat_thongKeSuDungMauTheoNhomMau("B", batDau, ketThuc, txtNhomMauB);
+                    dat_thongKeSuDungMauTheoNhomMau("O", batDau, ketThuc, txtNhomMauO);
+                    dat_thongKeSuDungMauTheoNhomMau("AB", batDau, ketThuc, txtNhomMauAB);
                     txtError.setVisibility(View.INVISIBLE);
                 }
                 else{
@@ -119,7 +137,12 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
                     thangKetThuc=month+1;
                     namKetThuc = year;
                     String date = makeDateString(ngayKetThuc, thangKetThuc, namKetThuc);
+                    ketThuc=dat_makeDateFormat(ngayKetThuc, thangKetThuc, namKetThuc);
                     btnNgayKetThuc.setText(date);
+                    dat_thongKeSuDungMauTheoNhomMau("A", batDau, ketThuc, txtNhomMauA);
+                    dat_thongKeSuDungMauTheoNhomMau("B", batDau, ketThuc, txtNhomMauB);
+                    dat_thongKeSuDungMauTheoNhomMau("O", batDau, ketThuc, txtNhomMauO);
+                    dat_thongKeSuDungMauTheoNhomMau("AB", batDau, ketThuc, txtNhomMauAB);
                     txtError.setVisibility(View.INVISIBLE);
                 }
                 else{
@@ -144,6 +167,39 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
     private String makeDateString(int day, int month, int year)
     {
         return day + " " + getMonthFormat(month) + " " + year;
+    }
+    public String dat_makeDateFormat(int day, int month, int year) {
+        return String.valueOf(year) + "/" +dat_makeMonthFormat(month) + "/" +String.valueOf(day) ;
+    }
+
+    private String dat_makeMonthFormat(int month) {
+        if (month == 1)
+            return "01";
+        if (month == 2)
+            return "02";
+        if (month == 3)
+            return "03";
+        if (month == 4)
+            return "04";
+        if (month == 5)
+            return "05";
+        if (month == 6)
+            return "06";
+        if (month == 7)
+            return "07";
+        if (month == 8)
+            return "08";
+        if (month == 9)
+            return "09";
+        if (month == 10)
+            return "010";
+        if (month == 11)
+            return "11";
+        if (month == 12)
+            return "12";
+
+        //default should never happen
+        return "Tháng 1";
     }
 
     private String getMonthFormat(int month)
@@ -197,5 +253,12 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    public void dat_thongKeSuDungMauTheoNhomMau(String nhomMau, String ngayBatDau, String ngayKetThuc, TextView txt){
+        int result =0;
+        DatabaseHelper db = new DatabaseHelper(getBaseContext());
+        result= db.dat_thongKeSuDungMauTheoNhomMau(nhomMau, ngayBatDau, ngayKetThuc);
+        txt.setText(result + "");
     }
 }

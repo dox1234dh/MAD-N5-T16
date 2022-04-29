@@ -12,7 +12,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.ThongBaoActivity;
 
 public class MainActivityUser extends AppCompatActivity {
 

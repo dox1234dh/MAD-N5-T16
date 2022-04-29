@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/layout_notification"
-    tools:context=".ThongBaoActivity">
+    tools:context=".user.ThongBaoActivity">
 
     <include
         android:id="@+id/dotv_toolbar_thongbao"

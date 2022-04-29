@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.ThongBaoActivity;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 
@@ -56,8 +55,8 @@ public class MainActivityUser extends AppCompatActivity {
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMarker = new Intent(MainActivityUser.this, ThongBaoActivity.class);
-                startActivity(goMarker);
+//                Intent goMarker = new Intent(MainActivityUser.this, Thong.class);
+//                startActivity(goMarker);
             }
         });
         heart.setOnClickListener(new View.OnClickListener() {

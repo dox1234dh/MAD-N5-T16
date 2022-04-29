@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class MainActivityEmployee extends AppCompatActivity {

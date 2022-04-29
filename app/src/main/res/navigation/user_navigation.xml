@@ -17,4 +17,12 @@
         android:id="@+id/mainActivityUser"
         android:name="com.example.mad_n5_t16.user.MainActivityUser"
         android:label="MainActivityUser" />
+    <activity
+        android:id="@+id/danhSachLichHM_Activity"
+        android:name="com.example.mad_n5_t16.TheAnh.Activity.Employee.DanhSachLichHM_Activity"
+        android:label="DanhSachLichHM_Activity" />
+    <activity
+        android:id="@+id/dangKyHienMauActivity"
+        android:name="com.example.mad_n5_t16.user.DangKyHienMauActivity"
+        android:label="DangKyHienMauActivity" />
 </navigation>

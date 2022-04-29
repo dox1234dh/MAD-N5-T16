@@ -6,13 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
-import com.example.mad_n5_t16.ThongBaoActivity;
 
 public class DangKyThanhCongActivity extends AppCompatActivity {
 

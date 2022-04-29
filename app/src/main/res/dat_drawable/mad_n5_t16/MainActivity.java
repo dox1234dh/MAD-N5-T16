@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
+import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.user.LoginActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 import com.example.mad_n5_t16.user.RegisterActivity;
