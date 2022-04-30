@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
@@ -55,10 +56,27 @@ public class MainActivityUser extends AppCompatActivity {
         infor = findViewById(R.id.guest_male);
         infor.setImageResource(R.drawable.guest_male_1);
 
+        txtHoVaTen = findViewById(R.id.textTitle);
+        txtHoVaTen.setText("Trần Văn Đô");
+
+        txtNhomMau = findViewById(R.id.txtSoLanHienMau);
+        txtNhomMau.setText("AB");
+
+        txtSoLanHienMau = findViewById(R.id.txtSoLanHienMau);
+        txtSoLanHienMau.setText("4");
+
+        iconTen = findViewById(R.id.iconTen);
+
+        //carousel
+        mViewPager = (ViewPager) findViewById(R.id.viewPagerMain);
+        mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
+        mViewPager.setAdapter(mViewPagerAdapter);
+
         Intent intent=getIntent();
 
         id = intent.getIntExtra("id",0);
 
+        init(id);
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +94,8 @@ public class MainActivityUser extends AppCompatActivity {
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHistory = new Intent(MainActivityUser.this, MainActivity.class);
+                Intent goHistory = new Intent(MainActivityUser.this, BloodDonationHistoryActivity.class);
+                goHistory.putExtra("id",nguoiHienMau.getId());
                 startActivity(goHistory);
             }
         });
@@ -87,24 +106,6 @@ public class MainActivityUser extends AppCompatActivity {
                 startActivity(goInfor);
             }
         });
-
-        txtHoVaTen = findViewById(R.id.textTitle);
-        txtHoVaTen.setText("Trần Văn Đô");
-
-        txtNhomMau = findViewById(R.id.txtSoLanHienMau);
-        txtNhomMau.setText("AB");
-
-        txtSoLanHienMau = findViewById(R.id.txtSoLanHienMau);
-        txtSoLanHienMau.setText("4");
-
-        iconTen = findViewById(R.id.iconTen);
-
-        //carousel
-        mViewPager = (ViewPager) findViewById(R.id.viewPagerMain);
-        mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
-        mViewPager.setAdapter(mViewPagerAdapter);
-
-        init(id);
     }
 
     protected void init(int id) {
@@ -199,6 +200,5 @@ public class MainActivityUser extends AppCompatActivity {
         txtHoVaTen.setText(nguoiHienMau.getHoTen());
         txtNhomMau.setText(nguoiHienMau.getNhomMau());
         txtSoLanHienMau.setText(soLanHienMau+"");
-
     }
 }
