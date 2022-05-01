@@ -96,7 +96,6 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sqlQuerySDM);
         Toast.makeText(context, "Create Database successfully", Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS tblthoigian");
@@ -235,6 +234,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
         DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         //values.put("");
 
@@ -703,94 +703,3 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 }
-
-//    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.query("tblnguoihienmau", new String[] { "id",
-//                        "ngaySinh","email","soCCCD", "nhomMau", "dienthoai" }, ID + "=?",
-//                new String[] { String.valueOf(id) }, null, null, null, null);
-//        if (cursor != null)
-//            cursor.moveToFirst();
-//
-//        Student student = new Student(cursor.getString(1),cursor.getString(2),cursor.getString(3));
-//        cursor.close();
-//        db.close();
-//        return student;
-//    }
-
-
-//
-//    public Student getSdtudentById(int id){
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.query(TABLE_NAME, new String[] { ID,
-//                        NAME, EMAIL,NUMBER }, ID + "=?",
-//                new String[] { String.valueOf(id) }, null, null, null, null);
-//        if (cursor != null)
-//            cursor.moveToFirst();
-//
-//        Student student = new Student(cursor.getString(1),cursor.getString(2),cursor.getString(3));
-//        cursor.close();
-//        db.close();
-//        return student;
-//    }
-//
-//    public int Update(Student student) {
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        ContentValues values = new ContentValues();
-//
-//        values.put(NAME, student.getName());
-//        values.put(NUMBER, student.getNumber());
-//        values.put(EMAIL, student.getEmail());
-//
-//
-//        return db.update(TABLE_NAME, values, ID + "=?", new String[]{String.valueOf(student.getId())});
-//    }
-//
-//    public int Delete(Student student) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//
-//        values.put(NAME, student.getName());
-//        values.put(NUMBER, student.getNumber());
-//        values.put(EMAIL, student.getEmail());
-//
-//
-//        return db.delete(TABLE_NAME,  ID + "=?", new String[]{String.valueOf(student.getId())});
-//    }
-//
-//    public List<Student> getAllStudent() {
-//
-//        List<Student> listStudent = new ArrayList<Student>();
-//        // Select All Query
-//        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                Student student = new Student();
-//                student.setId(cursor.getInt(0));
-//                student.setName(cursor.getString(1));
-//                student.setEmail(cursor.getString(2));
-//                student.setNumber(cursor.getString(3));
-//                listStudent.add(student);
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//        return listStudent;
-//    }
-//
-//    public int getStudentsCount() {
-//        String countQuery = "SELECT  * FROM " + TABLE_NAME;
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(countQuery, null);
-//        cursor.close();
-//
-//        // return count
-//        return cursor.getCount();
-//    }

@@ -1,7 +1,5 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,13 +9,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mad_n5_t16.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.ThongBaoActivity;
+import com.example.mad_n5_t16.user.DangKyHienMauActivity;
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.LoginActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
@@ -61,7 +61,7 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMarker = new Intent(ThongTinCaNhan_Activity.this, ThongBaoActivity.class);
+                Intent goMarker = new Intent(ThongTinCaNhan_Activity.this, DiaDiem_Activity.class);
                 startActivity(goMarker);
                 finish();
             }
@@ -69,7 +69,7 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(ThongTinCaNhan_Activity.this, MainActivity.class);
+                Intent goHeart = new Intent(ThongTinCaNhan_Activity.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
                 finish();
             }

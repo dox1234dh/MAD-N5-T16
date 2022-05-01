@@ -24,7 +24,7 @@ public class ThongBaoActivity extends AppCompatActivity {
         homeGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHome = new Intent(ThongBaoActivity.this, MainActivity.class);
+                Intent goHome = new Intent(com.example.mad_n5_t16.user.ThongBaoActivity.this, MainActivity.class);
                 startActivity(goHome);
             }
         });

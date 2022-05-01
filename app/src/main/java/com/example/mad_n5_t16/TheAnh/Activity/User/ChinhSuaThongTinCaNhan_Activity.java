@@ -1,5 +1,6 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +19,7 @@ import com.example.mad_n5_t16.R;
 public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
     NguoiHienMau nguoiHienMau;
     EditText txtName, txtDateOfBirth, txtEmail, txtSDT, txtCCCD;
-    Button btnLuuDangKy;
+    Button btnLuuDangKy, btnOkEdit;
     DatabaseHelper databaseHelper;
     TextView txtNameTitle;
     @Override
@@ -38,13 +40,21 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
         btnLuuDangKy = findViewById(R.id.btnLuuThongTinOfFix);
         databaseHelper = new DatabaseHelper(this);
         fillData(nguoiHienMau);
-
+        canEdit(false);
         btnLuuDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getChangedData();
                 databaseHelper.suaThongTinNguoiHienMau(nguoiHienMau);
                 Toast.makeText(ChinhSuaThongTinCaNhan_Activity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnOkEdit.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+                canEdit(true);
+                txtName.setBackgroundColor(getColor(R.color.white));
             }
         });
     }
@@ -63,4 +73,12 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
         nguoiHienMau.setSoCCCD(txtCCCD.getText().toString());
         nguoiHienMau.setDienThoai(txtSDT.getText().toString());
     }
+    public void canEdit(boolean ok){
+        txtName.setEnabled(ok);
+        txtDateOfBirth.setEnabled(ok);
+        txtEmail.setEnabled(ok);
+        txtSDT.setEnabled(ok);
+        txtCCCD.setEnabled(ok);
+    }
+
 }
