@@ -82,6 +82,7 @@ public class MainActivityEmployee extends AppCompatActivity {
     public void clickTest(View view){
         Intent goDetail = new Intent(MainActivityEmployee.this, DangKyHienMauActivityEmployee.class);
         startActivity(goDetail);
+        finish();
     }
 
     public int dat_laysoLuongDangKyHienMau(){
