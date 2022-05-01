@@ -20,6 +20,7 @@ import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
 import com.example.mad_n5_t16.user.DangKyHienMauActivity;
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(DiaDiem_Activity.this, DangKyHienMauActivity.class);
+                Intent goHeart = new Intent(DiaDiem_Activity.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
                 finish();
             }
