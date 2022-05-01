@@ -12,20 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.mad_n5_t16.Model.History;
-<<<<<<< HEAD:app/src/main/java/com/example/mad_n5_t16/user/BloodDonationHistoryActivity.java
-import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.R;
-=======
 import com.example.mad_n5_t16.Model.HistoryAdapter;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.user.DangKyHienMauActivity;
 import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
->>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5:app/src/main/java/com/example/mad_n5_t16/BloodDonationHistoryActivity.java
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,8 +28,8 @@ import java.util.Date;
 public class BloodDonationHistoryActivity extends AppCompatActivity {
     public static final String fileName="data";
     private ListView lvDonationhistory;
-//    HistoryAdapter historyAdapter;
-//    private History[] histories;
+    HistoryAdapter historyAdapter;
+    private History[] histories;
     TextView txtHoVaTen;
     ImageView marker, home, heart, history, infor;
     @Override
@@ -67,24 +62,6 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
         int idNguoiHienMau = sharedPreferences.getInt("idNguoiHienMau",0);
 
-<<<<<<< HEAD:app/src/main/java/com/example/mad_n5_t16/user/BloodDonationHistoryActivity.java
-//        listHistory = dbh.nam_getLichSuHienMauByIdNguoiHienMau(idNguoiHienMau);
-//        int len = listHistory.size();
-//        histories = new History[len];
-//        for(int i = 0; i < histories.length; i++) {
-//            int time = listHistory.get(i).getNumber();
-//            int amount = listHistory.get(i).getAmount();
-//            String location = listHistory.get(i).getLocation();
-//            String date = listHistory.get(i).getDonationDate();
-//            histories[i] = new History(time, amount , location ,date );
-//        }
-//        if(histories.length > 0) {
-//            historyAdapter = new HistoryAdapter(this, histories);
-//            lvDonationhistory.setAdapter(historyAdapter);
-//        }else{
-//            Toast.makeText(this, "Bạn chưa đi hiến máu lần nào", Toast.LENGTH_SHORT).show();
-//        }
-=======
         listHistory = dbh.nam_getLichSuHienMauByIdNguoiHienMau(idNguoiHienMau);
         int len = listHistory.size();
         histories = new History[len];
@@ -134,6 +111,5 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
                 finish();
             }
         });
->>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5:app/src/main/java/com/example/mad_n5_t16/BloodDonationHistoryActivity.java
     }
 }
