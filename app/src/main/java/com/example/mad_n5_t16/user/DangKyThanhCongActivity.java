@@ -30,6 +30,7 @@ public class DangKyThanhCongActivity extends AppCompatActivity {
                 Intent goHome = new Intent(DangKyThanhCongActivity.this, MainActivityUser.class);
                 goHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(goHome);
+//                goHome.putExtra("id",id);
             }
         }, 1000);
     }
