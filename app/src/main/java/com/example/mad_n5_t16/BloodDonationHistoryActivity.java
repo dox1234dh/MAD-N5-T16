@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,12 +15,16 @@ import android.widget.Toast;
 import com.example.mad_n5_t16.Model.History;
 import com.example.mad_n5_t16.Model.HistoryAdapter;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
+import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class BloodDonationHistoryActivity extends AppCompatActivity {
+    public static final String fileName="data";
     private ListView lvDonationhistory;
     HistoryAdapter historyAdapter;
     private History[] histories;
@@ -51,9 +56,9 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         DatabaseHelper dbh = new DatabaseHelper(getBaseContext());
 
         //Sau nay lay gia tri tu nguoi dang nhap
-        Intent intent=getIntent();
 
-        int idNguoiHienMau = intent.getIntExtra("id",1);
+        SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
+        int idNguoiHienMau = sharedPreferences.getInt("idNguoiHienMau",0);
 
         listHistory = dbh.nam_getLichSuHienMauByIdNguoiHienMau(idNguoiHienMau);
         int len = listHistory.size();
@@ -75,30 +80,33 @@ public class BloodDonationHistoryActivity extends AppCompatActivity {
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMarker = new Intent(BloodDonationHistoryActivity.this, ThongBaoActivity.class);
+                Intent goMarker = new Intent(BloodDonationHistoryActivity.this, DiaDiem_Activity.class);
                 startActivity(goMarker);
+                finish();
             }
         });
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(BloodDonationHistoryActivity.this, MainActivity.class);
+                Intent goHeart = new Intent(BloodDonationHistoryActivity.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
+                finish();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goHome = new Intent(BloodDonationHistoryActivity.this, MainActivityUser.class);
-                goHome.putExtra("id", idNguoiHienMau);
                 startActivity(goHome);
+                finish();
             }
         });
         infor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goInfor = new Intent(BloodDonationHistoryActivity.this, MainActivity.class);
+                Intent goInfor = new Intent(BloodDonationHistoryActivity.this, ThongTinCaNhan_Activity.class);
                 startActivity(goInfor);
+                finish();
             }
         });
     }

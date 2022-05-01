@@ -16,6 +16,8 @@ import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
+import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.ThongBaoActivity;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
@@ -82,7 +84,7 @@ public class MainActivityUser extends AppCompatActivity {
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMarker = new Intent(MainActivityUser.this, ThongBaoActivity.class);
+                Intent goMarker = new Intent(MainActivityUser.this, DiaDiem_Activity.class);
                 startActivity(goMarker);
                 finish();
             }
@@ -90,7 +92,7 @@ public class MainActivityUser extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(MainActivityUser.this, MainActivity.class);
+                Intent goHeart = new Intent(MainActivityUser.this, DangKyHienMauActivity.class);
                 startActivity(goHeart);
                 finish();
             }
@@ -106,7 +108,7 @@ public class MainActivityUser extends AppCompatActivity {
         infor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goInfor = new Intent(MainActivityUser.this, MainActivity.class);
+                Intent goInfor = new Intent(MainActivityUser.this, ThongTinCaNhan_Activity.class);
                 startActivity(goInfor);
                 finish();
             }
