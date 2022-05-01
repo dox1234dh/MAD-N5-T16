@@ -1,9 +1,12 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
+import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
 
 import java.util.ArrayList;
 
@@ -59,6 +63,12 @@ public class DiaDiem_Activity extends AppCompatActivity {
                 getData(newText);
                 return true;
             }
+        });
+        ImageView markerNoti = findViewById(R.id.marker);
+        markerNoti.setImageResource(R.drawable.marker_2);
+        markerNoti.setOnClickListener(view -> {
+            Intent goDetail = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
+            startActivity(goDetail);
         });
     }
     public void  getData(String search){

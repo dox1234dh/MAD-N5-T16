@@ -92,9 +92,9 @@ public class MainActivityUser extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(MainActivityUser.this, DangKyHienMauActivity.class);
+                Intent goHeart = new Intent(MainActivityUser.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
-                finish();
+//                finish();
             }
         });
         history.setOnClickListener(new View.OnClickListener() {
