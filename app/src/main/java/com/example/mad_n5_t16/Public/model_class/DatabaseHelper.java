@@ -96,7 +96,6 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sqlQuerySDM);
         Toast.makeText(context, "Create Database successfully", Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS tblthoigian");
@@ -235,6 +234,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
         DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         //values.put("");
 
@@ -292,13 +292,12 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //            " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id" +
 //            " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
 //            "WHERE tbllichhienmau.maDangKyHienMau=
-                "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbllichhienmau " +
-                        " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id " +
-                        " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-                        " INNER JOIN tbldangkyhienmau ON tbllichhienmau.id=tbldangkyhienmau.maLichHienMau " +
-                        " INNER JOIN tblnguoihienmau ON tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id=? " +
-                        "WHERE tblnguoihienmau.id=?";
-        String[] selectionArgs = {id + ""};
+        "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbldangkyhienmau "+
+        " INNER JOIN tbllichhienmau ON tbldangkyhienmau.id = tbllichhienmau.id "+
+        " INNER JOIN tblthoigian ON tblthoigian.id = tbllichhienmau.id "+
+        " INNER JOIN tbldiadiem ON tbldiadiem.id = tbllichhienmau.id " +
+        "WHERE tbldangkyhienmau.maNguoiHienMau=?";
+        String[] selectionArgs = {id+""};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         if (cursor.moveToFirst()) {
             do {
@@ -704,6 +703,8 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 }
+<<<<<<< HEAD
+=======
 
 //    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
 //        SQLiteDatabase db = this.getReadableDatabase();
@@ -795,3 +796,4 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //        // return count
 //        return cursor.getCount();
 //    }
+>>>>>>> 4c5c0d608aa5c0b31264e72db7e729babced8991
