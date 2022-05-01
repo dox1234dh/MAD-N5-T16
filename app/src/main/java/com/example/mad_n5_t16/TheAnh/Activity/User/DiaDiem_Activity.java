@@ -19,6 +19,9 @@ import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
 import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
+import com.example.mad_n5_t16.user.DangKyHienMauActivity;
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
+import com.example.mad_n5_t16.user.DienThongTinDangKyActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
@@ -66,7 +69,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
+                Intent goHeart = new Intent(DiaDiem_Activity.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
                 finish();
             }
@@ -109,5 +112,9 @@ public class DiaDiem_Activity extends AppCompatActivity {
         }
         diaDiemHienMauAdapter = new DiaDiemHienMauAdapter(listDiaDiem ,this, R.layout.item_diadiemhienmau);
         listView.setAdapter(diaDiemHienMauAdapter);
+        listView.setOnItemClickListener((adapterView, view, i, l) -> {
+            Intent intent = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
+            startActivity(intent);
+        });
     }
 }

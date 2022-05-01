@@ -13,9 +13,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.ThoiGian;
+import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
+import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,6 +33,7 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
     ChiTietDiaDiemHienMauItems adapter;
     ListView listView;
     DatabaseHelper dbh;
+    ImageView marker, home, heart, history, infor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +42,6 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
         actionBar.hide();
         TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Lịch hiến máu");
-        ImageView markerNoti = findViewById(R.id.marker);
-        markerNoti.setImageResource(R.drawable.marker_2);
         ls = new ArrayList<>();
         dbh = new DatabaseHelper(getBaseContext());
         ArrayList<ThoiGian> lsTg = dbh.do_getThoiGian();
@@ -51,6 +53,39 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
         adapter = new ChiTietDiaDiemHienMauItems(ls);
         listView = findViewById(R.id.dotv_list_chitietdiadiemhienmau);
         listView.setAdapter(adapter);
+
+
+        //toolbar
+        home = findViewById(R.id.home);
+        home.setImageResource(R.drawable.home_1);
+        marker = findViewById(R.id.marker);
+        marker.setImageResource(R.drawable.marker_2);
+        heart = findViewById(R.id.heart_plus);
+        heart.setImageResource(R.drawable.heart_plus_1);
+        history = findViewById(R.id.order_history);
+        history.setImageResource(R.drawable.order_history_1);
+        infor = findViewById(R.id.guest_male);
+        infor.setImageResource(R.drawable.guest_male_1);
+        home.setOnClickListener(view -> {
+            Intent goHome = new Intent(ChiTietDiaDiemHienMauActivity.this, MainActivityUser.class);
+            startActivity(goHome);
+            finish();
+        });
+        heart.setOnClickListener(view -> {
+            Intent goMarker = new Intent(ChiTietDiaDiemHienMauActivity.this, DanhSachLichHienMauActivity.class);
+            startActivity(goMarker);
+            finish();
+        });
+        history.setOnClickListener(view -> {
+            Intent goHistory = new Intent(ChiTietDiaDiemHienMauActivity.this, BloodDonationHistoryActivity.class);
+            startActivity(goHistory);
+            finish();
+        });
+        infor.setOnClickListener(view -> {
+            Intent goInfor = new Intent(ChiTietDiaDiemHienMauActivity.this, ThongTinCaNhan_Activity.class);
+            startActivity(goInfor);
+            finish();
+        });
     }
     public initDate validate(String date){
         String ngay = "";
