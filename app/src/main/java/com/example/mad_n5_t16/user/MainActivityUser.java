@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +23,9 @@ import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 
 public class MainActivityUser extends AppCompatActivity {
 
+
+
+    public static final String fileName="data";
     TextView txtHoVaTen, txtNhomMau, txtSoLanHienMau;
     ImageView marker, home, heart, history, infor;
     ViewPager mViewPager;
@@ -29,6 +33,8 @@ public class MainActivityUser extends AppCompatActivity {
     int soLanHienMau;
     LinearLayout iconTen;
 
+    SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
+    String data = sharedPreferences.getString("","none");
     // images array
     int[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
             R.drawable.img5, R.drawable.img6};
@@ -88,6 +94,8 @@ public class MainActivityUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goHeart = new Intent(MainActivityUser.this, MainActivity.class);
+                goHeart.putExtra("idNguoiDung",nguoiHienMau.getId());
+                goHeart.putExtra("idTaiKhoan",id);
                 startActivity(goHeart);
             }
         });
@@ -96,6 +104,7 @@ public class MainActivityUser extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goHistory = new Intent(MainActivityUser.this, BloodDonationHistoryActivity.class);
                 goHistory.putExtra("id",nguoiHienMau.getId());
+                goHistory.putExtra("idTK",id);
                 startActivity(goHistory);
             }
         });
