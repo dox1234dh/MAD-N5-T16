@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,8 @@ import com.example.mad_n5_t16.R;
 public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
     NguoiHienMau nguoiHienMau;
     EditText txtName, txtDateOfBirth, txtEmail, txtSDT, txtCCCD;
-    Button btnLuuDangKy, btnOkEdit;
+    ImageView btnOkEdit;
+    Button btnLuuDangKy;
     DatabaseHelper databaseHelper;
     TextView txtNameTitle;
     @Override
@@ -37,6 +39,7 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
         txtEmail = findViewById(R.id.textFixEmail);
         txtSDT = findViewById(R.id.textFixSDT);
         txtCCCD = findViewById(R.id.textFixCCCD);
+        btnOkEdit=findViewById(R.id.imageEditOfFix);
         btnLuuDangKy = findViewById(R.id.btnLuuThongTinOfFix);
         databaseHelper = new DatabaseHelper(this);
         fillData(nguoiHienMau);
