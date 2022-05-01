@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
+import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
+import com.example.mad_n5_t16.employee.MainActivityEmployee;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
     ListView listView;
     SearchView txtSearch;
     TextView txtNameTitle;
+    ImageView markerEmployee, hospitalEmployee, order_historyEmployee;
     DiaDiemHienMauAdapter diaDiemHienMauAdapter;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -40,12 +44,32 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
         txtNameTitle.setText("Địa điểm hiến máu");
         listView = findViewById(R.id.listDiaDiem);
         txtSearch = findViewById(R.id.txtSearch);
+        markerEmployee = findViewById(R.id.markerEmployee);
+        hospitalEmployee = findViewById(R.id.hospitalEmployee);
+        order_historyEmployee = findViewById(R.id.order_historyEmployee);
+
+        markerEmployee.setImageResource(R.drawable.marker_2);
         //getdata
         databaseHelper = new DatabaseHelper(this);
         listDiaDiem = new ArrayList<>();
         getData("");
 
-
+        hospitalEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMarker = new Intent(DiaDiemHienMauActivity.this, MainActivityEmployee.class);
+                startActivity(goMarker);
+                finish();
+            }
+        });
+        order_historyEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHistory = new Intent(DiaDiemHienMauActivity.this, LichSuSuDungMauActivity.class);
+                startActivity(goHistory);
+                finish();
+            }
+        });
         txtSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

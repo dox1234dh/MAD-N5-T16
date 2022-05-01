@@ -53,6 +53,7 @@ public class ThoiGianCuaDiaDiemAdapter extends BaseAdapter {
             viewHolder.textNgay = convertView.findViewById(R.id.textNgay);
             viewHolder.textThang = convertView.findViewById(R.id.textThangNawm);
             viewHolder.textGioDiaDiem = convertView.findViewById(R.id.textViewGioDiaDiem);
+            viewHolder.btnXoa = convertView.findViewById(R.id.imageButtonDelete);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ThoiGianCuaDiaDiemAdapter.ViewHolder) convertView.getTag();
@@ -64,6 +65,12 @@ public class ThoiGianCuaDiaDiemAdapter extends BaseAdapter {
         viewHolder.textThang.setText(lichHienMau.getThoiGian().ThoiGianThang()+"-"+lichHienMau.getThoiGian().ThoiGianNam());
         viewHolder.textGioDiaDiem.setText(lichHienMau.getThoiGian().getGioBatDau()+" - " + lichHienMau.getThoiGian().getGioKetThuc() +
                 "\n" + lichHienMau.getDiaDiem().getTenDiaDiem());
+        viewHolder.btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return convertView;
     }
 }
