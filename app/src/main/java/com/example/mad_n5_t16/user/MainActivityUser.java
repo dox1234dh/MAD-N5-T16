@@ -22,9 +22,6 @@ import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 
 
 public class MainActivityUser extends AppCompatActivity {
-
-
-
     public static final String fileName="data";
     TextView txtHoVaTen, txtNhomMau, txtSoLanHienMau;
     ImageView marker, home, heart, history, infor;
@@ -33,8 +30,6 @@ public class MainActivityUser extends AppCompatActivity {
     int soLanHienMau;
     LinearLayout iconTen;
 
-    SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
-    String data = sharedPreferences.getString("","none");
     // images array
     int[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
             R.drawable.img5, R.drawable.img6};
@@ -80,7 +75,8 @@ public class MainActivityUser extends AppCompatActivity {
 
         Intent intent=getIntent();
 
-        id = intent.getIntExtra("id",0);
+        SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
+        id = sharedPreferences.getInt("id",0);
 
         init(id);
         marker.setOnClickListener(new View.OnClickListener() {
@@ -88,24 +84,23 @@ public class MainActivityUser extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goMarker = new Intent(MainActivityUser.this, ThongBaoActivity.class);
                 startActivity(goMarker);
+                finish();
             }
         });
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goHeart = new Intent(MainActivityUser.this, MainActivity.class);
-                goHeart.putExtra("idNguoiDung",nguoiHienMau.getId());
-                goHeart.putExtra("idTaiKhoan",id);
                 startActivity(goHeart);
+                finish();
             }
         });
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goHistory = new Intent(MainActivityUser.this, BloodDonationHistoryActivity.class);
-                goHistory.putExtra("id",nguoiHienMau.getId());
-                goHistory.putExtra("idTK",id);
                 startActivity(goHistory);
+                finish();
             }
         });
         infor.setOnClickListener(new View.OnClickListener() {
@@ -113,17 +108,24 @@ public class MainActivityUser extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goInfor = new Intent(MainActivityUser.this, MainActivity.class);
                 startActivity(goInfor);
+                finish();
             }
         });
     }
 
     protected void init(int id) {
+
+//        SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
+//        id = sharedPreferences.getInt("id",0);
         //lay thong tin nguoi hien mau
         DatabaseHelper db = new DatabaseHelper(getBaseContext());
         TaiKhoan taiKhoan = new TaiKhoan();
         taiKhoan.setId(id);
         nguoiHienMau = db.dat_getNguoiHienMau(taiKhoan);
         soLanHienMau = db.dat_getSoLanHienMau(nguoiHienMau.getId());
+        SharedPreferences.Editor editor = getSharedPreferences(fileName, MODE_PRIVATE).edit();
+        editor.putInt("idNguoiHienMau", nguoiHienMau.getId());
+        editor.commit();
         String[] temp = nguoiHienMau.getHoTen().split(" ");
         Character icon = temp[temp.length - 1].charAt(0);
         switch (icon) {
