@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +44,7 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 getChangedData();
                 databaseHelper.suaThongTinNguoiHienMau(nguoiHienMau);
+                Toast.makeText(ChinhSuaThongTinCaNhan_Activity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }
