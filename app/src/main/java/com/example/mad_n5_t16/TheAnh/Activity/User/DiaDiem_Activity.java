@@ -4,23 +4,26 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.EditText;
 import android.widget.ImageButton;
+
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mad_n5_t16.Public.UserToolBar;
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
 import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
+import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
     ArrayList<DiaDiem> listDiaDiem;
     ListView listView;
     SearchView txtSearch;
+    ImageView marker, home, heart, history, infor;
     DiaDiemHienMauAdapter diaDiemHienMauAdapter;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -44,13 +48,49 @@ public class DiaDiem_Activity extends AppCompatActivity {
         listDiaDiem = new ArrayList<>();
         getData("");
 
+        home = findViewById(R.id.home);
+        home.setImageResource(R.drawable.home_1);
+        marker = findViewById(R.id.marker);
+        marker.setImageResource(R.drawable.marker_2);
+        heart = findViewById(R.id.heart_plus);
+        heart.setImageResource(R.drawable.heart_plus_1);
+        history = findViewById(R.id.order_history);
+        history.setImageResource(R.drawable.order_history_1);
+        infor = findViewById(R.id.guest_male);
+        infor.setImageResource(R.drawable.guest_male_1);
 
-        UserToolBar bottomBar = new UserToolBar(DiaDiem_Activity.this ,
-                R.layout.activity_mh_diadiemhienmau,
-                findViewById(R.id.home),findViewById(R.id.marker),
-                findViewById(R.id.heart_plus),
-                findViewById(R.id.order_history),
-                findViewById(R.id.guest_male) );
+        infor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMarker = new Intent(DiaDiem_Activity.this, ThongTinCaNhan_Activity.class);
+                startActivity(goMarker);
+                finish();
+            }
+        });
+        heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHeart = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
+                startActivity(goHeart);
+                finish();
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goHistory = new Intent(DiaDiem_Activity.this, MainActivityUser.class);
+                startActivity(goHistory);
+                finish();
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent goHistory = new Intent(DiaDiem_Activity.this, BloodDonationHistoryActivity.class);
+                startActivity(goHistory);
+                finish();
+            }
+        });
         txtSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -63,12 +103,6 @@ public class DiaDiem_Activity extends AppCompatActivity {
                 getData(newText);
                 return true;
             }
-        });
-        ImageView markerNoti = findViewById(R.id.marker);
-        markerNoti.setImageResource(R.drawable.marker_2);
-        markerNoti.setOnClickListener(view -> {
-            Intent goDetail = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
-            startActivity(goDetail);
         });
     }
     public void  getData(String search){
