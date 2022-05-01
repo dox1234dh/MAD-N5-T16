@@ -12,21 +12,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mad_n5_t16.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
-<<<<<<< HEAD
-import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
-import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
-
-=======
 import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.ThongBaoActivity;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
->>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
 
 
 public class MainActivityUser extends AppCompatActivity {
@@ -90,14 +84,9 @@ public class MainActivityUser extends AppCompatActivity {
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
-//                Intent goMarker = new Intent(MainActivityUser.this, Thong.class);
-//                startActivity(goMarker);
-=======
                 Intent goMarker = new Intent(MainActivityUser.this, DiaDiem_Activity.class);
                 startActivity(goMarker);
                 finish();
->>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
             }
         });
         heart.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +94,7 @@ public class MainActivityUser extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goHeart = new Intent(MainActivityUser.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
-                finish();
+//                finish();
             }
         });
         history.setOnClickListener(new View.OnClickListener() {
