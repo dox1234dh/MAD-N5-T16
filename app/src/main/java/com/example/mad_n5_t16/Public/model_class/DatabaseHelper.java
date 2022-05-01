@@ -620,11 +620,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<LichHienMau> getLichHienMau(DiaDiem diaDiem) {
         ArrayList<LichHienMau> lichHienMau = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT tbllichhienmau.id, tbllichhienmau.ghiChu, tblthoigian.ngay,tblthoigian.gioBatDau," +
-                "tblthoigian.gioKetThuc , tbldiadiem.tenDiaDiem FROM tbllichhienmau"
-                + "inner join tblthoigian on tblthoigian.id = tbllichhienmau.maThoiGian " +
+        String query = "SELECT tbllichhienmau.id, tbllichhienmau.ghiChu, tblthoigian.ngay, tblthoigian.gioBatDau, " +
+                "tblthoigian.gioKetThuc , tbldiadiem.tenDiaDiem FROM tbllichhienmau " +
+                "inner join tblthoigian on tblthoigian.id = tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-                "WHERE tbllichienmau.maDiaDiem = ?";
+                "WHERE tbllichhienmau.maDiaDiem=?";
         String[] selectionArgs = {String.valueOf(diaDiem.getId())};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         while (cursor.moveToNext()) {
