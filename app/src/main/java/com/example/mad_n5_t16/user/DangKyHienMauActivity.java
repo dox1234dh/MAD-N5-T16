@@ -13,10 +13,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.LichHienMau;
 import com.example.mad_n5_t16.Public.model_class.ThoiGian;
+import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
+import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,7 @@ public class DangKyHienMauActivity extends AppCompatActivity {
     DangKyHienMauItems adapter;
     ListView listView;
     DatabaseHelper dbh;
+    ImageView marker, home, heart, history, infor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +37,6 @@ public class DangKyHienMauActivity extends AppCompatActivity {
         actionBar.hide();
         TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Chọn lịch hiến máu");
-        ImageView markerNoti = findViewById(R.id.heart_plus);
-        markerNoti.setImageResource(R.drawable.heart_plus_2);
         ls = new ArrayList<>();
         dbh = new DatabaseHelper(getBaseContext());
         ArrayList<LichHienMau> lsDiaDiem = dbh.do_laydsdiadiemhienmau();
@@ -60,10 +62,41 @@ public class DangKyHienMauActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(DangKyHienMauActivity.this, DienThongTinDangKyActivity.class);
-//                String message = "abc";
-//                intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
             }
+        });
+
+        //toolbar
+        ImageView markerNoti = findViewById(R.id.heart_plus);
+        markerNoti.setImageResource(R.drawable.heart_plus_2);
+        home = findViewById(R.id.home);
+        home.setImageResource(R.drawable.home_1);
+        marker = findViewById(R.id.marker);
+        marker.setImageResource(R.drawable.marker_1);
+        heart = findViewById(R.id.heart_plus);
+        history = findViewById(R.id.order_history);
+        history.setImageResource(R.drawable.order_history_1);
+        infor = findViewById(R.id.guest_male);
+        infor.setImageResource(R.drawable.guest_male_1);
+        home.setOnClickListener(view -> {
+            Intent goHome = new Intent(DangKyHienMauActivity.this, MainActivityUser.class);
+            startActivity(goHome);
+            finish();
+        });
+        marker.setOnClickListener(view -> {
+            Intent goMarker = new Intent(DangKyHienMauActivity.this, DiaDiem_Activity.class);
+            startActivity(goMarker);
+            finish();
+        });
+        history.setOnClickListener(view -> {
+            Intent goHistory = new Intent(DangKyHienMauActivity.this, BloodDonationHistoryActivity.class);
+            startActivity(goHistory);
+            finish();
+        });
+        infor.setOnClickListener(view -> {
+            Intent goInfor = new Intent(DangKyHienMauActivity.this, ThongTinCaNhan_Activity.class);
+            startActivity(goInfor);
+            finish();
         });
     }
 }

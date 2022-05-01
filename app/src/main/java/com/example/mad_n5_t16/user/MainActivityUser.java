@@ -105,7 +105,7 @@ public class MainActivityUser extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goHeart = new Intent(MainActivityUser.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
-                finish();
+//                finish();
             }
         });
         history.setOnClickListener(new View.OnClickListener() {
