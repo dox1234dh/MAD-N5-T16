@@ -61,10 +61,18 @@
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main_employee.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main_user.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_diadiemhienmau.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_employee_diadiemhienmau.xml" value="0.1" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_thongtincanhan.xml" value="0.21125541125541125" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_starter.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dat_toolbar_btn_tro_ve.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_danhsachlichhienmau.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_dangsachlichhienmau.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_dienthongtindangky.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_thongbao.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item_diadiemhienmau.xml" value="0.12" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item_dshienmau_employee.xml" value="0.4" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item_history.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/list_item_dshienmau_employee.xml" value="0.21403508771929824" />
