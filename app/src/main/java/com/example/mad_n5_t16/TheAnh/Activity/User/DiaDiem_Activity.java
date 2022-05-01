@@ -5,9 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
-import android.widget.EditText;
-import android.widget.ImageButton;
-
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -17,7 +14,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.BloodDonationHistoryActivity;
-import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
