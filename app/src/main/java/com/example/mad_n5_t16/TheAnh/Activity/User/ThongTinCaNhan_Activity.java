@@ -4,16 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.ThongBaoActivity;
+import com.example.mad_n5_t16.user.LoginActivity;
+import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.io.Serializable;
 
@@ -24,6 +30,8 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
     public  static Activity activity;
     private NguoiHienMau nguoiHienMau;
     DatabaseHelper databaseHelper;
+    ImageView marker, home, heart, history, infor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,33 +48,68 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         //setup toolBar
         activity = this;
-        UserToolBar bottomBar = new UserToolBar(this ,
-                R.layout.activity_mh_thongtincanhan,
-                findViewById(R.id.home),findViewById(R.id.marker),
-                findViewById(R.id.heart_plus),
-                findViewById(R.id.order_history),
-                findViewById(R.id.guest_male) );
+        home = findViewById(R.id.home);
+        home.setImageResource(R.drawable.home_1);
+        marker = findViewById(R.id.marker);
+        marker.setImageResource(R.drawable.marker_1);
+        heart = findViewById(R.id.heart_plus);
+        heart.setImageResource(R.drawable.heart_plus_1);
+        history = findViewById(R.id.order_history);
+        history.setImageResource(R.drawable.order_history_1);
+        infor = findViewById(R.id.guest_male);
+        infor.setImageResource(R.drawable.marker_2);
 
-        //getdata  id,String taiKhoan, String matKhau, String hoTen, String vaiTro, String ngaySinh, String email,
-        // String soCCCD, String nhomMau, String dienThoai) {
-        nguoiHienMau = new NguoiHienMau(1,
-                "theanh",
-                "theanh",
-                "theanh",
-                "nguoihien",
-                "08/09/2000",
-                "Theanh@gmail.com",
-                "0121313123121",
-                "B",
-                "0182918911"
-                );
+        marker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMarker = new Intent(ThongTinCaNhan_Activity.this, ThongBaoActivity.class);
+                startActivity(goMarker);
+                finish();
+            }
+        });
+        heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHeart = new Intent(ThongTinCaNhan_Activity.this, MainActivity.class);
+                startActivity(goHeart);
+                finish();
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goHistory = new Intent(ThongTinCaNhan_Activity.this, MainActivityUser.class);
+                startActivity(goHistory);
+                finish();
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent goHistory = new Intent(ThongTinCaNhan_Activity.this, BloodDonationHistoryActivity.class);
+                startActivity(goHistory);
+                finish();
+            }
+        });
+
         btnThongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ThongTinCaNhan_Activity.this, ChinhSuaThongTinCaNhan_Activity.class);
                 intent.putExtra("data", (Serializable) nguoiHienMau);
                 startActivity(intent);
+                finish();
             }
         });
+        btnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goHistory = new Intent(ThongTinCaNhan_Activity.this, LoginActivity.class);
+                startActivity(goHistory);
+            }
+        });
+    }
+    public void filldata(){
+
     }
 }

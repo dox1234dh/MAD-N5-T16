@@ -40,8 +40,8 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 ID + " integer primary key, " +
                 "taiKhoan" + " TEXT, " +
                 "matKhau" + " TEXT, " +
-                "maNhanVien integer," +
-                "maNguoiHienMau integer," +
+                "maNhanVien INTEGER," +
+                "maNguoiHienMau INTEGER," +
                 "hoTen" + " TEXT, " +
                 "vaiTro" + " TEXT," +
                 "FOREIGN KEY (maNhanVien) REFERENCES tblnhanvien (id)," +
@@ -66,20 +66,22 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "gioKetThuc TEXT)";
         String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
                 ID + " integer primary key," +
-                "maDangKyHienMau integer," +
+                "maDangKyHienMau INTEGER," +
                 "ngaySuDung TEXT," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
         String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
-                ID + " integer primary key," +
-                "maNguoiHienMau integer," +
-                "luongMau integer," +
+                ID + " integer primary key, " +
+                "maNguoiHienMau INTEGER, " +
+                "maLichHienMau INTEGER, "+
+                "luongMau integer ," +
+                "FOREIGN KEY(maLichHienMau) REFERENCES tbldangkyhienmau(id), " +
                 "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
         String sqlQueryLHM = "CREATE TABLE " + "tbllichhienmau" + " (" +
-                ID + " integer primary key, " +
+                ID + " INTEGER primary key, " +
                 "ghiChu TEXT, " +
-                "maDangKyHienMau integer," +
-                "maThoiGian integer," +
-                "maDiaDiem integer," +
+                "maDangKyHienMau INTEGER," +
+                "maThoiGian INTEGER," +
+                "maDiaDiem INTEGER," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id)," +
                 "FOREIGN KEY (maThoiGian) REFERENCES tblthoigian (id)," +
                 "FOREIGN KEY (maDiaDiem) REFERENCES tbldiadiem (id))";
@@ -239,11 +241,20 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<DangKyHienMau> dat_layDSDangKyHienMau() {
         ArrayList<DangKyHienMau> result = new ArrayList<DangKyHienMau>();
         SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
+//                "FROM tblthoigian inner join tbllichhienmau " +
+//                "on tblthoigian.id=tbllichhienmau.maThoiGian " +
+//                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+//                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+//                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
+//                "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
+//                "WHERE tblthoigian.ngay=?";
+
         String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
                 "FROM tblthoigian inner join tbllichhienmau " +
                 "on tblthoigian.id=tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+                "inner join tbldangkyhienmau on tbllichhienmau.id= tbldangkyhienmau.maLichHienMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
                 "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
                 "WHERE tblthoigian.ngay=?";
@@ -275,10 +286,16 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<LichHienMau> result = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String query =
-            "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbllichhienmau" +
-            " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id" +
-            " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-            "WHERE tbllichhienmau.maDangKyHienMau=?";
+//            "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbllichhienmau" +
+//            " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id" +
+//            " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+//            "WHERE tbllichhienmau.maDangKyHienMau=
+        "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbllichhienmau "+
+       " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id "+
+       " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id "+
+       " INNER JOIN tbldangkyhienmau ON tbllichhienmau.id=tbldangkyhienmau.maLichHienMau "+
+       " INNER JOIN tblnguoihienmau ON tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id=? "+
+        "WHERE tblnguoihienmau.id=?";
         String[] selectionArgs = {id+""};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         if (cursor.moveToFirst()) {
@@ -354,10 +371,19 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public int dat_laySoLuongDangKyHienMau() {
         int result=0;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
+//        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
+//                "on tblthoigian.id=tbllichhienmau.maThoiGian " +
+//                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+//                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+//                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
+//                "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
+//                "WHERE tblthoigian.ngay=?";
+
+        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
+                "FROM tblthoigian inner join tbllichhienmau " +
                 "on tblthoigian.id=tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+                "inner join tbldangkyhienmau on tbllichhienmau.id= tbldangkyhienmau.maLichHienMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
                 "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
                 "WHERE tblthoigian.ngay=?";
@@ -413,9 +439,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public int dat_thongKeSuDungMauTheoNhomMau(String nhomMau, String ngayBatDau,String ngayKetThuc ){
         int result= 0;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau inner join " +
-                "tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau inner join " +
-                "tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
+        String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau " +
+                "inner join tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau " +
+                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
                 "WHERE tblnguoihienmau.nhomMau=? " +
                 "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)>=?" +
                 "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)<=?";
@@ -545,7 +571,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT tbldangkyhienmau.luongMau, tbldiadiem.tenDiaDiem, tblthoigian.ngay  FROM tbldangkyhienmau " +
-                "inner join tbllichhienmau on tbldangkyhienmau.id = tbllichhienmau.maDangKyHienMau " +
+                "inner join tbllichhienmau on tbldangkyhienmau.maLichHienMau = tbllichhienmau.id " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
                 "inner join tblthoigian on tbllichhienmau.maThoiGian = tblthoigian.id " +
                 "WHERE tbldangkyhienmau.luongMau > 0 AND tbldangkyhienmau.maNguoiHienMau = ?";
