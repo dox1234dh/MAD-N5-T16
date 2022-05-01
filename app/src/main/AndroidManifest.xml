@@ -60,7 +60,7 @@
             android:name=".user.MainActivityUser"
             android:exported="false" />
         <activity
-            android:name=".BloodDonationHistoryActivity"
+            android:name=".user.BloodDonationHistoryActivity"
             android:exported="false" />
         <activity
             android:name=".employee.MainActivityEmployee"
@@ -72,11 +72,11 @@
             android:name=".user.LoginActivity"
             android:exported="false">
         </activity>
-<!--        <activity-->
-<!--            android:name=".ThongBaoActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="Thông báo"-->
-<!--            android:parentActivityName=".MainActivity" />-->
+        <!--        <activity-->
+        <!--            android:name=".ThongBaoActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:label="Thông báo"-->
+        <!--            android:parentActivityName=".MainActivity" />-->
     </application>
 
 </manifest>

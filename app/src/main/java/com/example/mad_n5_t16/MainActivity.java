@@ -25,6 +25,9 @@ import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.user.LoginActivity;
 import com.example.mad_n5_t16.user.RegisterActivity;
 
+import com.example.mad_n5_t16.user.LoginActivity;
+import com.example.mad_n5_t16.user.RegisterActivity;
+
 public class MainActivity extends AppCompatActivity {
     private Button btnMHThongBao;
     private Button btnMHDangKyThanhCong;
@@ -73,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
         btnMHThongBao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+//                startActivity(intent);
             }
         });
 

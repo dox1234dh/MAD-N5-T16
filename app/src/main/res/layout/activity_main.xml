@@ -86,6 +86,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hướng đến MH Chính Employee" />
+    <Button
+        android:id="@+id/btnThongtinnguoidung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đến thông tin người dùng" />
+
+    <Button
+        android:id="@+id/btnMHChinhEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hướng đến MH Chính Employee" />
 
             <Button
                 android:id="@+id/btnThongtinnguoidung"

@@ -54,8 +54,8 @@
                 <TextView
                     android:id="@+id/textChonNgay"
                     android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:background="@color/white"
+                    android:layout_height="50dp"
+                    android:background="@drawable/reatangletrang"
                     android:layout_margin="20dp"
                     android:layout_weight="3"
                     android:gravity="center"
@@ -98,8 +98,8 @@
                 <TextView
                     android:id="@+id/textChonGioBatDau"
                     android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:background="@color/white"
+                    android:layout_height="50dp"
+                    android:background="@drawable/reatangletrang"
                     android:layout_margin="20dp"
                     android:layout_weight="3"
                     android:gravity="center"
@@ -142,8 +142,8 @@
                 <TextView
                     android:id="@+id/textChonGioKetThuc"
                     android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:background="@color/white"
+                    android:layout_height="50dp"
+                    android:background="@drawable/reatangletrang"
                     android:layout_margin="20dp"
                     android:layout_weight="3"
                     android:gravity="center"
