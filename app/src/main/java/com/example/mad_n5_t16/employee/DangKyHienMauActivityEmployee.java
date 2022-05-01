@@ -46,7 +46,7 @@ public class DangKyHienMauActivityEmployee extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        txtHoVaTen = findViewById(R.id.txtHoVaTen);
+        txtHoVaTen = findViewById(R.id.textTitle);
         txtHoVaTen.setText("Đơn đăng ký hôm nay");
 
        ArrayList<DangKyHienMau> dsDangKyHienMau = dat_laydsDangKyHienMau();

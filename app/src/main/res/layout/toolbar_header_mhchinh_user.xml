@@ -26,7 +26,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/txtHoVaTen"
+            android:id="@+id/textTitle"
             android:layout_width="287dp"
             android:layout_height="41dp"
             android:layout_gravity="center_vertical"

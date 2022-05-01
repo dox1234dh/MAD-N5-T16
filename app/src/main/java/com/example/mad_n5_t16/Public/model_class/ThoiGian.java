@@ -11,7 +11,12 @@ public class ThoiGian {
         this.gioBatDau = gioBatDau;
         this.gioKetThuc = gioKetThuc;
     }
+<<<<<<< HEAD:app/src/main/java/com/example/mad_n5_t16/Public/model_class/ThoiGian.java
 
+=======
+    public ThoiGian(){
+    }
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5:app/src/main/java/com/example/mad_n5_t16/model_class/ThoiGian.java
     public String ThoiGianNgay() {
         return ngay.substring(8,10);
     }

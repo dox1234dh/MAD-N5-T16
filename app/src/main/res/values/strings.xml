@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MAD-N5-T16</string>
+<<<<<<< HEAD
     <!-- TODO: Remove or change this placeholder text -->
+=======
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

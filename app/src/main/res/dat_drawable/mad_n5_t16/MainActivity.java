@@ -9,7 +9,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
+<<<<<<< HEAD
 import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
+=======
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
 import com.example.mad_n5_t16.user.LoginActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 import com.example.mad_n5_t16.user.RegisterActivity;

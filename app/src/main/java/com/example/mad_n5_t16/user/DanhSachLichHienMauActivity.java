@@ -15,33 +15,47 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
+<<<<<<< HEAD
+=======
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DanhSachLichHienMauActivity extends AppCompatActivity {
     ArrayList<ItemModelDanhSachLichHienMauActivity> ls;
     DanhSachLichHienMauItem adapter;
     ListView listView;
     ImageButton add;
+    DatabaseHelper dbh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dotv_layout_danhsachlichhienmau);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        TextView toolbar = findViewById(R.id.txtHoVaTen);
+        TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Lịch hiến máu của tôi");
         ImageView markerNoti = findViewById(R.id.heart_plus);
         markerNoti.setImageResource(R.drawable.heart_plus_2);
         ls = new ArrayList<>();
+        dbh = new DatabaseHelper(getBaseContext());
+        // fix cứng tìm khánh hàng có id mã đăng ký hiến máu 1
+        ArrayList<LichHienMau> data = dbh.do_layDsLichHienMau(1);
         // Lay data
-        ls.add(new ItemModelDanhSachLichHienMauActivity("28","T2-2022","07:30 - 11:00","Viện Huyết học - Truyền máu TW, Địa điểm :Phạm Văn Bạch, Yên Hòa, Cầu Giấy, Hà Nội"));
-        ls.add(new ItemModelDanhSachLichHienMauActivity("28","T2-2022","07:30 - 11:00","Phòng khám Đa Khoa Số 26 Phố Lương Ngọc Quyển, Hoàn Kiếm, Hà Nội"));
-        ls.add(new ItemModelDanhSachLichHienMauActivity("28","T2-2022","07:30 - 11:00","Phòng khám Đa Khoa Số 26 Phố Lương Ngọc Quyển, Hoàn Kiếm, Hà Nội"));
-        ls.add(new ItemModelDanhSachLichHienMauActivity("28","T2-2022","07:30 - 11:00","Phòng khám Đa Khoa Số 26 Phố Lương Ngọc Quyển, Hoàn Kiếm, Hà Nội"));
-        ls.add(new ItemModelDanhSachLichHienMauActivity("28","T2-2022","07:30 - 11:00","Phòng khám Đa Khoa Số 26 Phố Lương Ngọc Quyển, Hoàn Kiếm, Hà Nội"));
-        ls.add(new ItemModelDanhSachLichHienMauActivity("28","T2-2022","07:30 - 11:00","Phòng khám Đa Khoa Số 26 Phố Lương Ngọc Quyển, Hoàn Kiếm, Hà Nội"));
-
+        for(int i=0;i<data.size();++i){
+            initDate date = validate(data.get(i).getThoiGian().getNgay());
+            ls.add(new ItemModelDanhSachLichHienMauActivity(
+                    date.ngay,
+                    date.thang_nam,
+                    data.get(i).getThoiGian().getGioBatDau() + " - " + data.get(i).getThoiGian().getGioKetThuc(),
+                    data.get(i).getDiaDiem().getTenDiaDiem()));
+        }
         adapter = new DanhSachLichHienMauItem(ls);
         listView = findViewById(R.id.dotv_list_danhsachlichhienmau);
         listView.setAdapter(adapter);
@@ -53,6 +67,22 @@ public class DanhSachLichHienMauActivity extends AppCompatActivity {
                 startActivity(dangky);
             }
         });
+    }
+    public initDate validate(String date){
+        String ngay = "";
+        String thang_nam = "";
+        SimpleDateFormat sfd = new SimpleDateFormat("yyyy/MM/dd");
+        Date result;
+        try {
+            result = sfd.parse(date);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(result);
+            thang_nam ="T"+ cal.get(Calendar.MONTH) +"-"+cal.get(Calendar.YEAR);
+            ngay = cal.get(Calendar.DAY_OF_MONTH) + "";
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new initDate(ngay, thang_nam);
     }
 }
 

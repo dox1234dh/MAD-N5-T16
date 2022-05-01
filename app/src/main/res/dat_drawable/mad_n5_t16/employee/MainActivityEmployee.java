@@ -22,7 +22,7 @@ public class MainActivityEmployee extends AppCompatActivity {
         setContentView(R.layout.activity_main_employee);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        txtHeader = findViewById(R.id.txtHoVaTen);
+        txtHeader = findViewById(R.id.textTitle);
         txtHeader.setText("Chào mừng đến với ngân hàng máu");
 
         markerEmployee = findViewById(R.id.markerEmployee);

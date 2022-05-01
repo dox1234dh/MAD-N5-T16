@@ -20,7 +20,7 @@ public class DienThongTinDangKyActivity extends AppCompatActivity {
         setContentView(R.layout.dotv_layout_dienthongtindangky);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        TextView toolbar = findViewById(R.id.txtHoVaTen);
+        TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Thông tin đăng ký");
 
         View cau1 = findViewById(R.id.dotv_cauhoi_1_dienthongtindangky);

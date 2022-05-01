@@ -39,7 +39,7 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
         txtNhomMauO = findViewById(R.id.txtNhomMauOThongKe);
         txtNhomMauAB = findViewById(R.id.txtNhomMauABThongKe);
 
-        txtHeader = findViewById(R.id.txtHoVaTen);
+        txtHeader = findViewById(R.id.textTitle);
         txtHeader.setText("Thống kê sử dụng máu");
 
         txtError = findViewById(R.id.txtError);

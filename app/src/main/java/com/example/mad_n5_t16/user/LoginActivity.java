@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ import com.example.mad_n5_t16.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    public static final String fileName="data";
     EditText ettUsername;
     EditText etpPassword;
     Button btnLogin;
@@ -44,10 +47,14 @@ public class LoginActivity extends AppCompatActivity {
                     // đăng nhập thành công
                     // kiểm tra xem tài khoản thuộc về nhân viên hay người hiến máu
                     if (taiKhoan.getVaiTro().equals("khachhang")) {
+
+                        SharedPreferences.Editor editor = getSharedPreferences(fileName, MODE_PRIVATE).edit();
+                        editor.putInt("id",taiKhoan.getId());
+                        editor.commit();
                         // nếu là người hiến máu thì
                         // tạo một NguoiHienMau và put extra sang cho màn hình chính của người hiến máu
                         Intent intent = new Intent(LoginActivity.this, MainActivityUser.class);
-                        intent.putExtra("id", taiKhoan.getId());
+                        //intent.putExtra("id", taiKhoan.getId());
                         startActivity(intent);
                         finish();
                     } else if (taiKhoan.getVaiTro().equals("nhanvien")) {

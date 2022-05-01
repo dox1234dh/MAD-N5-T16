@@ -10,14 +10,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+<<<<<<< HEAD:app/src/main/java/com/example/mad_n5_t16/user/RegisterActivity.java
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
+=======
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5:app/src/main/java/com/example/mad_n5_t16/RegisterActivity.java
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+<<<<<<< HEAD:app/src/main/java/com/example/mad_n5_t16/user/RegisterActivity.java
+=======
+import com.example.mad_n5_t16.R;
+
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5:app/src/main/java/com/example/mad_n5_t16/RegisterActivity.java
 public class RegisterActivity extends AppCompatActivity {
 
     EditText ettUsernameregister, etpPasswordregister, etpPasswordregisteragain, ettCCCD;

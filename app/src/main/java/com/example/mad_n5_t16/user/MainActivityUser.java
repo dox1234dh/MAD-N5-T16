@@ -5,21 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
+<<<<<<< HEAD
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 
+=======
+import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
+import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
+import com.example.mad_n5_t16.ThongBaoActivity;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
+
 
 public class MainActivityUser extends AppCompatActivity {
-
+    public static final String fileName="data";
     TextView txtHoVaTen, txtNhomMau, txtSoLanHienMau;
     ImageView marker, home, heart, history, infor;
     ViewPager mViewPager;
@@ -33,6 +44,8 @@ public class MainActivityUser extends AppCompatActivity {
 
     // Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapter;
+
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,36 +65,7 @@ public class MainActivityUser extends AppCompatActivity {
         infor = findViewById(R.id.guest_male);
         infor.setImageResource(R.drawable.guest_male_1);
 
-        marker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent goMarker = new Intent(MainActivityUser.this, Thong.class);
-//                startActivity(goMarker);
-            }
-        });
-        heart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goHeart = new Intent(MainActivityUser.this, MainActivity.class);
-                startActivity(goHeart);
-            }
-        });
-        history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goHistory = new Intent(MainActivityUser.this, MainActivity.class);
-                startActivity(goHistory);
-            }
-        });
-        infor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goInfor = new Intent(MainActivityUser.this, MainActivity.class);
-                startActivity(goInfor);
-            }
-        });
-
-        txtHoVaTen = findViewById(R.id.txtHoVaTen);
+        txtHoVaTen = findViewById(R.id.textTitle);
         txtHoVaTen.setText("Trần Văn Đô");
 
         txtNhomMau = findViewById(R.id.txtSoLanHienMau);
@@ -97,16 +81,64 @@ public class MainActivityUser extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(MainActivityUser.this, images);
         mViewPager.setAdapter(mViewPagerAdapter);
 
-        init();
+        Intent intent=getIntent();
+
+        SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
+        id = sharedPreferences.getInt("id",0);
+
+        init(id);
+        marker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+<<<<<<< HEAD
+//                Intent goMarker = new Intent(MainActivityUser.this, Thong.class);
+//                startActivity(goMarker);
+=======
+                Intent goMarker = new Intent(MainActivityUser.this, DiaDiem_Activity.class);
+                startActivity(goMarker);
+                finish();
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
+            }
+        });
+        heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHeart = new Intent(MainActivityUser.this, DanhSachLichHienMauActivity.class);
+                startActivity(goHeart);
+                finish();
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHistory = new Intent(MainActivityUser.this, BloodDonationHistoryActivity.class);
+                startActivity(goHistory);
+                finish();
+            }
+        });
+        infor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goInfor = new Intent(MainActivityUser.this, ThongTinCaNhan_Activity.class);
+                startActivity(goInfor);
+                finish();
+            }
+        });
     }
 
-    protected void init() {
+    protected void init(int id) {
+
+//        SharedPreferences sharedPreferences = getSharedPreferences(fileName, MODE_PRIVATE);
+//        id = sharedPreferences.getInt("id",0);
         //lay thong tin nguoi hien mau
         DatabaseHelper db = new DatabaseHelper(getBaseContext());
         TaiKhoan taiKhoan = new TaiKhoan();
-        taiKhoan.setId(2);
+        taiKhoan.setId(id);
         nguoiHienMau = db.dat_getNguoiHienMau(taiKhoan);
         soLanHienMau = db.dat_getSoLanHienMau(nguoiHienMau.getId());
+        SharedPreferences.Editor editor = getSharedPreferences(fileName, MODE_PRIVATE).edit();
+        editor.putInt("idNguoiHienMau", nguoiHienMau.getId());
+        editor.commit();
         String[] temp = nguoiHienMau.getHoTen().split(" ");
         Character icon = temp[temp.length - 1].charAt(0);
         switch (icon) {
@@ -192,6 +224,5 @@ public class MainActivityUser extends AppCompatActivity {
         txtHoVaTen.setText(nguoiHienMau.getHoTen());
         txtNhomMau.setText(nguoiHienMau.getNhomMau());
         txtSoLanHienMau.setText(soLanHienMau+"");
-
     }
 }

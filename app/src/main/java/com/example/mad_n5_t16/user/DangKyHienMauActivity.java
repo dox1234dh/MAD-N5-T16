@@ -14,6 +14,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
+import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 
 import java.util.ArrayList;
 
@@ -21,21 +24,34 @@ public class DangKyHienMauActivity extends AppCompatActivity {
     ArrayList<ItemModelDangKyHienMauActivity> ls;
     DangKyHienMauItems adapter;
     ListView listView;
+    DatabaseHelper dbh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dotv_layout_dangkyhienmau);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        TextView toolbar = findViewById(R.id.txtHoVaTen);
+        TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Chọn lịch hiến máu");
         ImageView markerNoti = findViewById(R.id.heart_plus);
         markerNoti.setImageResource(R.drawable.heart_plus_2);
         ls = new ArrayList<>();
+        dbh = new DatabaseHelper(getBaseContext());
+        ArrayList<LichHienMau> lsDiaDiem = dbh.do_laydsdiadiemhienmau();
+        ArrayList<LichHienMau> lsCount = dbh.do_getCountnguoidangky();
         // Lay data
-        ls.add(new ItemModelDangKyHienMauActivity("Viện Huyết học - Truyền máu TW, Phạm Văn Bạch, Yên Hòa, Cầu Giấy, Hà Nội", "Thời gian :  07:30 - 11:00, Thứ 2, 28-02-2020","Số người đã đăng ký : 10"));
-        ls.add(new ItemModelDangKyHienMauActivity("Viện Huyết học - Truyền máu TW, Phạm Văn Bạch, Yên Hòa, Cầu Giấy, Hà Nội", "Thời gian :  07:30 - 11:00, Thứ 2, 28-02-2020","Số người đã đăng ký : 10"));
-        ls.add(new ItemModelDangKyHienMauActivity("Viện Huyết học - Truyền máu TW, Phạm Văn Bạch, Yên Hòa, Cầu Giấy, Hà Nội", "Thời gian :  07:30 - 11:00, Thứ 2, 28-02-2020","Số người đã đăng ký : 10"));
+        for(int i = 0 ;i<lsDiaDiem.size();++i){
+            for(int j=0;j<lsCount.size();++j)
+                if(lsDiaDiem.get(i).getDiaDiem().getId() == lsCount.get(j).getDiaDiem().getId()
+                && lsDiaDiem.get(i).getThoiGian().getId() == lsCount.get(j).getThoiGian().getId()){
+                    lsDiaDiem.get(i).setGhiChu(lsCount.get(j).getGhiChu());
+                    break;
+                }
+            ls.add(new ItemModelDangKyHienMauActivity(lsDiaDiem.get(i).getDiaDiem().getTenDiaDiem(),
+                    "Thời gian :  " + lsDiaDiem.get(i).getThoiGian().getGioBatDau() +" - " + lsDiaDiem.get(i).getThoiGian().getGioKetThuc()
+                            +" "+ lsDiaDiem.get(i).getThoiGian().getNgay(),
+                    "Số người đã đăng ký : "+ lsDiaDiem.get(i).getGhiChu()));
+        }
 
         adapter = new DangKyHienMauItems(ls);
         listView = findViewById(R.id.dotv_list_dangkyhienmau);
@@ -43,7 +59,7 @@ public class DangKyHienMauActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(DangKyHienMauActivity.this, ChiTietDiaDiemHienMauActivity.class);
+                Intent intent = new Intent(DangKyHienMauActivity.this, DienThongTinDangKyActivity.class);
 //                String message = "abc";
 //                intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);

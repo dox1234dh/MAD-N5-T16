@@ -7,7 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/layout_notification"
+<<<<<<< HEAD
     tools:context=".user.ThongBaoActivity">
+=======
+    tools:context=".ThongBaoActivity">
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
 
     <include
         android:id="@+id/dotv_toolbar_thongbao"
@@ -32,10 +36,16 @@
         <ListView
             android:id="@+id/dotv_danhsachthongbao"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10.0sp">
         </ListView>
     </LinearLayout>
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
@@ -45,6 +55,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/shadow_bottom_up" />
+=======
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="47dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/include2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:srcCompat="@drawable/shadow_bottom_up" />-->
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
 
     <include
         android:id="@+id/dotv_footer_thongbao"

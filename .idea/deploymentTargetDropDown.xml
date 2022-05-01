@@ -7,11 +7,19 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
+<<<<<<< HEAD
             <value value="$USER_HOME$/.android/avd/Pixel_2_XL_API_26.avd" />
+=======
+            <value value="C:\Users\Asus\.android\avd\Nexus_4_API_22.avd" />
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
+<<<<<<< HEAD
     <timeTargetWasSelectedWithDropDown value="2022-04-24T09:59:08.737945Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2022-04-29T07:29:04.319824900Z" />
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
   </component>
 </project>

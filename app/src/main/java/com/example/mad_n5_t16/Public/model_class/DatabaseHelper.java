@@ -9,6 +9,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.mad_n5_t16.Model.History;
+import com.example.mad_n5_t16.Public.model_class.DangKyHienMau;
+import com.example.mad_n5_t16.Public.model_class.DiaDiem;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
+import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
+import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
+import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -34,8 +40,8 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 ID + " integer primary key, " +
                 "taiKhoan" + " TEXT, " +
                 "matKhau" + " TEXT, " +
-                "maNhanVien integer," +
-                "maNguoiHienMau integer," +
+                "maNhanVien INTEGER," +
+                "maNguoiHienMau INTEGER," +
                 "hoTen" + " TEXT, " +
                 "vaiTro" + " TEXT," +
                 "FOREIGN KEY (maNhanVien) REFERENCES tblnhanvien (id)," +
@@ -60,21 +66,27 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "gioKetThuc TEXT)";
         String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
                 ID + " integer primary key," +
-                "maDangKyHienMau integer," +
+                "maDangKyHienMau INTEGER," +
                 "ngaySuDung TEXT," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
         String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
-                ID + " integer primary key," +
-                "maNguoiHienMau integer," +
-                "luongMau integer," +
+                ID + " integer primary key, " +
+                "maNguoiHienMau INTEGER, " +
+                "maLichHienMau INTEGER, "+
+                "luongMau integer ," +
+                "FOREIGN KEY(maLichHienMau) REFERENCES tbldangkyhienmau(id), " +
                 "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
         String sqlQueryLHM = "CREATE TABLE " + "tbllichhienmau" + " (" +
+<<<<<<< HEAD:app/src/main/java/com/example/mad_n5_t16/Public/model_class/DatabaseHelper.java
                 ID + " integer primary key, " +
                 "thoiGian " + "TEXT," +
+=======
+                ID + " INTEGER primary key, " +
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5:app/src/main/java/com/example/mad_n5_t16/model_class/DatabaseHelper.java
                 "ghiChu TEXT, " +
-                "maDangKyHienMau integer," +
-                "maThoiGian integer," +
-                "maDiaDiem integer," +
+                "maDangKyHienMau INTEGER," +
+                "maThoiGian INTEGER," +
+                "maDiaDiem INTEGER," +
                 "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id)," +
                 "FOREIGN KEY (maThoiGian) REFERENCES tblthoigian (id)," +
                 "FOREIGN KEY (maDiaDiem) REFERENCES tbldiadiem (id))";
@@ -181,7 +193,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "tblnguoihienmau.soCCCD, tblnguoihienmau.nhomMau, tblnguoihienmau.dienThoai, tbltaikhoan.hoTen, tbltaikhoan.vaiTro " +
                 "FROM tblnguoihienmau inner join " +
                 "tbltaikhoan on tbltaikhoan.maNguoiHienMau = tblnguoihienmau.id " +
-                "WHERE tblnguoihienmau.id=?";
+                "WHERE tbltaikhoan.id=?";
         String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         NguoiHienMau temp = new NguoiHienMau();
@@ -197,7 +209,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 temp.setDienThoai(cursor.getString(5));
                 //fix cung
                 temp.setHoTen(cursor.getString(6));
-                temp.setVaiTro(cursor.getString(7));
+//                temp.setVaiTro(cursor.getString(7));
 
             } while (cursor.moveToNext());
         }
@@ -234,11 +246,20 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<DangKyHienMau> dat_layDSDangKyHienMau() {
         ArrayList<DangKyHienMau> result = new ArrayList<DangKyHienMau>();
         SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
+//                "FROM tblthoigian inner join tbllichhienmau " +
+//                "on tblthoigian.id=tbllichhienmau.maThoiGian " +
+//                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+//                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+//                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
+//                "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
+//                "WHERE tblthoigian.ngay=?";
+
         String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
                 "FROM tblthoigian inner join tbllichhienmau " +
                 "on tblthoigian.id=tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+                "inner join tbldangkyhienmau on tbllichhienmau.id= tbldangkyhienmau.maLichHienMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
                 "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
                 "WHERE tblthoigian.ngay=?";
@@ -266,13 +287,108 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    public ArrayList<LichHienMau> do_layDsLichHienMau(int id) {
+        ArrayList<LichHienMau> result = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query =
+//            "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbllichhienmau" +
+//            " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id" +
+//            " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+//            "WHERE tbllichhienmau.maDangKyHienMau=
+        "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbllichhienmau "+
+       " INNER JOIN tblthoigian ON tbllichhienmau.maThoiGian = tblthoigian.id "+
+       " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id "+
+       " INNER JOIN tbldangkyhienmau ON tbllichhienmau.id=tbldangkyhienmau.maLichHienMau "+
+       " INNER JOIN tblnguoihienmau ON tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id=? "+
+        "WHERE tblnguoihienmau.id=?";
+        String[] selectionArgs = {id+""};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()) {
+            do {
+               ThoiGian tg = new ThoiGian();
+               tg.setNgay(cursor.getString(0));
+               tg.setGioBatDau(cursor.getString(1));
+               tg.setGioKetThuc(cursor.getString(2));
+               DiaDiem dd = new DiaDiem();
+               dd.setTenDiaDiem(cursor.getString(3));
+               LichHienMau lhm = new LichHienMau();
+               lhm.setId(4);
+               lhm.setThoiGian(tg);
+               lhm.setDiaDiem(dd);
+               result.add(lhm);
+            } while (cursor.moveToNext());
+        }
+        return result;
+    }
+
+    public ArrayList<LichHienMau> do_laydsdiadiemhienmau(){
+        ArrayList<LichHienMau> result = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbldiadiem.*, tblthoigian.* from tbldiadiem inner join tblthoigian;";
+        Cursor cursor = db.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do{
+                ThoiGian tg = new ThoiGian();
+                tg.setId(cursor.getInt(2));
+                tg.setNgay(cursor.getString(3));
+                tg.setGioBatDau(cursor.getString(4));
+                tg.setGioKetThuc(cursor.getString(5));
+                DiaDiem dd = new DiaDiem();
+                dd.setId(cursor.getInt(0));
+                dd.setTenDiaDiem(cursor.getString(1));
+                LichHienMau lhm = new LichHienMau();
+                lhm.setThoiGian(tg);
+                lhm.setDiaDiem(dd);
+                lhm.setGhiChu("0");
+                result.add(lhm);
+            }while (cursor.moveToNext());
+        }
+        return result;
+    }
+    public ArrayList<LichHienMau> do_getCountnguoidangky(){
+        ArrayList<LichHienMau> result = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "select maDiaDiem, maThoiGian,b.gioBatDau,b.gioKetThuc,b.ngay,c.tenDiaDiem, count(*) AS soNguoiDangKy from tbllichhienmau a \n" +
+                "inner join tblthoigian b on a.maThoiGian = b.id\n" +
+                "inner join tbldiadiem c on a.maDiaDiem = c.id\n" +
+                "GROUP by maDiaDiem, maThoiGian ;";
+        Cursor cursor = db.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do{
+                ThoiGian tg = new ThoiGian();
+                tg.setNgay(cursor.getString(4));
+                tg.setId(cursor.getInt(1));
+                tg.setGioBatDau(cursor.getString(2));
+                tg.setGioKetThuc(cursor.getString(3));
+                DiaDiem dd = new DiaDiem();
+                dd.setId(cursor.getInt(0));
+                dd.setTenDiaDiem(cursor.getString(5));
+                LichHienMau lhm = new LichHienMau();
+                lhm.setThoiGian(tg);
+                lhm.setDiaDiem(dd);
+                lhm.setGhiChu(cursor.getString(6));
+                result.add(lhm);
+            }while (cursor.moveToNext());
+        }
+        return result;
+    }
+
     public int dat_laySoLuongDangKyHienMau() {
         int result=0;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
+//        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen FROM tblthoigian inner join tbllichhienmau " +
+//                "on tblthoigian.id=tbllichhienmau.maThoiGian " +
+//                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+//                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+//                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
+//                "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
+//                "WHERE tblthoigian.ngay=?";
+
+        String query = "SELECT tbldiadiem.tenDiaDiem, tbltaikhoan.hoTen, tblnguoihienmau.dienThoai " +
+                "FROM tblthoigian inner join tbllichhienmau " +
                 "on tblthoigian.id=tbllichhienmau.maThoiGian " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
-                "inner join tbldangkyhienmau on tbllichhienmau.maDangKyHienMau= tbldangkyhienmau.id " +
+                "inner join tbldangkyhienmau on tbllichhienmau.id= tbldangkyhienmau.maLichHienMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
                 "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
                 "WHERE tblthoigian.ngay=?";
@@ -328,9 +444,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public int dat_thongKeSuDungMauTheoNhomMau(String nhomMau, String ngayBatDau,String ngayKetThuc ){
         int result= 0;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau inner join " +
-                "tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau inner join " +
-                "tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
+        String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau " +
+                "inner join tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau " +
+                "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
                 "WHERE tblnguoihienmau.nhomMau=? " +
                 "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)>=?" +
                 "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)<=?";
@@ -460,7 +576,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT tbldangkyhienmau.luongMau, tbldiadiem.tenDiaDiem, tblthoigian.ngay  FROM tbldangkyhienmau " +
-                "inner join tbllichhienmau on tbldangkyhienmau.id = tbllichhienmau.maDangKyHienMau " +
+                "inner join tbllichhienmau on tbldangkyhienmau.maLichHienMau = tbllichhienmau.id " +
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
                 "inner join tblthoigian on tbllichhienmau.maThoiGian = tblthoigian.id " +
                 "WHERE tbldangkyhienmau.luongMau > 0 AND tbldangkyhienmau.maNguoiHienMau = ?";
@@ -480,6 +596,65 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
         return listHistory;
     }
+    public ArrayList<ThoiGian> do_getThoiGian(){
+        ArrayList<ThoiGian> result = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM tblthoigian";
+        Cursor cursor = db.rawQuery(query,null);
+        int i = 1;
+        while (cursor.moveToNext()){
+            ThoiGian tg = new ThoiGian();
+            tg.setId(i);
+            tg.setNgay(cursor.getString(1));
+            tg.setGioBatDau(cursor.getString(2));
+            tg.setGioKetThuc(cursor.getString(3));
+            Log.i("ThoiGian", "do_getThoiGian: " + i + " " + tg.getNgay() + " " + tg.getGioBatDau());
+            i++;
+            result.add(tg);
+        };
+        return result;
+    }
+    // Thế Anh
+    // Dia diem
+    public void addDiaDiem(DiaDiem diaDiem){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tenDiaDiem", diaDiem.getTenDiaDiem());
+        //Neu de null thi khi value bang null thi loi
+        db.insert("tbldiadiem",null,values);
+        db.close();
+    }
+    public ArrayList<DiaDiem> getAllDiaDiem(){
+        ArrayList<DiaDiem> list = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM  "+ "tbldiadiem";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DiaDiem diaDiem = new DiaDiem(cursor.getString(1));
+                list.add(diaDiem);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+    public  ArrayList<DiaDiem>  searchDiaDiem(String tendd){
+        ArrayList<DiaDiem> list = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM  tbldiadiem WHERE tenDiaDiem LIKE " + "'%" +tendd+ "%'" ;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DiaDiem diaDiem = new DiaDiem(cursor.getString(1));
+                list.add(diaDiem);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+}
 
     // Thế Anh
     // Dia diem
