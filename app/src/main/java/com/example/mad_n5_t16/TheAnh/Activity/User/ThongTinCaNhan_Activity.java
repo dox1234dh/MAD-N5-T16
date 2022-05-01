@@ -1,6 +1,7 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -27,7 +28,6 @@ import java.io.Serializable;
 public class ThongTinCaNhan_Activity extends AppCompatActivity {
     private TextView txtNameTitle, txtFullName, txtMainTitle;
     private FrameLayout btnThongtin, btnThongBao, btnDangXuat;
-    public  static Activity activity;
     private NguoiHienMau nguoiHienMau;
     DatabaseHelper databaseHelper;
     ImageView marker, home, heart, history, infor;
@@ -47,7 +47,6 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         btnDangXuat = this.findViewById(R.id.frameDangXuat);
         databaseHelper = new DatabaseHelper(this);
         //setup toolBar
-        activity = this;
         home = findViewById(R.id.home);
         home.setImageResource(R.drawable.home_1);
         marker = findViewById(R.id.marker);
@@ -57,8 +56,8 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         history = findViewById(R.id.order_history);
         history.setImageResource(R.drawable.order_history_1);
         infor = findViewById(R.id.guest_male);
-        infor.setImageResource(R.drawable.marker_2);
-
+        infor.setImageResource(R.drawable.guest_male_2);
+        filldata();
         marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +109,13 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         });
     }
     public void filldata(){
-
+        int id = getSharedPreferences("data", MODE_PRIVATE).getInt("id", 0);
+        TaiKhoan taiKhoan = new TaiKhoan();
+        taiKhoan.setId(id);
+        nguoiHienMau = databaseHelper.dat_getNguoiHienMau(taiKhoan);
+        String[] temp = nguoiHienMau.getHoTen().split(" ");
+        Character icon = temp[temp.length - 1].charAt(0);
+        txtNameTitle.setText(icon);
+        txtFullName.setText(nguoiHienMau.getHoTen());
     }
 }
