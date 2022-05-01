@@ -93,15 +93,6 @@
                 <include
                     android:id="@+id/dotv_cauhoi_5_dienthongtindangky"
                     layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
-                <include
-                    android:id="@+id/dotv_cauhoi_5_dienthongtindangky"
-                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
-                <include
-                    android:id="@+id/dotv_cauhoi_5_dienthongtindangky"
-                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
-                <include
-                    android:id="@+id/dotv_cauhoi_5_dienthongtindangky"
-                    layout="@layout/dotv_layout_items_cauhoi_dienthongtindangky" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
