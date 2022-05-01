@@ -35,6 +35,7 @@ public class DanhSachLichHienMauActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dotv_layout_danhsachlichhienmau);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.hide();
         TextView toolbar = findViewById(R.id.textTitle);
         toolbar.setText("Lịch hiến máu của tôi");
@@ -57,12 +58,9 @@ public class DanhSachLichHienMauActivity extends AppCompatActivity {
         listView = findViewById(R.id.dotv_list_danhsachlichhienmau);
         listView.setAdapter(adapter);
         add = findViewById(R.id.dotv_btnadd_danhsachlichhienmau);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent dangky = new Intent(DanhSachLichHienMauActivity.this, DangKyHienMauActivity.class);
-                startActivity(dangky);
-            }
+        add.setOnClickListener(view -> {
+            Intent dangky = new Intent(DanhSachLichHienMauActivity.this, DangKyHienMauActivity.class);
+            startActivity(dangky);
         });
     }
     public initDate validate(String date){
@@ -73,6 +71,7 @@ public class DanhSachLichHienMauActivity extends AppCompatActivity {
         try {
             result = sfd.parse(date);
             Calendar cal = Calendar.getInstance();
+            assert result != null;
             cal.setTime(result);
             thang_nam ="T"+ cal.get(Calendar.MONTH) +"-"+cal.get(Calendar.YEAR);
             ngay = cal.get(Calendar.DAY_OF_MONTH) + "";
@@ -162,14 +161,9 @@ class DanhSachLichHienMauItem extends BaseAdapter {
         ((TextView)viewItem1.findViewById(R.id.dotv_thoigian_danhsachlichhienmau)).setText(items.getThoigian());
         ((TextView)viewItem1.findViewById(R.id.dotv_diadiem_danhsachlichhienmau)).setText(items.getDiadiem());
         ImageButton btnDel = viewItem1.findViewById(R.id.dotv_btndel_danhsachlichhienmau);
-        btnDel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Log.i("index", "onClick: " + i);
-                //delete record by id
-            }
-
+        btnDel.setOnClickListener(v -> {
+            Log.i("index", "onClick: " + i);
+            //delete record by id
         });
 
         return viewItem1;
