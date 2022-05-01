@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mad_n5_t16.MainActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.TheAnh.Activity.Employee.DiaDiemHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class MainActivityEmployee extends AppCompatActivity {
@@ -28,8 +30,7 @@ public class MainActivityEmployee extends AppCompatActivity {
         actionBar.hide();
 
         Intent intent=getIntent();
-
-        id =intent.getIntExtra("id", 0);
+        id = intent.getIntExtra("id", 0);
         txtHeader = findViewById(R.id.textTitle);
         txtHeader.setText("Chào mừng đến với ngân hàng máu");
 
@@ -39,12 +40,16 @@ public class MainActivityEmployee extends AppCompatActivity {
         txtNhomMauO = findViewById(R.id.txtNhomMauO);
         txtNhomMauAB = findViewById(R.id.txtNhomMauAB);
 
-        txtSoLuongDangKyHienmau.setText(dat_laysoLuongDangKyHienMau()+"");
+        if(id == 0 ){
+            dangNhapHetHan();
+        } else {
+            txtSoLuongDangKyHienmau.setText(dat_laysoLuongDangKyHienMau()+"");
+            txtNhomMauA.setText(dat_laySoLuongMauConLaiTheoNhomMau("A")+"");
+            txtNhomMauB.setText(dat_laySoLuongMauConLaiTheoNhomMau("B")+"");
+            txtNhomMauO.setText(dat_laySoLuongMauConLaiTheoNhomMau("O")+"");
+            txtNhomMauAB.setText(dat_laySoLuongMauConLaiTheoNhomMau("AB")+"");
+        }
 
-        txtNhomMauA.setText(dat_laySoLuongMauConLaiTheoNhomMau("A")+"");
-        txtNhomMauB.setText(dat_laySoLuongMauConLaiTheoNhomMau("B")+"");
-        txtNhomMauO.setText(dat_laySoLuongMauConLaiTheoNhomMau("O")+"");
-        txtNhomMauAB.setText(dat_laySoLuongMauConLaiTheoNhomMau("AB")+"");
         markerEmployee = findViewById(R.id.markerEmployee);
         hospitalEmployee = findViewById(R.id.hospitalEmployee);
         order_historyEmployee = findViewById(R.id.order_historyEmployee);
@@ -54,8 +59,9 @@ public class MainActivityEmployee extends AppCompatActivity {
         markerEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMarker = new Intent(MainActivityEmployee.this, MainActivity.class);
+                Intent goMarker = new Intent(MainActivityEmployee.this, DiaDiemHienMauActivity.class);
                 startActivity(goMarker);
+                finish();
             }
         });
         order_historyEmployee.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +69,7 @@ public class MainActivityEmployee extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goHistory = new Intent(MainActivityEmployee.this, LichSuSuDungMauActivity.class);
                 startActivity(goHistory);
+                finish();
             }
         });
     }
@@ -79,5 +86,9 @@ public class MainActivityEmployee extends AppCompatActivity {
     public int dat_laySoLuongMauConLaiTheoNhomMau(String nhomMau){
         DatabaseHelper db = new DatabaseHelper(getBaseContext());
         return db.dat_laySoLuongMauConLaiTheoNhomMau(nhomMau);
+    }
+    public void dangNhapHetHan(){
+        Toast.makeText(this, "Đăng nhập hết hạn", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

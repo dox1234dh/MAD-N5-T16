@@ -12,6 +12,10 @@ import android.widget.TimePicker;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.Public.model_class.DiaDiem;
+import com.example.mad_n5_t16.Public.model_class.LichHienMau;
+import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 import com.example.mad_n5_t16.R;
 
 import java.text.SimpleDateFormat;
@@ -21,7 +25,7 @@ import java.util.Locale;
 public class ThemLichHienMau_Activity extends AppCompatActivity {
     ImageView btnThem;
     TextView txtNgay, txtGioBatDau, txtGioKetThuc, txtNameTitle;
-
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,7 @@ public class ThemLichHienMau_Activity extends AppCompatActivity {
         txtNgay = findViewById(R.id.textChonNgay);
         txtNameTitle = findViewById(R.id.textTitle);
         txtNameTitle.setText("Chọn thời gian cho lịch hiến máu");
+        databaseHelper = new DatabaseHelper(this);
         String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
         txtNgay.setText(currentDate);
         txtGioBatDau.setText("00:00");
@@ -54,6 +59,15 @@ public class ThemLichHienMau_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 popDatePicker(txtNgay);
+            }
+        });
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThoiGian tg = new ThoiGian(txtNgay.getText().toString(), txtGioBatDau.getText().toString(), txtGioKetThuc.getText().toString());
+                DiaDiem dd = (DiaDiem) getIntent().getSerializableExtra("diadiem");
+                LichHienMau lichHienMau = new LichHienMau(tg, "", dd);
+                databaseHelper.addLichHienMau(lichHienMau);
             }
         });
     }

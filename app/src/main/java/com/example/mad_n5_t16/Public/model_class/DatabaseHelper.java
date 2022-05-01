@@ -616,13 +616,55 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
     // Thế Anh
     // Dia diem
-    public void addDiaDiem(DiaDiem diaDiem){
+    public ArrayList<LichHienMau>  getLichHienMau(DiaDiem diaDiem){
+        ArrayList<LichHienMau> lichHienMau = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT tbllichhienmau.id, tbllichhienmau.ghiChu, tblthoigian.ngay,tblthoigian.gioBatDau," +
+                "tblthoigian.gioKetThuc , tbldiadiem.tenDiaDiem FROM tbllichhienmau"
+                + "inner join tblthoigian on tblthoigian.id = tbllichhienmau.maThoiGian " +
+                "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
+                "WHERE tbllichienmau.maDiaDiem = ?";
+        String[] selectionArgs = {String.valueOf(diaDiem.getId())};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        while (cursor.moveToNext()) {
+            DiaDiem diaDiem1 = new DiaDiem(cursor.getString(5));
+            ThoiGian thoiGian = new ThoiGian(cursor.getString(3), cursor.getString(4), cursor.getString(2) );
+            LichHienMau lich = new LichHienMau(thoiGian, cursor.getString(1), diaDiem1);
+            lichHienMau.add(lich);
+        }
+        return  lichHienMau;
+    }
+    public void addLichHienMau(LichHienMau lichHienMau){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        long idTG = this.addThoiGian(lichHienMau.getThoiGian());
+        long idDD = this.addDiaDiem(lichHienMau.getDiaDiem());
+        values.put("ghiChu", lichHienMau.getGhiChu());
+        values.put("maThoiGian", idTG);
+        values.put("maDiaDiem", idDD);
+        //Neu de null thi khi value bang null thi loi
+        db.insert("tbllichhienmau",null,values);
+        db.close();
+    }
+    public long addThoiGian(ThoiGian thoiGian){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valueThoiGian = new ContentValues();
+        valueThoiGian.put("ngay", thoiGian.getNgay());
+        valueThoiGian.put("gioBatDau", thoiGian.getGioBatDau());
+        valueThoiGian.put("gioKetThuc", thoiGian.getGioKetThuc());
+        //Neu de null thi khi value bang null thi loi
+        long respons = db.insert("tblthoigian",null,valueThoiGian);
+        db.close();
+        return respons;
+    }
+    public long addDiaDiem(DiaDiem diaDiem){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("tenDiaDiem", diaDiem.getTenDiaDiem());
         //Neu de null thi khi value bang null thi loi
-        db.insert("tbldiadiem",null,values);
+        long respons = db.insert("tbldiadiem",null,values);
         db.close();
+        return respons;
     }
     public ArrayList<DiaDiem> getAllDiaDiem(){
         ArrayList<DiaDiem> list = new ArrayList<>();
