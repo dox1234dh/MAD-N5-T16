@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -16,13 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
-import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
-import com.example.mad_n5_t16.ThongBaoActivity;
-import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.user.DangKyHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
@@ -32,6 +29,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
     ArrayList<DiaDiem> listDiaDiem;
     ListView listView;
     SearchView txtSearch;
+    TextView txtTitl;
     ImageView marker, home, heart, history, infor;
     DiaDiemHienMauAdapter diaDiemHienMauAdapter;
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -47,6 +45,19 @@ public class DiaDiem_Activity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         listDiaDiem = new ArrayList<>();
         getData("");
+        txtTitl = findViewById(R.id.textTitle);
+        txtTitl.setText("Địa điểm hiến máu");
+        home = findViewById(R.id.home);
+        home.setImageResource(R.drawable.home_1);
+        marker = findViewById(R.id.marker);
+        marker.setImageResource(R.drawable.marker_2);
+        heart = findViewById(R.id.heart_plus);
+        heart.setImageResource(R.drawable.heart_plus_1);
+        history = findViewById(R.id.order_history);
+        history.setImageResource(R.drawable.order_history_1);
+        infor = findViewById(R.id.guest_male);
+        infor.setImageResource(R.drawable.guest_male_1);
+
         infor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +69,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(DiaDiem_Activity.this, MainActivity.class);
+                Intent goHeart = new Intent(DiaDiem_Activity.this, DangKyHienMauActivity.class);
                 startActivity(goHeart);
                 finish();
             }
@@ -79,17 +90,6 @@ public class DiaDiem_Activity extends AppCompatActivity {
                 finish();
             }
         });
-        home = findViewById(R.id.home);
-        home.setImageResource(R.drawable.home_1);
-        marker = findViewById(R.id.marker);
-        marker.setImageResource(R.drawable.marker_2);
-        heart = findViewById(R.id.heart_plus);
-        heart.setImageResource(R.drawable.heart_plus_1);
-        history = findViewById(R.id.order_history);
-        history.setImageResource(R.drawable.order_history_1);
-        infor = findViewById(R.id.guest_male);
-        infor.setImageResource(R.drawable.guest_male_1);
-
         txtSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

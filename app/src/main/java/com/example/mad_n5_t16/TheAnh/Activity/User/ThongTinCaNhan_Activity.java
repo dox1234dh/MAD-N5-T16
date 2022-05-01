@@ -11,9 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mad_n5_t16.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
-import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;
@@ -42,6 +41,7 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         txtFullName = findViewById(R.id.textFullName);
         txtNameTitle = findViewById(R.id.textTitle);
         txtNameTitle.setText("Thông tin cá nhân");
+        txtMainTitle = findViewById(R.id.textImageName);
         btnThongtin = findViewById(R.id.frameThongTinNguoiDung);
         btnThongBao = findViewById(R.id.frameThongBao);
         btnDangXuat = this.findViewById(R.id.frameDangXuat);
@@ -115,7 +115,7 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         nguoiHienMau = databaseHelper.dat_getNguoiHienMau(taiKhoan);
         String[] temp = nguoiHienMau.getHoTen().split(" ");
         Character icon = temp[temp.length - 1].charAt(0);
-        txtNameTitle.setText(icon);
+        txtMainTitle.setText(icon.toString());
         txtFullName.setText(nguoiHienMau.getHoTen());
     }
 }
