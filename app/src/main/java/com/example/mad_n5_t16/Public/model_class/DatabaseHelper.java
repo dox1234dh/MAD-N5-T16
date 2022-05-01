@@ -96,7 +96,6 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sqlQuerySDM);
         Toast.makeText(context, "Create Database successfully", Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS tblthoigian");
@@ -235,6 +234,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         LichHienMau tempLHM = new LichHienMau(tempTG, " ", tempDD);
         DangKyHienMau temp = new DangKyHienMau(tempLHM, tempNHM, 350);
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         //values.put("");
 
@@ -703,6 +703,8 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 }
+<<<<<<< HEAD
+=======
 
 //    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
 //        SQLiteDatabase db = this.getReadableDatabase();
@@ -794,3 +796,4 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //        // return count
 //        return cursor.getCount();
 //    }
+>>>>>>> 4c5c0d608aa5c0b31264e72db7e729babced8991

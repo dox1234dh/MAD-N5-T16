@@ -9,6 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
+<<<<<<< HEAD
+=======
             android:name=".Starter"
             android:exported="true">
             <intent-filter>
@@ -18,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
             android:name=".employee.DangKyHienMauActivityEmployee"
             android:exported="false" />
         <activity
@@ -25,9 +28,12 @@
             android:exported="false" />
         <activity
             android:name=".TheAnh.Activity.User.ChinhSuaThongTinCaNhan_Activity"
+<<<<<<< HEAD
+=======
             android:exported="false" />
         <activity
             android:name=".user.ChiTietDiaDiemHienMauActivity"
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
             android:exported="false" />
         <activity
             android:name=".user.DanhSachLichHienMauActivity"
@@ -49,6 +55,15 @@
             android:exported="false" />
         <activity
             android:name=".TheAnh.Activity.Employee.DiaDiemHienMauActivity"
+<<<<<<< HEAD
+=======
+            android:exported="false" />
+        <activity
+            android:name=".TheAnh.Activity.Employee.DanhSachLichHM_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".TheAnh.Activity.Employee.ThemLichHienMau_Activity"
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
             android:exported="false" />
         <activity
             android:name=".TheAnh.Activity.Employee.DanhSachLichHM_Activity"
@@ -57,19 +72,34 @@
             android:name=".TheAnh.Activity.Employee.ThemLichHienMau_Activity"
             android:exported="false" />
         <activity
+<<<<<<< HEAD
             android:name=".user.MainActivityUser"
-            android:exported="false" />
-        <activity
-            android:name=".BloodDonationHistoryActivity"
-            android:exported="false" />
-        <activity
+=======
             android:name=".employee.MainActivityEmployee"
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
             android:exported="false" />
         <activity
             android:name=".user.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".user.LoginActivity"
+<<<<<<< HEAD
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Màn hình chính">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+=======
             android:exported="false">
         </activity>
 <!--        <activity-->
@@ -77,6 +107,7 @@
 <!--            android:exported="false"-->
 <!--            android:label="Thông báo"-->
 <!--            android:parentActivityName=".MainActivity" />-->
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
     </application>
 
 </manifest>

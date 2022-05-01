@@ -11,8 +11,13 @@ import android.widget.Button;
 import com.example.mad_n5_t16.TheAnh.Activity.Employee.DiaDiemHienMauActivity;
 import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
+<<<<<<< HEAD
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
+=======
 import com.example.mad_n5_t16.Public.model_class.DangKyHienMau;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+>>>>>>> e3f9c4c7200ceefd2095c1298bc36b61c0aef2a5
 import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
 import com.example.mad_n5_t16.user.DangKyHienMauActivity;
 import com.example.mad_n5_t16.user.DangKyThanhCongActivity;
@@ -22,6 +27,9 @@ import com.example.mad_n5_t16.user.MainActivityUser;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.user.LoginActivity;
+import com.example.mad_n5_t16.user.RegisterActivity;
+
 import com.example.mad_n5_t16.user.LoginActivity;
 import com.example.mad_n5_t16.user.RegisterActivity;
 
@@ -73,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         btnMHThongBao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, ThongBaoActivity.class);
+//                startActivity(intent);
             }
         });
 
