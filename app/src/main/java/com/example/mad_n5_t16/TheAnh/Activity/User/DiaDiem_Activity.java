@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 040a6332b36411fe4457a69951516a76ebc5ff89
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -13,15 +16,24 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD
+import com.example.mad_n5_t16.BloodDonationHistoryActivity;
+import com.example.mad_n5_t16.MainActivity;
+=======
 import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
+>>>>>>> 040a6332b36411fe4457a69951516a76ebc5ff89
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
+<<<<<<< HEAD
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
+=======
 import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
 import com.example.mad_n5_t16.user.DangKyHienMauActivity;
 import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.DienThongTinDangKyActivity;
+>>>>>>> 040a6332b36411fe4457a69951516a76ebc5ff89
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
