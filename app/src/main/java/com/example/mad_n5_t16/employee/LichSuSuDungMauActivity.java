@@ -18,6 +18,7 @@ import java.util.Date;
 
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.TheAnh.Activity.Employee.DiaDiemHienMauActivity;
 
 public class LichSuSuDungMauActivity extends AppCompatActivity {
 
@@ -68,6 +69,16 @@ public class LichSuSuDungMauActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goHospital = new Intent(LichSuSuDungMauActivity.this, MainActivityEmployee.class);
                 startActivity(goHospital);
+                finish();
+            }
+        });
+
+        markerEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMarker = new Intent(LichSuSuDungMauActivity.this, DiaDiemHienMauActivity.class);
+                startActivity(goMarker);
+                finish();
             }
         });
     }
