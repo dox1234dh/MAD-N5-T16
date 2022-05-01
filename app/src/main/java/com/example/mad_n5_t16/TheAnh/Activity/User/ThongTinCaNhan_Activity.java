@@ -1,7 +1,5 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -13,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
-import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
 import com.example.mad_n5_t16.R;

@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
@@ -16,12 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad_n5_t16.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.MainActivity;
-import com.example.mad_n5_t16.Public.UserToolBar;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.TheAnh.ModelAdapter.DiaDiemHienMauAdapter;
-import com.example.mad_n5_t16.ThongBaoActivity;
+import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
 
 import java.util.ArrayList;
@@ -57,7 +54,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHeart = new Intent(DiaDiem_Activity.this, MainActivity.class);
+                Intent goHeart = new Intent(DiaDiem_Activity.this, DanhSachLichHienMauActivity.class);
                 startActivity(goHeart);
                 finish();
             }
