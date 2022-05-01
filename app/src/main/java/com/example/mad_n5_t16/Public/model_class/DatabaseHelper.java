@@ -703,8 +703,6 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 }
-<<<<<<< HEAD
-=======
 
 //    public NguoiHienMau getNguoiHienMau(NguoiHienMau nguoiHienMau){
 //        SQLiteDatabase db = this.getReadableDatabase();
@@ -796,4 +794,3 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //        // return count
 //        return cursor.getCount();
 //    }
->>>>>>> 4c5c0d608aa5c0b31264e72db7e729babced8991
