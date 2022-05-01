@@ -12,15 +12,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.mad_n5_t16.Model.History;
 import com.example.mad_n5_t16.Model.HistoryAdapter;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.user.DangKyHienMauActivity;
 import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
+
 import java.util.ArrayList;
 import java.util.Date;
 

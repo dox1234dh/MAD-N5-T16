@@ -44,6 +44,7 @@ public class DangKyHienMauActivityEmployee extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DangKyHienMauActivityEmployee.this, MainActivityEmployee.class);
                 startActivity(intent);
+                finish();
             }
         });
         txtHoVaTen = findViewById(R.id.textTitle);

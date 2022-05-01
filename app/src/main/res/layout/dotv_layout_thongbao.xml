@@ -41,6 +41,7 @@
         </ListView>
     </LinearLayout>
 
+
     <include
         android:id="@+id/dotv_footer_thongbao"
         layout="@layout/toolbar_bottom"

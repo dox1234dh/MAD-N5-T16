@@ -13,6 +13,8 @@ import com.example.mad_n5_t16.employee.LichSuSuDungMauActivity;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
 import com.example.mad_n5_t16.Public.model_class.DangKyHienMau;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
+
+import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.user.ChiTietDiaDiemHienMauActivity;
 import com.example.mad_n5_t16.user.DangKyHienMauActivity;
 import com.example.mad_n5_t16.user.DangKyThanhCongActivity;
