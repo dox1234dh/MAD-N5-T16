@@ -9,6 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADN5T16">
         <activity
+            android:name=".Starter"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".employee.DangKyHienMauActivityEmployee"
             android:exported="false" />
         <activity
@@ -61,24 +70,13 @@
             android:exported="false" />
         <activity
             android:name=".user.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
-        <activity
-            android:name=".ThongBaoActivity"
-            android:exported="false"
-            android:label="Thông báo"
-            android:parentActivityName=".MainActivity" />
 <!--        <activity-->
-<!--            android:name=".MainActivity"-->
+<!--            android:name=".ThongBaoActivity"-->
 <!--            android:exported="false"-->
-<!--            android:label="Màn hình chính">-->
-<!--            -->
-<!--        </activity>-->
+<!--            android:label="Thông báo"-->
+<!--            android:parentActivityName=".MainActivity" />-->
     </application>
 
 </manifest>
