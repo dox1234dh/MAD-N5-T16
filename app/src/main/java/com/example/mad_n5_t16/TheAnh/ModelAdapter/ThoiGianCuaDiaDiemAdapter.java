@@ -8,9 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.Public.model_class.LichHienMau;
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.TheAnh.Activity.Employee.DanhSachLichHM_Activity;
 
 import java.util.ArrayList;
 
@@ -18,10 +20,22 @@ public class ThoiGianCuaDiaDiemAdapter extends BaseAdapter {
     final ArrayList<LichHienMau> listData;
     private Context context;
     private int layout;
-    public ThoiGianCuaDiaDiemAdapter(ArrayList<LichHienMau> listData, Context context, int layout) {
+    private DatabaseHelper databaseHelper;
+    private DanhSachLichHM_Activity danhSachLichHM_activity;
+
+    public ThoiGianCuaDiaDiemAdapter(ArrayList<LichHienMau> listData, Context context, int layout, DatabaseHelper databaseHelper) {
         this.listData = listData;
         this.context = context;
         this.layout = layout;
+        this.databaseHelper = databaseHelper;
+    }
+
+    public ThoiGianCuaDiaDiemAdapter(ArrayList<LichHienMau> listData, Context context, int layout, DatabaseHelper databaseHelper, DanhSachLichHM_Activity danhSachLichHM_activity) {
+        this.listData = listData;
+        this.context = context;
+        this.layout = layout;
+        this.databaseHelper = databaseHelper;
+        this.danhSachLichHM_activity = danhSachLichHM_activity;
     }
 
     @Override
@@ -68,7 +82,8 @@ public class ThoiGianCuaDiaDiemAdapter extends BaseAdapter {
         viewHolder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                databaseHelper.deleteLichHienMau(lichHienMau);
+                danhSachLichHM_activity.fillData();
             }
         });
         return convertView;

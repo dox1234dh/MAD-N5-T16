@@ -630,12 +630,17 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             DiaDiem diaDiem1 = new DiaDiem(cursor.getString(5));
             ThoiGian thoiGian = new ThoiGian(cursor.getString(3), cursor.getString(4), cursor.getString(2));
-            LichHienMau lich = new LichHienMau(thoiGian, cursor.getString(1), diaDiem1);
+            LichHienMau lich = new LichHienMau(cursor.getInt(0),thoiGian, cursor.getString(1), diaDiem1);
             lichHienMau.add(lich);
         }
         return lichHienMau;
     }
-
+    public void deleteLichHienMau(LichHienMau lichHienMau){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String querry = "DELETE FROM tbllichhienmau WHERE id = ?";
+        String[] selectionArgs = {String.valueOf(lichHienMau.getId())};
+        db.rawQuery(querry, selectionArgs);
+    }
     public void addLichHienMau(LichHienMau lichHienMau) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

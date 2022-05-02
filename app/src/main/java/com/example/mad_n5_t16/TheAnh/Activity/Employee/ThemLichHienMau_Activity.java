@@ -8,6 +8,7 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,12 +65,17 @@ public class ThemLichHienMau_Activity extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ThoiGian tg = new ThoiGian(txtNgay.getText().toString(), txtGioBatDau.getText().toString(), txtGioKetThuc.getText().toString());
-                DiaDiem dd = (DiaDiem) getIntent().getSerializableExtra("diadiem");
-                LichHienMau lichHienMau = new LichHienMau(tg, "", dd);
-                databaseHelper.addLichHienMau(lichHienMau);
+                themLichHienMau();
             }
         });
+    }
+    public void themLichHienMau(){
+        ThoiGian tg = new ThoiGian(txtNgay.getText().toString(), txtGioBatDau.getText().toString(), txtGioKetThuc.getText().toString());
+        DiaDiem dd = (DiaDiem) getIntent().getSerializableExtra("diadiem");
+        LichHienMau lichHienMau = new LichHienMau(tg, "", dd);
+        databaseHelper.addLichHienMau(lichHienMau);
+        Toast.makeText(this, "Thêm lịch hiến máu thành công", Toast.LENGTH_SHORT).show();
+        finish();
     }
     public void popDatePicker(TextView textView){
         final int[] year = new int[1];
