@@ -717,7 +717,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, selectionArgs);
         while (cursor.moveToNext()) {
             DiaDiem diaDiem1 = new DiaDiem(cursor.getString(5));
-            ThoiGian thoiGian = new ThoiGian(cursor.getString(3), cursor.getString(4), cursor.getString(2));
+            ThoiGian thoiGian = new ThoiGian(cursor.getString(2), cursor.getString(3), cursor.getString(4));
             LichHienMau lich = new LichHienMau(cursor.getInt(0),thoiGian, cursor.getString(1), diaDiem1);
             lichHienMau.add(lich);
         }
@@ -730,14 +730,19 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.rawQuery(querry, selectionArgs);
     }
     public void addLichHienMau(LichHienMau lichHienMau) {
-        SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
-        long idTG = this.addThoiGian(lichHienMau.getThoiGian());
-        long idDD = this.addDiaDiem(lichHienMau.getDiaDiem());
+        long idTG = dat_checkThoiGian(lichHienMau.getThoiGian());
+        long idDD = lichHienMau.getDiaDiem().getId();
+        if(idTG==0){
+            idTG = addThoiGian(lichHienMau.getThoiGian());
+        }
+//        long idDD = lichHienMau.getDiaDiem().getId();
         values.put("ghiChu", lichHienMau.getGhiChu());
         values.put("maThoiGian", idTG);
         values.put("maDiaDiem", idDD);
         //Neu de null thi khi value bang null thi loi
+        SQLiteDatabase db = this.getWritableDatabase();
         db.insert("tbllichhienmau", null, values);
         db.close();
     }
@@ -752,6 +757,20 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         long respons = db.insert("tblthoigian", null, valueThoiGian);
         db.close();
         return respons;
+    }
+
+    //0 la thoi gian chua ton tai, phai them moi
+    //#0 la thoi gian da ton tai
+    public long dat_checkThoiGian(ThoiGian thoiGian){
+        long result =0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query="SELECT * FROM tblthoigian WHERE ngay=? AND gioBatDau=? AND gioKetThuc=?";
+        String[] selectionArgs={thoiGian.getNgay(), thoiGian.getGioBatDau(), thoiGian.getGioKetThuc()};
+        Cursor cursor= db.rawQuery(query, selectionArgs);
+        while(cursor.moveToNext()){
+            result=cursor.getInt(0);
+        }
+        return result;
     }
 
     public long addDiaDiem(DiaDiem diaDiem) {
@@ -772,6 +791,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 DiaDiem diaDiem = new DiaDiem(cursor.getString(1));
+                diaDiem.setId(cursor.getInt(0));
                 list.add(diaDiem);
             } while (cursor.moveToNext());
         }
@@ -788,11 +808,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 DiaDiem diaDiem = new DiaDiem(cursor.getString(1));
+                diaDiem.setId(cursor.getInt(0));
                 list.add(diaDiem);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        db.close();
         return list;
     }
 }

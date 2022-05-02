@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
@@ -54,7 +55,7 @@ public class ThoiGianCuaDiaDiemAdapter extends BaseAdapter {
     }
     private class ViewHolder{
         TextView textNgay, textThang, textGioDiaDiem;
-        Button btnXoa;
+        ImageButton btnXoa;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
