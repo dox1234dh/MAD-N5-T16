@@ -54,6 +54,7 @@
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/item_dsdangkyhienmau_employee.xml" value="0.1825" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/rectangle_10.xml" value="0.16" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/drawable/rectangle_9.xml" value="0.16" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activiti_mh_thongtincanhan2.xml" value="0.2" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_blood_donation_history.xml" value="0.17850877192982456" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_lich_su_su_dung_mau.xml" value="0.26851851851851855" />
@@ -62,15 +63,25 @@
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main_employee.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_main_user.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_diadiemhienmau.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_employee_danhsachlichhienmau.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_employee_diadiemhienmau.xml" value="0.1" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_employee_themlichienmau.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_mh_thongtincanhan.xml" value="0.21125541125541125" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/activity_starter.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dat_toolbar_btn_tro_ve.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_chitietdiadiemhienmau.xml" value="0.17685185185185184" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_dangkyhienmau.xml" value="0.17685185185185184" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_dangkythanhcong.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_danhsachlichhienmau.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_dienthongtindangky.xml" value="0.17685185185185184" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_cauhoi_dienthongtindangky.xml" value="0.17685185185185184" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_chitietdiadiemhienmau.xml" value="0.17685185185185184" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_dangkyhienmau.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_dangsachlichhienmau.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_dienthongtindangky.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_items_thongbao.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/dotv_layout_thongbao.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item_diadiemhienmau.xml" value="0.12" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/item_dshienmau_employee.xml" value="0.4" />
@@ -82,10 +93,8 @@
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_bottom_employee.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_header_mhchinh_user.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MADN5T16/app/src/main/res/layout/toolbar_mhchinh_user.xml" value="0.4" />
-        <entry key="app/src/main/res/layout/activiti_mh_thongtincanhan2.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_blood_donation_history.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_dang_ky_hien_mau_employee.xml" value="0.28854166666666664" />
-        <entry key="app/src/main/res/layout/activity_lich_su_su_dung_mau.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_main_employee.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_main_user.xml" value="0.28854166666666664" />
@@ -96,9 +105,6 @@
         <entry key="app/src/main/res/layout/activity_mh_thongtincanhan.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/activity_starter.xml" value="0.28854166666666664" />
-        <entry key="app/src/main/res/layout/dotv_layout_thongbao.xml" value="0.24947916666666667" />
-        <entry key="app/src/main/res/layout/item_diadiemhienmau.xml" value="0.36666666666666664" />
-        <entry key="app/src/main/res/layout/item_dshienmau_employee.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/mh_thongbao.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.28854166666666664" />
