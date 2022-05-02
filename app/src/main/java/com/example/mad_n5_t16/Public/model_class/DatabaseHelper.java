@@ -683,11 +683,14 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return listHistory;
     }
 
-    public ArrayList<ThoiGian> do_getThoiGian() {
+    public ArrayList<ThoiGian> do_getThoiGian(int idDiaDiem) {
         ArrayList<ThoiGian> result = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM tblthoigian";
-        Cursor cursor = db.rawQuery(query, null);
+        String query = "SELECT * FROM tblthoigian " +
+                "INNER JOIN tbllichhienmau ON tbllichhienmau.maThoiGian = tblthoigian.id " +
+                "INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem=tbldiadiem.id " +
+                "WHERE tbldiadiem.id=?";
+        Cursor cursor = db.rawQuery(query,  new String[]{String.valueOf(idDiaDiem)});
         int i = 1;
         while (cursor.moveToNext()) {
             ThoiGian tg = new ThoiGian();

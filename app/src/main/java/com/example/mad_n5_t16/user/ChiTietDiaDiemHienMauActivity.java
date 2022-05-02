@@ -46,8 +46,10 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
         imgBack=findViewById(R.id.imageBack);
         toolbar.setText("Lịch hiến máu");
         ls = new ArrayList<>();
+        Intent intent = getIntent();
+        int idDiaDiem = intent.getIntExtra("idDiaDiem",0);
         dbh = new DatabaseHelper(getBaseContext());
-        ArrayList<ThoiGian> lsTg = dbh.do_getThoiGian();
+        ArrayList<ThoiGian> lsTg = dbh.do_getThoiGian(idDiaDiem);
         for(int i = 0 ;i< lsTg.size();++i){
             initDate date = validate(lsTg.get(i).getNgay());
             ls.add(new ItemModelChiTietDiaDiemHienMauActivity(date.ngay,date.thang_nam,lsTg.get(i).getGioBatDau() + " - " + lsTg.get(i).getGioKetThuc(),"Hiến máu cứu người"));
