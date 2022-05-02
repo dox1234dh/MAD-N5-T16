@@ -48,7 +48,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         listDiaDiem = new ArrayList<>();
         getData("");
         txtNameTitle = findViewById(R.id.textTitle);
-        txtNameTitle.setText("Thông tin cá nhân");
+        txtNameTitle.setText("Địa điểm hiến máu");
         home = findViewById(R.id.home);
         home.setImageResource(R.drawable.home_1);
         marker = findViewById(R.id.marker);
