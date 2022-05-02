@@ -20,7 +20,7 @@ import com.example.mad_n5_t16.R;
 public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
     NguoiHienMau nguoiHienMau;
     EditText txtName, txtDateOfBirth, txtEmail, txtSDT, txtCCCD;
-    ImageView btnOkEdit;
+    ImageView btnOkEdit, btnBack;
     Button btnLuuDangKy;
     DatabaseHelper databaseHelper;
     TextView txtNameTitle;
@@ -40,6 +40,7 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
         txtSDT = findViewById(R.id.textFixSDT);
         txtCCCD = findViewById(R.id.textFixCCCD);
         btnOkEdit=findViewById(R.id.imageEditOfFix);
+        btnBack = findViewById(R.id.imageBack);
         btnLuuDangKy = findViewById(R.id.btnLuuThongTinOfFix);
         databaseHelper = new DatabaseHelper(this);
         fillData(nguoiHienMau);
@@ -58,6 +59,12 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 canEdit(true);
                 txtName.setBackgroundColor(getColor(R.color.white));
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
