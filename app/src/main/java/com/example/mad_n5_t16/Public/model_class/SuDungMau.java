@@ -1,16 +1,19 @@
 package com.example.mad_n5_t16.Public.model_class;
 
+import java.util.ArrayList;
+
 public class SuDungMau {
     private int id;
-    private DangKyHienMau dangKyHienMau;
+    private ArrayList<DangKyHienMau> dsDangKyHienMau;
     private String ngaySuDung;
 
-    public SuDungMau(DangKyHienMau dangKyHienMau, String ngaySuDung) {
-        this.dangKyHienMau = dangKyHienMau;
-        this.ngaySuDung = ngaySuDung;
+    public SuDungMau() {
     }
 
-    public SuDungMau() {
+    public SuDungMau(int id, ArrayList<DangKyHienMau> dsDangKyHienMau, String ngaySuDung) {
+        this.id = id;
+        this.dsDangKyHienMau = dsDangKyHienMau;
+        this.ngaySuDung = ngaySuDung;
     }
 
     public int getId() {
@@ -21,12 +24,12 @@ public class SuDungMau {
         this.id = id;
     }
 
-    public DangKyHienMau getDangKyHienMau() {
-        return dangKyHienMau;
+    public ArrayList<DangKyHienMau> getDsDangKyHienMau() {
+        return dsDangKyHienMau;
     }
 
-    public void setDangKyHienMau(DangKyHienMau dangKyHienMau) {
-        this.dangKyHienMau = dangKyHienMau;
+    public void setDsDangKyHienMau(ArrayList<DangKyHienMau> dsDangKyHienMau) {
+        this.dsDangKyHienMau = dsDangKyHienMau;
     }
 
     public String getNgaySuDung() {
