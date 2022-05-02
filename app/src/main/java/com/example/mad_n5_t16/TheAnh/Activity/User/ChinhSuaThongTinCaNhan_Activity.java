@@ -42,12 +42,12 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
         txtSDT = findViewById(R.id.textFixSDT);
         txtCCCD = findViewById(R.id.textFixCCCD);
         btnOkEdit=findViewById(R.id.imageEditOfFix);
-        btnBack = findViewById(R.id.imageBack);
+        btnBack = findViewById(R.id.imageBack2);
         btnLuuDangKy = findViewById(R.id.btnLuuThongTinOfFix);
         databaseHelper = new DatabaseHelper(this);
         fillData(nguoiHienMau);
         canEdit(false);
-        imgBack.setOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goInfor = new Intent(ChinhSuaThongTinCaNhan_Activity.this, ThongTinCaNhan_Activity.class);
@@ -71,12 +71,12 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
                 txtName.setBackgroundColor(getColor(R.color.white));
             }
         });
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
     }
     private  void fillData(NguoiHienMau nguoiHienMau){
         txtName.setText(nguoiHienMau.getHoTen());
