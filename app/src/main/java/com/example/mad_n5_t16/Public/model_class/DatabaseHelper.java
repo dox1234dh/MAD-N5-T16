@@ -358,7 +358,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //            " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
 //            "WHERE tbllichhienmau.maDangKyHienMau=
         "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbldangkyhienmau "+
-        " INNER JOIN tbllichhienmau ON tbldangkyhienmau.id = tbllichhienmau.id "+
+        " INNER JOIN tbllichhienmau ON tbldangkyhienmau.maLichHienMau = tbllichhienmau.id "+
         " INNER JOIN tblthoigian ON tblthoigian.id = tbllichhienmau.id "+
         " INNER JOIN tbldiadiem ON tbldiadiem.id = tbllichhienmau.id " +
         "WHERE tbldangkyhienmau.maNguoiHienMau=?";
@@ -683,11 +683,14 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         return listHistory;
     }
 
-    public ArrayList<ThoiGian> do_getThoiGian() {
+    public ArrayList<ThoiGian> do_getThoiGian(int idDiaDiem) {
         ArrayList<ThoiGian> result = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM tblthoigian";
-        Cursor cursor = db.rawQuery(query, null);
+        String query = "SELECT * FROM tblthoigian " +
+                "INNER JOIN tbllichhienmau ON tbllichhienmau.maThoiGian = tblthoigian.id " +
+                "INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem=tbldiadiem.id " +
+                "WHERE tbldiadiem.id=?";
+        Cursor cursor = db.rawQuery(query,  new String[]{String.valueOf(idDiaDiem)});
         int i = 1;
         while (cursor.moveToNext()) {
             ThoiGian tg = new ThoiGian();

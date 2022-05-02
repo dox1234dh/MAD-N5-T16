@@ -115,7 +115,7 @@ public class DanhSachLichHienMauActivity extends AppCompatActivity {
             Calendar cal = Calendar.getInstance();
             assert result != null;
             cal.setTime(result);
-            thang_nam ="T"+ cal.get(Calendar.MONTH) +"-"+cal.get(Calendar.YEAR);
+            thang_nam ="T"+ (cal.get(Calendar.MONTH)+1) +"-"+cal.get(Calendar.YEAR);
             ngay = cal.get(Calendar.DAY_OF_MONTH) + "";
         } catch (ParseException e) {
             e.printStackTrace();

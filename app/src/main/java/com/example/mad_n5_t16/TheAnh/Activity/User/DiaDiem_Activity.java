@@ -116,6 +116,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         listView.setAdapter(diaDiemHienMauAdapter);
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent intent = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
+            intent.putExtra("idDiaDiem",listDiaDiem.get(i).getId());
             startActivity(intent);
         });
     }

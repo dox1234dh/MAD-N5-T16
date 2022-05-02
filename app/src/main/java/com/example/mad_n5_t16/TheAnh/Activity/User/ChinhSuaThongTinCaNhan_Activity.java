@@ -1,5 +1,6 @@
 package com.example.mad_n5_t16.TheAnh.Activity.User;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.user.MainActivityUser;
 
 public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
     NguoiHienMau nguoiHienMau;
@@ -45,6 +47,14 @@ public class ChinhSuaThongTinCaNhan_Activity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         fillData(nguoiHienMau);
         canEdit(false);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goInfor = new Intent(ChinhSuaThongTinCaNhan_Activity.this, ThongTinCaNhan_Activity.class);
+                startActivity(goInfor);
+                finish();
+            }
+        });
         btnLuuDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
