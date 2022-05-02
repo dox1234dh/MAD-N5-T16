@@ -44,7 +44,6 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
         txtNameTitle.setText("Địa điểm hiến máu");
         listView = findViewById(R.id.listDiaDiem);
         txtSearch = findViewById(R.id.txtSearch);
-
         markerEmployee = findViewById(R.id.markerEmployee);
         hospitalEmployee = findViewById(R.id.hospitalEmployee);
         order_historyEmployee = findViewById(R.id.order_historyEmployee);
@@ -71,8 +70,6 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
         txtSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

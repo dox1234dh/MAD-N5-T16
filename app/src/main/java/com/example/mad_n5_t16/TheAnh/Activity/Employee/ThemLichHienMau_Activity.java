@@ -2,12 +2,14 @@ package com.example.mad_n5_t16.TheAnh.Activity.Employee;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import com.example.mad_n5_t16.Public.model_class.DiaDiem;
 import com.example.mad_n5_t16.Public.model_class.LichHienMau;
 import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 import com.example.mad_n5_t16.R;
+import com.example.mad_n5_t16.employee.MainActivityEmployee;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +42,7 @@ public class ThemLichHienMau_Activity extends AppCompatActivity {
         txtNameTitle = findViewById(R.id.textTitle);
         txtNameTitle.setText("Chọn thời gian cho lịch hiến máu");
         databaseHelper = new DatabaseHelper(this);
-        String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String currentDate = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
         txtNgay.setText(currentDate);
         txtGioBatDau.setText("00:00");
         txtGioKetThuc.setText("00:00");
@@ -64,12 +67,19 @@ public class ThemLichHienMau_Activity extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ThoiGian tg = new ThoiGian(txtNgay.getText().toString(), txtGioBatDau.getText().toString(), txtGioKetThuc.getText().toString());
-                DiaDiem dd = (DiaDiem) getIntent().getSerializableExtra("diadiem");
-                LichHienMau lichHienMau = new LichHienMau(tg, "", dd);
-                databaseHelper.addLichHienMau(lichHienMau);
+                themLichHienMau();
             }
         });
+    }
+    public void themLichHienMau(){
+        ThoiGian tg = new ThoiGian(txtNgay.getText().toString(), txtGioBatDau.getText().toString(), txtGioKetThuc.getText().toString());
+        DiaDiem dd = (DiaDiem) getIntent().getSerializableExtra("diadiem");
+        LichHienMau lichHienMau = new LichHienMau(tg, "", dd);
+        databaseHelper.addLichHienMau(lichHienMau);
+        Toast.makeText(this, "Thêm lịch hiến máu thành công", Toast.LENGTH_SHORT).show();
+        Intent goMarker = new Intent(ThemLichHienMau_Activity.this, DiaDiemHienMauActivity.class);
+        startActivity(goMarker);
+        finish();
     }
     public void popDatePicker(TextView textView){
         final int[] year = new int[1];
