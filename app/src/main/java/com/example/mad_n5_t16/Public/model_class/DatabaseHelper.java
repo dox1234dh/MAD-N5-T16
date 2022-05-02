@@ -36,55 +36,120 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sqlQueryTK = "CREATE TABLE " + "tbltaikhoan" + " (" +
-                ID + " integer primary key, " +
-                "taiKhoan" + " TEXT, " +
-                "matKhau" + " TEXT, " +
-                "maNhanVien INTEGER," +
-                "maNguoiHienMau INTEGER," +
-                "hoTen" + " TEXT, " +
-                "vaiTro" + " TEXT," +
-                "FOREIGN KEY (maNhanVien) REFERENCES tblnhanvien (id)," +
-                "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
-        String sqlQueryNV = "CREATE TABLE " + "tblnhanvien" + " (" +
-                ID + " integer primary key, " +
-                "chucVu" + " TEXT)";
-        String sqlQueryNHM = "CREATE TABLE " + "tblnguoihienmau" + " (" +
-                ID + " integer primary key, " +
-                "ngaySinh" + " TEXT, " +
-                "email" + " TEXT, " +
-                "soCCCD" + " TEXT, " +
-                "nhomMau" + " TEXT, " +
-                "dienThoai TEXT)";
-        String sqlQueryDD = "CREATE TABLE " + "tbldiadiem" + " (" +
-                ID + " integer primary key, " +
-                "tenDiaDiem " + "TEXT)";
-        String sqlQueryTG = "CREATE TABLE " + "tblthoigian" + " (" +
-                ID + " integer primary key, " +
-                "ngay " + "TEXT," +
-                "gioBatDau TEXT," +
-                "gioKetThuc TEXT)";
-        String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
-                ID + " integer primary key," +
-                "maDangKyHienMau INTEGER," +
-                "ngaySuDung TEXT," +
-                "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
-        String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
-                ID + " integer primary key, " +
+//        String sqlQueryTK = "CREATE TABLE " + "tbltaikhoan" + " (" +
+//                ID + " integer primary key, " +
+//                "taiKhoan" + " TEXT, " +
+//                "matKhau" + " TEXT, " +
+//                "maNhanVien INTEGER," +
+//                "maNguoiHienMau INTEGER," +
+//                "hoTen" + " TEXT, " +
+//                "vaiTro" + " TEXT," +
+//                "FOREIGN KEY (maNhanVien) REFERENCES tblnhanvien (id)," +
+//                "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
+//        String sqlQueryNV = "CREATE TABLE " + "tblnhanvien" + " (" +
+//                ID + " integer primary key, " +
+//                "chucVu" + " TEXT)";
+//        String sqlQueryNHM = "CREATE TABLE " + "tblnguoihienmau" + " (" +
+//                ID + " integer primary key, " +
+//                "ngaySinh" + " TEXT, " +
+//                "email" + " TEXT, " +
+//                "soCCCD" + " TEXT, " +
+//                "nhomMau" + " TEXT, " +
+//                "dienThoai TEXT)";
+//        String sqlQueryDD = "CREATE TABLE " + "tbldiadiem" + " (" +
+//                ID + " integer primary key, " +
+//                "tenDiaDiem " + "TEXT)";
+//        String sqlQueryTG = "CREATE TABLE " + "tblthoigian" + " (" +
+//                ID + " integer primary key, " +
+//                "ngay " + "TEXT," +
+//                "gioBatDau TEXT," +
+//                "gioKetThuc TEXT)";
+//        String sqlQuerySDM = "CREATE TABLE " + "tblsudungmau" + " (" +
+//                ID + " integer primary key," +
+//                "maDangKyHienMau INTEGER," +
+//                "ngaySuDung TEXT," +
+//                "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id))";
+//        String sqlQueryDKHM = "CREATE TABLE " + "tbldangkyhienmau" + " (" +
+//                ID + " integer primary key, " +
+//                "maNguoiHienMau INTEGER, " +
+//                "maLichHienMau INTEGER, "+
+//                "luongMau integer ," +
+//                "FOREIGN KEY(maLichHienMau) REFERENCES tbldangkyhienmau(id), " +
+//                "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
+//        String sqlQueryLHM = "CREATE TABLE " + "tbllichhienmau" + " (" +
+//                ID + " INTEGER primary key, " +
+//                "ghiChu TEXT, " +
+//                "maDangKyHienMau INTEGER," +
+//                "maThoiGian INTEGER," +
+//                "maDiaDiem INTEGER," +
+//                "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id)," +
+//                "FOREIGN KEY (maThoiGian) REFERENCES tblthoigian (id)," +
+//                "FOREIGN KEY (maDiaDiem) REFERENCES tbldiadiem (id))";
+
+
+        String sqlQueryTK = "CREATE TABLE tbltaikhoan ( " +
+                "id INTEGER, " +
+                "taiKhoantTEXT, " +
+                "matKhau TEXT, " +
+                "hoTen TEXT, " +
+                "vaiTro TEXT, " +
+                "PRIMARY KEY(id) " +
+                ")";
+        String sqlQueryNV = "CREATE TABLE tblnhanvien ( " +
+                "id INTEGER, " +
+                "chucVu TEXT, " +
+                "maTaiKhoan INTEGER, " +
+                "FOREIGN KEY(maTaiKhoan) REFERENCES tbltaikhoan (id), " +
+                "PRIMARY KEY(id) " +
+                ")";
+        String sqlQueryNHM = "CREATE TABLE tblnguoihienmau ( " +
+                "id INTEGER, " +
+                "ngaySinh TEXT, " +
+                "email TEXT, " +
+                "soCCCD TEXT, " +
+                "nhomMau TEXT, " +
+                "dienThoai TEXT, " +
+                "maTaiKhoan INTEGER, " +
+                "PRIMARY KEY(id), " +
+                "FOREIGN KEY(maTaiKhoan) REFERENCES tbltaikhoan(id) " +
+                ");";
+        String sqlQueryDD = "CREATE TABLE tbldiadiem ( " +
+                "id INTEGER, " +
+                "tenDiaDiem TEXT, " +
+                "PRIMARY KEY(id) " +
+                ")";
+        String sqlQueryTG = "CREATE TABLE tblthoigian ( " +
+                "id INTEGER, " +
+                "ngay TEXT, " +
+                "gioBatDa tTEXT, " +
+                "gioKetThuc TEXT, " +
+                "PRIMARY KEY(id) " +
+                ")";
+        String sqlQuerySDM = "CREATE TABLE tblsudungmau ( " +
+                "id INTEGER, " +
+                "ngaySuDung TEXT, " +
+                "PRIMARY KEY(id) " +
+                ")";
+        String sqlQueryDKHM = "CREATE TABLE tbldangkyhienmau ( " +
+                "id INTEGER, " +
                 "maNguoiHienMau INTEGER, " +
-                "maLichHienMau INTEGER, "+
-                "luongMau integer ," +
+                "maLichHienMau INTEGER, " +
+                "luongMau INTEGER, " +
+                "maSuDungMau INTEGER, " +
+                "PRIMARY KEY(id), " +
                 "FOREIGN KEY(maLichHienMau) REFERENCES tbldangkyhienmau(id), " +
-                "FOREIGN KEY (maNguoiHienMau) REFERENCES tblnguoihienmau (id))";
-        String sqlQueryLHM = "CREATE TABLE " + "tbllichhienmau" + " (" +
-                ID + " INTEGER primary key, " +
+                "FOREIGN KEY(maNguoiHienMau) REFERENCES tblnguoihienmau(id), " +
+                "FOREIGN KEY(maSuDungMau) REFERENCES tblsudungmau(id) " +
+                ")";
+        String sqlQueryLHM = "CREATE TABLE tbllichhienmau ( " +
+                "id INTEGER, " +
                 "ghiChu TEXT, " +
-                "maDangKyHienMau INTEGER," +
-                "maThoiGian INTEGER," +
-                "maDiaDiem INTEGER," +
-                "FOREIGN KEY (maDangKyHienMau) REFERENCES tbldangkyhienmau (id)," +
-                "FOREIGN KEY (maThoiGian) REFERENCES tblthoigian (id)," +
-                "FOREIGN KEY (maDiaDiem) REFERENCES tbldiadiem (id))";
+                "maThoiGian INTEGER, " +
+                "maDiaDiem INTEGER, " +
+                "FOREIGN KEY(maThoiGian) REFERENCES tblthoigian(id), " +
+                "FOREIGN KEY(maDiaDiem) REFERENCES tbldiadiem(id), " +
+                "PRIMARY KEY(id) " +
+                ")";
 
         db.execSQL(sqlQueryTG);
         db.execSQL(sqlQueryDD);
@@ -189,7 +254,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT tblnguoihienmau.id, tblnguoihienmau.ngaySinh, tblnguoihienmau.email, " +
                 "tblnguoihienmau.soCCCD, tblnguoihienmau.nhomMau, tblnguoihienmau.dienThoai, tbltaikhoan.hoTen, tbltaikhoan.vaiTro " +
                 "FROM tblnguoihienmau inner join " +
-                "tbltaikhoan on tbltaikhoan.maNguoiHienMau = tblnguoihienmau.id " +
+                "tbltaikhoan on tbltaikhoan.id = tblnguoihienmau.maTaiKhoan " +
                 "WHERE tbltaikhoan.id=?";
         String[] selectionArgs = {String.valueOf(taiKhoan.getId())};
         Cursor cursor = db.rawQuery(query, selectionArgs);
@@ -258,7 +323,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
                 "inner join tbldangkyhienmau on tbllichhienmau.id= tbldangkyhienmau.maLichHienMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
-                "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
+                "inner join tbltaikhoan on tblnguoihienmau.maTaiKhoan = tbltaikhoan.id " +
                 "WHERE tblthoigian.ngay=?";
         Calendar cal = Calendar.getInstance();
         int nam = cal.get(Calendar.YEAR);
@@ -387,7 +452,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                 "inner join tbldiadiem on tbllichhienmau.maDiaDiem = tbldiadiem.id " +
                 "inner join tbldangkyhienmau on tbllichhienmau.id= tbldangkyhienmau.maLichHienMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblnguoihienmau.id " +
-                "inner join tbltaikhoan on tblnguoihienmau.id = tbltaikhoan.maNguoiHienMau " +
+                "inner join tbltaikhoan on tblnguoihienmau.maTaiKhoan = tbltaikhoan.id " +
                 "WHERE tblthoigian.ngay=?";
         Calendar cal = Calendar.getInstance();
         int nam = cal.get(Calendar.YEAR);
@@ -425,7 +490,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         int result = 0;
         String query = "SELECT tbldangkyhienmau.luongMau FROM tbldangkyhienmau " +
-                "inner join tblsudungmau on tblsudungmau.maDangKyHienMau = tbldangkyhienmau.id " +
+                "inner join tblsudungmau on tblsudungmau.id = tbldangkyhienmau.maSuDungMau " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau = tblNguoiHienMau.id " +
                 "WHERE tblnguoihienmau.nhomMau =?";
         String[] selectionArgs = {nhomMau};
@@ -442,7 +507,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         int result = 0;
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT tbldangkyhienmau.luongMau FROM tblsudungmau " +
-                "inner join tbldangkyhienmau on tbldangkyhienmau.id=tblsudungmau.maDangKyHienMau " +
+                "inner join tbldangkyhienmau on tbldangkyhienmau.maSuDungMau=tblsudungmau.id " +
                 "inner join tblnguoihienmau on tbldangkyhienmau.maNguoiHienMau=tblnguoihienmau.id " +
                 "WHERE tblnguoihienmau.nhomMau=? " +
                 "AND strftime('%Y/%m/%d', tblsudungmau.ngaySuDung)>=?" +
@@ -505,7 +570,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
             taiKhoan.setId(cursor.getInt(0));
             taiKhoan.setTaiKhoan(cursor.getString(1));
             taiKhoan.setMatKhau(cursor.getString(2));
-            taiKhoan.setVaiTro(cursor.getString(6));
+            taiKhoan.setVaiTro(cursor.getString(4));
         }
         return taiKhoan;
     }
@@ -550,24 +615,47 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         }
         return nhm;
     }
-
-
-    public void nam_addNguoiHienMau(NguoiHienMau nhm) {
+    //dat viet lai sau khi sua csdl
+    public void nam_addNguoiHienMau(NguoiHienMau nhm, long id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "INSERT INTO tblnguoihienmau (ngaySinh, email, soCCCD, nhomMau, dienThoai) VALUES " +
-                "(?, ?, ?, ?, ?)";
-        String[] selectionArgs = {null, null, nhm.getSoCCCD(), null, null};
+        String query = "INSERT INTO tblnguoihienmau (ngaySinh, email, soCCCD, nhomMau, dienThoai, maTaiKhoan) VALUES " +
+                "(?, ?, ?, ?, ?, ?)";
+        String[] selectionArgs = {null, null, nhm.getSoCCCD(), null, null, id+""};
         db.execSQL(query, selectionArgs);
     }
-
-    public void nam_addTaiKhoan(TaiKhoan taiKhoan, int idNguoiHienMau) {
+    //dat viet lai sau khi sua csdl
+    public long nam_addTaiKhoan(TaiKhoan taiKhoan) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "INSERT INTO tbltaikhoan (taiKhoan, matKhau, maNguoiHienMau, vaiTro) VALUES " +
-                "(?, ?, ?, ?)";
-        String[] selectionArgs = {taiKhoan.getTaiKhoan(), taiKhoan.getMatKhau(),
-                idNguoiHienMau + "", taiKhoan.getVaiTro()};
-        db.execSQL(query, selectionArgs);
+//        String query = "INSERT INTO tbltaikhoan (taiKhoan, matKhau, vaiTro) VALUES " +
+//                "(?, ?, ?)";
+//        String[] selectionArgs = {taiKhoan.getTaiKhoan(), taiKhoan.getMatKhau(), taiKhoan.getVaiTro()};
+
+        ContentValues value = new ContentValues();
+        value.put("taiKhoan", taiKhoan.getTaiKhoan());
+        value.put("matKhau", taiKhoan.getMatKhau());
+        value.put("vaiTro", taiKhoan.getVaiTro());
+        long respons = db.insert("tbltaikhoan", null, value);
+        db.close();
+        return respons;
     }
+
+
+//    public void nam_addNguoiHienMau(NguoiHienMau nhm) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        String query = "INSERT INTO tblnguoihienmau (ngaySinh, email, soCCCD, nhomMau, dienThoai) VALUES " +
+//                "(?, ?, ?, ?, ?)";
+//        String[] selectionArgs = {null, null, nhm.getSoCCCD(), null, null};
+//        db.execSQL(query, selectionArgs);
+//    }
+//
+//    public void nam_addTaiKhoan(TaiKhoan taiKhoan, int idNguoiHienMau) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        String query = "INSERT INTO tbltaikhoan (taiKhoan, matKhau, maNguoiHienMau, vaiTro) VALUES " +
+//                "(?, ?, ?, ?)";
+//        String[] selectionArgs = {taiKhoan.getTaiKhoan(), taiKhoan.getMatKhau(),
+//                idNguoiHienMau + "", taiKhoan.getVaiTro()};
+//        db.execSQL(query, selectionArgs);
+//    }
 
     public ArrayList<History> nam_getLichSuHienMauByIdNguoiHienMau(int idNguoiHienMau) {
         ArrayList<History> listHistory = new ArrayList<>();
