@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
         checkCCCD = dbh.nam_checkNguoiHienMauByCCCD(txtCCCD);
 
         if(checkCCCD == false) {
-            result += "\nCăn cước này đã có tài khoản";
+            result += "Căn cước này đã có tài khoản";
         }
 
         if(checkTaiKhoan == false){
