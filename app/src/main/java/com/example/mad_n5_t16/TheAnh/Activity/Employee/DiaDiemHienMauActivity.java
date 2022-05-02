@@ -44,10 +44,6 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
         txtNameTitle.setText("Địa điểm hiến máu");
         listView = findViewById(R.id.listDiaDiem);
         txtSearch = findViewById(R.id.txtSearch);
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
         markerEmployee = findViewById(R.id.markerEmployee);
         hospitalEmployee = findViewById(R.id.hospitalEmployee);
         order_historyEmployee = findViewById(R.id.order_historyEmployee);
@@ -61,13 +57,8 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
         hospitalEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
-                Intent goMarker = new Intent(DiaDiemHienMauActivity.this, MainActivityEmployee.class);
-                startActivity(goMarker);
-=======
                 Intent goHospital = new Intent(DiaDiemHienMauActivity.this, MainActivityEmployee.class);
                 startActivity(goHospital);
->>>>>>> origin/main
                 finish();
             }
         });
@@ -79,11 +70,6 @@ public class DiaDiemHienMauActivity extends AppCompatActivity {
                 finish();
             }
         });
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/main
         txtSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
