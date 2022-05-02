@@ -358,7 +358,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 //            " INNER JOIN tbldiadiem ON tbllichhienmau.maDiaDiem = tbldiadiem.id " +
 //            "WHERE tbllichhienmau.maDangKyHienMau=
         "SELECT tblthoigian.ngay, tblthoigian.gioBatDau, tblthoigian.gioKetThuc, tbldiadiem.tenDiaDiem, tbllichhienmau.id FROM tbldangkyhienmau "+
-        " INNER JOIN tbllichhienmau ON tbldangkyhienmau.id = tbllichhienmau.id "+
+        " INNER JOIN tbllichhienmau ON tbldangkyhienmau.maLichHienMau = tbllichhienmau.id "+
         " INNER JOIN tblthoigian ON tblthoigian.id = tbllichhienmau.id "+
         " INNER JOIN tbldiadiem ON tbldiadiem.id = tbllichhienmau.id " +
         "WHERE tbldangkyhienmau.maNguoiHienMau=?";
