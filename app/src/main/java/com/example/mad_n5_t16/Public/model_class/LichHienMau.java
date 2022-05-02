@@ -14,6 +14,13 @@ public class LichHienMau implements Serializable {
         this.diaDiem = diaDiem;
     }
 
+    public LichHienMau(int id, ThoiGian thoiGian, String ghiChu, DiaDiem diaDiem) {
+        this.id = id;
+        this.thoiGian = thoiGian;
+        this.ghiChu = ghiChu;
+        this.diaDiem = diaDiem;
+    }
+
     public LichHienMau() {
     }
 
