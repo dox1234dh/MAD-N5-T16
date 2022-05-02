@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
         checkCCCD = dbh.nam_checkNguoiHienMauByCCCD(txtCCCD);
 
         if(checkCCCD == false) {
-            result += "\nCăn cước này đã có tài khoản";
+            result += "Căn cước này đã có tài khoản";
         }
 
         if(checkTaiKhoan == false){
@@ -85,21 +85,35 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // 3. Nếu tên tài khoản chưa tồn tại thì thực hiện thêm tài khoản.
+        //dat viet lai sau khi sua csdl
         if(result.equals("")) {
-            NguoiHienMau nhm = new NguoiHienMau();
-            nhm.setSoCCCD(txtCCCD);
-
-            dbh.nam_addNguoiHienMau(nhm);
-
             TaiKhoan taiKhoan = new TaiKhoan();
             taiKhoan.setTaiKhoan(txtUsername);
             taiKhoan.setMatKhau(txtPassword);
             taiKhoan.setVaiTro("khachhang");
+            long id = dbh.nam_addTaiKhoan(taiKhoan);
 
-            NguoiHienMau nhm2 = dbh.nam_getNguoiHienMauByCCCD(txtCCCD);
+            NguoiHienMau nhm = new NguoiHienMau();
+            nhm.setSoCCCD(txtCCCD);
+            //NguoiHienMau nhm2 = dbh.nam_getNguoiHienMauByCCCD(txtCCCD);
+            dbh.nam_addNguoiHienMau(nhm, id);
 
-            dbh.nam_addTaiKhoan(taiKhoan, nhm2.getId());
         }
+//        if(result.equals("")) {
+//            NguoiHienMau nhm = new NguoiHienMau();
+//            nhm.setSoCCCD(txtCCCD);
+//
+//            dbh.nam_addNguoiHienMau(nhm);
+//
+//            TaiKhoan taiKhoan = new TaiKhoan();
+//            taiKhoan.setTaiKhoan(txtUsername);
+//            taiKhoan.setMatKhau(txtPassword);
+//            taiKhoan.setVaiTro("khachhang");
+//
+//            NguoiHienMau nhm2 = dbh.nam_getNguoiHienMauByCCCD(txtCCCD);
+//
+//            dbh.nam_addTaiKhoan(taiKhoan, nhm2.getId());
+//        }
         return result;
     }
 

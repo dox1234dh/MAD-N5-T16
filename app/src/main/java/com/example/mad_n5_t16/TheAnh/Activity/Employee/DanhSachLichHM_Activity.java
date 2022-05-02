@@ -26,7 +26,7 @@ public class DanhSachLichHM_Activity extends AppCompatActivity {
     ArrayList<LichHienMau> list;
     ListView listView;
     ImageButton btnThem;
-    TextView txtNameTitle;
+    TextView txtNameTitle, txtDD;
     DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +37,11 @@ public class DanhSachLichHM_Activity extends AppCompatActivity {
         listView = findViewById(R.id.listLichHien);
         btnThem = findViewById(R.id.imagethemlich);
         txtNameTitle = findViewById(R.id.textTitle);
+        txtDD = findViewById(R.id.textDiaDiem);
         txtNameTitle.setText("Danh sách lịch hiến máu");
         list = new ArrayList<>();
         databaseHelper = new DatabaseHelper(this);
-        list = databaseHelper.getLichHienMau((DiaDiem) getIntent().getSerializableExtra("diadiem"));
-        thoiGianCuaDiaDiemAdapter = new ThoiGianCuaDiaDiemAdapter(list, this, R.layout.item_thoigiancuadiadiem);
-        listView.setAdapter(thoiGianCuaDiaDiemAdapter);
+        fillData();
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,5 +51,12 @@ public class DanhSachLichHM_Activity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void fillData(){
+        DiaDiem diaDiem = (DiaDiem) getIntent().getSerializableExtra("diadiem");
+        txtDD.setText(diaDiem.getTenDiaDiem());
+        list = databaseHelper.getLichHienMau(diaDiem);
+        thoiGianCuaDiaDiemAdapter = new ThoiGianCuaDiaDiemAdapter(list, this, R.layout.item_thoigiancuadiadiem, databaseHelper, this);
+        listView.setAdapter(thoiGianCuaDiaDiemAdapter);
     }
 }
