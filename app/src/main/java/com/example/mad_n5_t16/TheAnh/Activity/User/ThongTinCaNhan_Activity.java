@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -113,9 +114,14 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
         TaiKhoan taiKhoan = new TaiKhoan();
         taiKhoan.setId(id);
         nguoiHienMau = databaseHelper.dat_getNguoiHienMau(taiKhoan);
-        String[] temp = nguoiHienMau.getHoTen().split(" ");
-        Character icon = temp[temp.length - 1].charAt(0);
-        txtMainTitle.setText(icon.toString());
-        txtFullName.setText(nguoiHienMau.getHoTen());
+        if(nguoiHienMau.getHoTen() != null && nguoiHienMau.getHoTen().length() > 0) {
+            String[] temp = nguoiHienMau.getHoTen().split(" ");
+            Character icon = temp[temp.length - 1].charAt(0);
+            txtMainTitle.setText(icon.toString());
+            txtFullName.setText(nguoiHienMau.getHoTen());
+        }
+        else {
+            Toast.makeText(this, "Chưa có thông tin", Toast.LENGTH_SHORT).show();
+        }
     }
 }
