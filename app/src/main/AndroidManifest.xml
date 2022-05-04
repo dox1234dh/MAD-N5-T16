@@ -70,8 +70,10 @@
             android:exported="false" />
         <activity
             android:name=".user.LoginActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"/>
+        <activity
+            android:name=".ThongBaoActivity"
+            android:exported="false"/>
         <!--        <activity-->
         <!--            android:name=".ThongBaoActivity"-->
         <!--            android:exported="false"-->

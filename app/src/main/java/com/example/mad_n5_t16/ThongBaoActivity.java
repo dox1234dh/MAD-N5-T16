@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.Public.model_class.NguoiHienMau;
 import com.example.mad_n5_t16.Public.model_class.TaiKhoan;
+import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
 import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.user.DanhSachLichHienMauActivity;
 import com.example.mad_n5_t16.user.MainActivityUser;
@@ -38,8 +39,8 @@ public class ThongBaoActivity extends AppCompatActivity {
         titleBar.setText("Thông báo");
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        ImageView markerNoti = findViewById(R.id.marker);
-        markerNoti.setImageResource(R.drawable.marker_2);
+        ImageView markerNoti = findViewById(R.id.guest_male);
+        markerNoti.setImageResource(R.drawable.guest_male_2);
         ImageView homeGo = findViewById(R.id.home);
         ImageView locationGo = findViewById(R.id.marker);
         ImageView historyRegisterGo = findViewById(R.id.heart_plus);
@@ -53,13 +54,13 @@ public class ThongBaoActivity extends AppCompatActivity {
                 startActivity(goHome);
             }
         });
-//        locationGo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent goHome = new Intent(ThongBaoActivity.this, MainActivityUser.class);
-//                startActivity(goHome);
-//            }
-//        });
+        locationGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHome = new Intent(ThongBaoActivity.this, DiaDiem_Activity.class);
+                startActivity(goHome);
+            }
+        });
         historyRegisterGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,13 +75,6 @@ public class ThongBaoActivity extends AppCompatActivity {
                 startActivity(goHome);
             }
         });
-//        infoGo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent goHome = new Intent(ThongBaoActivity.this, MainActivityUser.class);
-//                startActivity(goHome);
-//            }
-//        });
 
 
         ls = new ArrayList<>();

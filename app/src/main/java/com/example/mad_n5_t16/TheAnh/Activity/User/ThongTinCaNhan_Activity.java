@@ -107,6 +107,13 @@ public class ThongTinCaNhan_Activity extends AppCompatActivity {
                 startActivity(goHistory);
             }
         });
+        btnThongBao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goNoti = new Intent(ThongTinCaNhan_Activity.this, ThongBaoActivity.class);
+                startActivity(goNoti);
+            }
+        });
     }
     public void filldata(){
         int id = getSharedPreferences("data", MODE_PRIVATE).getInt("id", 0);
