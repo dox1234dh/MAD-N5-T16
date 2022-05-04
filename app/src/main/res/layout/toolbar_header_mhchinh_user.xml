@@ -85,7 +85,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="2dp"
-            android:background="@drawable/icons8_d_50"
+            android:background="@drawable/icons8_n_50"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="8dp">
