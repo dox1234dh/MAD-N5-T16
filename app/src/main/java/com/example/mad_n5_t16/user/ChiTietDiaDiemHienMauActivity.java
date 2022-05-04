@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.TheAnh.Activity.User.ChinhSuaThongTinCaNhan_Activity;
 import com.example.mad_n5_t16.user.BloodDonationHistoryActivity;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
@@ -32,6 +33,7 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
     ArrayList<ItemModelChiTietDiaDiemHienMauActivity> ls;
     ChiTietDiaDiemHienMauItems adapter;
     ListView listView;
+    ImageView imgBack;
     DatabaseHelper dbh;
     ImageView marker, home, heart, history, infor;
     @Override
@@ -41,10 +43,13 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         TextView toolbar = findViewById(R.id.textTitle);
+        imgBack=findViewById(R.id.imageBack);
         toolbar.setText("Lịch hiến máu");
         ls = new ArrayList<>();
+        Intent intent = getIntent();
+        int idDiaDiem = intent.getIntExtra("idDiaDiem",0);
         dbh = new DatabaseHelper(getBaseContext());
-        ArrayList<ThoiGian> lsTg = dbh.do_getThoiGian();
+        ArrayList<ThoiGian> lsTg = dbh.do_getThoiGian(idDiaDiem);
         for(int i = 0 ;i< lsTg.size();++i){
             initDate date = validate(lsTg.get(i).getNgay());
             ls.add(new ItemModelChiTietDiaDiemHienMauActivity(date.ngay,date.thang_nam,lsTg.get(i).getGioBatDau() + " - " + lsTg.get(i).getGioKetThuc(),"Hiến máu cứu người"));
@@ -66,6 +71,14 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
         history.setImageResource(R.drawable.order_history_1);
         infor = findViewById(R.id.guest_male);
         infor.setImageResource(R.drawable.guest_male_1);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goInfor = new Intent(ChiTietDiaDiemHienMauActivity.this, DiaDiem_Activity.class);
+                startActivity(goInfor);
+                finish();
+            }
+        });
         home.setOnClickListener(view -> {
             Intent goHome = new Intent(ChiTietDiaDiemHienMauActivity.this, MainActivityUser.class);
             startActivity(goHome);
@@ -96,7 +109,7 @@ public class ChiTietDiaDiemHienMauActivity extends AppCompatActivity {
             result = sfd.parse(date);
             Calendar cal = Calendar.getInstance();
             cal.setTime(result);
-            thang_nam ="T"+ cal.get(Calendar.MONTH) +"-"+cal.get(Calendar.YEAR);
+            thang_nam ="T"+ (cal.get(Calendar.MONTH)+1) +"-"+cal.get(Calendar.YEAR);
             ngay = cal.get(Calendar.DAY_OF_MONTH) + "";
         } catch (ParseException e) {
             e.printStackTrace();

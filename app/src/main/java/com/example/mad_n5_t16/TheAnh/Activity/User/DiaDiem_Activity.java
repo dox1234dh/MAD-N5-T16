@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
@@ -32,6 +33,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
     SearchView txtSearch;
     ImageView marker, home, heart, history, infor;
     DiaDiemHienMauAdapter diaDiemHienMauAdapter;
+    TextView txtNameTitle;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,8 @@ public class DiaDiem_Activity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         listDiaDiem = new ArrayList<>();
         getData("");
-
+        txtNameTitle = findViewById(R.id.textTitle);
+        txtNameTitle.setText("Địa điểm hiến máu");
         home = findViewById(R.id.home);
         home.setImageResource(R.drawable.home_1);
         marker = findViewById(R.id.marker);
@@ -113,6 +116,7 @@ public class DiaDiem_Activity extends AppCompatActivity {
         listView.setAdapter(diaDiemHienMauAdapter);
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent intent = new Intent(DiaDiem_Activity.this, ChiTietDiaDiemHienMauActivity.class);
+            intent.putExtra("idDiaDiem",listDiaDiem.get(i).getId());
             startActivity(intent);
         });
     }

@@ -21,6 +21,7 @@ import com.example.mad_n5_t16.Public.model_class.ThoiGian;
 import com.example.mad_n5_t16.TheAnh.Activity.User.DiaDiem_Activity;
 import com.example.mad_n5_t16.TheAnh.Activity.User.ThongTinCaNhan_Activity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class DangKyHienMauActivity extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class DangKyHienMauActivity extends AppCompatActivity {
     ListView listView;
     DatabaseHelper dbh;
     ImageView marker, home, heart, history, infor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,17 +44,14 @@ public class DangKyHienMauActivity extends AppCompatActivity {
         ArrayList<LichHienMau> lsDiaDiem = dbh.do_laydsdiadiemhienmau();
         ArrayList<LichHienMau> lsCount = dbh.do_getCountnguoidangky();
         // Lay data
-        for(int i = 0 ;i<lsDiaDiem.size();++i){
-            for(int j=0;j<lsCount.size();++j)
-                if(lsDiaDiem.get(i).getDiaDiem().getId() == lsCount.get(j).getDiaDiem().getId()
-                && lsDiaDiem.get(i).getThoiGian().getId() == lsCount.get(j).getThoiGian().getId()){
-                    lsDiaDiem.get(i).setGhiChu(lsCount.get(j).getGhiChu());
-                    break;
-                }
-            ls.add(new ItemModelDangKyHienMauActivity(lsDiaDiem.get(i).getDiaDiem().getTenDiaDiem(),
-                    "Thời gian :  " + lsDiaDiem.get(i).getThoiGian().getGioBatDau() +" - " + lsDiaDiem.get(i).getThoiGian().getGioKetThuc()
-                            +" "+ lsDiaDiem.get(i).getThoiGian().getNgay(),
-                    "Số người đã đăng ký : "+ lsDiaDiem.get(i).getGhiChu()));
+        for (int i = 0; i < lsDiaDiem.size(); ++i) {
+            int sodondangky = dbh.do_SoLuongDangKyTheoMaLichHienMau(lsDiaDiem.get(i).getId());
+            ItemModelDangKyHienMauActivity item = new ItemModelDangKyHienMauActivity(lsDiaDiem.get(i).getDiaDiem().getTenDiaDiem(),
+                    "Thời gian :  " + lsDiaDiem.get(i).getThoiGian().getGioBatDau() + " - " + lsDiaDiem.get(i).getThoiGian().getGioKetThuc()
+                            + " " + lsDiaDiem.get(i).getThoiGian().getNgay(),
+                    "Số người đã đăng ký : " + sodondangky);
+            item.setMaLichHienMau(lsDiaDiem.get(i).getId());
+            ls.add(item);
         }
 
         adapter = new DangKyHienMauItems(ls);
@@ -62,6 +61,7 @@ public class DangKyHienMauActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(DangKyHienMauActivity.this, DienThongTinDangKyActivity.class);
+                intent.putExtra("maLichHienMau", ls.get(i).getMaLichHienMau());
                 startActivity(intent);
             }
         });
@@ -101,13 +101,22 @@ public class DangKyHienMauActivity extends AppCompatActivity {
     }
 }
 
-class ItemModelDangKyHienMauActivity{
-    String diadiem,thoigian, songuoidangky;
+class ItemModelDangKyHienMauActivity {
+    int maLichHienMau;
+    String diadiem, thoigian, songuoidangky;
 
     public ItemModelDangKyHienMauActivity(String diadiem, String thoigian, String songuoidangky) {
         this.diadiem = diadiem;
         this.thoigian = thoigian;
         this.songuoidangky = songuoidangky;
+    }
+
+    public int getMaLichHienMau() {
+        return maLichHienMau;
+    }
+
+    public void setMaLichHienMau(int maLichHienMau) {
+        this.maLichHienMau = maLichHienMau;
     }
 
     public String getDiadiem() {
@@ -166,9 +175,9 @@ class DangKyHienMauItems extends BaseAdapter {
         } else viewItem1 = view;
 
         ItemModelDangKyHienMauActivity items = (ItemModelDangKyHienMauActivity) getItem(i);
-        ((TextView)viewItem1.findViewById(R.id.dotv_diadiem_dangkyhienmau)).setText(items.getDiadiem());
-        ((TextView)viewItem1.findViewById(R.id.dotv_thoigian_dangkyhienmau)).setText(items.getThoigian());
-        ((TextView)viewItem1.findViewById(R.id.dotv_luongnguoi_dangkyhienmau)).setText(items.getSonguoidangky());
+        ((TextView) viewItem1.findViewById(R.id.dotv_diadiem_dangkyhienmau)).setText(items.getDiadiem());
+        ((TextView) viewItem1.findViewById(R.id.dotv_thoigian_dangkyhienmau)).setText(items.getThoigian());
+        ((TextView) viewItem1.findViewById(R.id.dotv_luongnguoi_dangkyhienmau)).setText(items.getSonguoidangky());
         return viewItem1;
     }
 }
