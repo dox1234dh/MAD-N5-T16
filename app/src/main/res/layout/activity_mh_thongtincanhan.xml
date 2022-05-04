@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
             android:gravity="center"
-            android:text="Trần Văn Đô"
+            android:text="No name"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
@@ -31,12 +31,13 @@
             android:id="@+id/textImageName"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="160dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/bg_cicle_100x100"
             android:fontFamily="@font/concert_one"
             android:gravity="center"
-            android:text="T"
+            android:text="N"
             android:textColor="@color/white"
             android:textSize="90dp" />
 
