@@ -4,16 +4,20 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.mad_n5_t16.Public.model_class.DangKyHienMau;
+import com.example.mad_n5_t16.Public.model_class.DatabaseHelper;
 import com.example.mad_n5_t16.R;
 import com.example.mad_n5_t16.employee.DangKyHienMauActivityEmployee;
 import com.example.mad_n5_t16.employee.MainActivityEmployee;
 
 public class DienThongTinDangKyActivity extends AppCompatActivity {
-
+    int maLichHienMau;
+    int maNguoiHienMau;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +56,19 @@ public class DienThongTinDangKyActivity extends AppCompatActivity {
         TextView cau5cauhoi = cau5.findViewById(R.id.dotv_cauhoi_dienthongtindangky);
         cau5index.setText("5");
         cau5cauhoi.setText("Quý vị hiện là đối tượng tàn tật hoặc hưởng trợ cấp tàn tật hoặc nạn nhân chất độc màu da cam không?");
+
+        Intent intent = getIntent();
+        maLichHienMau = intent.getIntExtra("maLichHienMau",0);
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        maNguoiHienMau = sharedPreferences.getInt("idNguoiHienMau",0);
     }
 
     public void btnDangKyHienMau(View view){
+        DatabaseHelper db = new DatabaseHelper(getBaseContext());
+        db.luuDangKyHienMau(maNguoiHienMau, maLichHienMau);
         Intent success = new Intent(DienThongTinDangKyActivity.this, DangKyThanhCongActivity.class);
+
+
         startActivity(success);
     }
 }
